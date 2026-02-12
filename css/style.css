@@ -1,0 +1,352 @@
+/* =========================================
+   VARIÁVEIS GERAIS
+========================================= */
+:root {
+  --bg1: #01030b;
+  --bg2: #0a0f2c;
+  --stars-small: rgba(255, 255, 255, 0.35);
+  --stars-medium: rgba(255, 255, 255, 0.55);
+  --nebula1: rgba(80, 40, 160, 0.35);
+  --nebula2: rgba(0, 120, 255, 0.4);
+  --icon-glow: #00aaff;
+  --icon-size: 42px;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: Inter, Arial, sans-serif;
+  background: radial-gradient(circle at 20% 30%, var(--bg2), var(--bg1) 70%);
+}
+
+/* =========================================
+   CAMADAS DO UNIVERSO (FUNDO COMPLETO)
+========================================= */
+
+/* 🌌 Camada 1 – Névoa espacial suave */
+.universe-layer-1 {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(circle at 30% 40%, var(--nebula1), transparent 60%),
+              radial-gradient(circle at 70% 60%, var(--nebula2), transparent 65%);
+  mix-blend-mode: screen;
+  filter: blur(40px);
+  opacity: 0.55;
+}
+
+/* ⭐ Camada 2 – Estrelas pequenas */
+.universe-stars-small {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(2px 2px at 20% 30%, var(--stars-small), transparent),
+                    radial-gradient(1.5px 1.5px at 70% 20%, var(--stars-small), transparent),
+                    radial-gradient(2px 2px at 80% 80%, var(--stars-small), transparent),
+                    radial-gradient(1px 1px at 40% 70%, var(--stars-small), transparent),
+                    radial-gradient(1.5px 1.5px at 10% 60%, var(--stars-small), transparent);
+  background-size: 300px 300px;
+  animation: starsShift 140s linear infinite;
+  z-index: 0;
+}
+
+/* ✴ Camada 3 – Estrelas maiores */
+.universe-stars-medium {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(2px 2px at 50% 50%, var(--stars-medium), transparent),
+                    radial-gradient(2px 2px at 85% 40%, var(--stars-medium), transparent),
+                    radial-gradient(1.8px 1.8px at 30% 75%, var(--stars-medium), transparent);
+  background-size: 450px 450px;
+  animation: starsShift 190s linear infinite;
+  z-index: 0;
+}
+
+/* Movimento LENTO das estrelas — sensação de profundidade */
+@keyframes starsShift {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-600px); }
+}
+
+/* =========================================
+   CANVAS DO UNIVERSO (SEUS ÍCONES E LINHAS)
+========================================= */
+#universe {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  z-index: 1;
+}
+
+/* =========================================
+   ÍCONES FLUTUANTES (VOCÊS JÁ USA PELO JS)
+========================================= */
+.tech-icon {
+  position: absolute;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  filter: drop-shadow(0 0 12px var(--icon-glow))
+          drop-shadow(0 0 20px var(--icon-glow));
+  animation: floatIcon 18s linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes floatIcon {
+  0% { transform: translateX(-10vw); }
+  100% { transform: translateX(120vw); }
+}
+
+/* =========================================
+   TELESCÓPIO MELHORADO + MAIOR
+========================================= */
+#telescope {
+  position: fixed;
+  bottom: 0;
+
+  width: 48vw;
+  max-width: 1100px;
+  min-width: 500px;
+
+  clip-path: inset(0 0 20px 0); /* Corte fino de 20px no bottom */
+
+  pointer-events: none;
+  z-index: 5;
+  filter: drop-shadow(0 25px 60px rgba(0,0,0,0.6));
+}
+
+/* ================= HEADER ================= */
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 14px 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.header-inner {
+  width: 92%;
+  max-width: 1280px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+}
+
+.menu a {
+  margin-left: 24px;
+  color: #bde3ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: white;
+}
+
+
+/* ================= MAIN ================= */
+.content {
+  min-height: calc(100vh - 80px); /* viewport - header */
+  padding-top: 80px;              /* empurra abaixo do header */
+  padding-bottom: 120px;          /* espaço pro footer */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;        /* CENTRALIZA VERTICAL */
+  align-items: center;
+
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 5;
+}
+
+
+.title {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.65),
+    0 0 20px rgba(0, 170, 255, 0.25);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.85;
+  margin-bottom: 40px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+}
+
+.roadmap-section h3 {
+  margin: 48px 0 24px;
+  font-size: 1.8rem;
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.7),
+    0 0 12px rgba(0, 140, 255, 0.25);
+}
+
+
+
+/* Botões */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  filter: drop-shadow(0 25px 60px rgba(0,0,0,0.9));
+}
+
+.btn {
+  padding: 14px 30px;
+  background: linear-gradient(
+    145deg,
+    rgba(0, 90, 180, 0.55),
+    rgba(0, 40, 90, 0.75)
+  );
+
+  color: #eaf6ff;
+
+  border: 1px solid rgba(0, 140, 255, 0.55);
+  border-radius: 12px;
+
+  font-size: 1rem;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(6px);
+
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.45),
+    inset 0 0 18px rgba(0, 140, 255, 0.25);
+
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+
+.btn:hover {
+  background: rgba(0, 140, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+
+/* ================= FOOTER ================= */
+.site-footer {
+  position: relative; /* 🔑 NÃO fixed */
+  width: 100%;
+  margin-top: 120px;
+  padding: 48px 0 24px;
+
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.22);
+  color: #bde3ff;
+  font-size: 0.9rem;
+  z-index: 5;
+}
+
+.site-footer a {
+  color: #79c8ff;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+.footer-grid {
+  width: 92%;
+  max-width: 1280px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.footer-col h4 {
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col li {
+  opacity: 0.85;
+  line-height: 1.6;
+}
+.footer-bottom {
+  margin-top: 32px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.site-footer,
+.site-footer h4,
+.site-footer li,
+.site-footer p {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 1100px) {
+  #telescope {
+    width: 55vw;
+    max-width: 800px;
+  }
+    .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  #telescope {
+    width: 60vw;
+    min-width: 420px;
+  }
+  :root { --icon-size: 34px; }
+}
+
+@media (max-width: 600px) {
+  #telescope {
+    width: 70vw;
+    min-width: 320px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .content {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  :root { --icon-size: 28px; }
+}
