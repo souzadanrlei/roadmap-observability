@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Lista de Blogs</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="./css/blog-list.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observervability</h1>
+
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-creat.html">Criar Post</a>
+        <a href="./blog-listpost.html">Blogs</a>
+        <a href="#">Projetos</a>
+        <a href="#">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+<h1>📚 Todos os Blogs</h1>
+
+<div id="postsContainer"></div>
+ <!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="footer-grid">
+
+    <div class="footer-col">
+      <h4>Nashtec</h4>
+      <p>Roadmap completo de Observabilidade moderna, do zero ao avançado.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Roadmap</h4>
+      <ul>
+        <li>Fundamentos</li>
+        <li>Logs & Métricas</li>
+        <li>Tracing</li>
+        <li>Alertas</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Ferramentas</h4>
+      <ul>
+        <li>Grafana</li>
+        <li>OpenTelemetry</li>
+        <li>Prometheus</li>
+        <li>Loki</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Comunidade</h4>
+      <ul>
+        <li>Blog</li>
+        <li>GitHub</li>
+        <li>Contato</li>
+        <li>LinkedIn</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      Made with ❤️ by
+      <a href="https://dsouza13.github.io/" target="_blank">DSouza</a>
+      &amp;
+      <a href="#" target="_blank">EzBarros</a>
+    </p>
+  </div>
+</footer>
+
+
+<script>
+const supabaseUrl = "https://rndbydowhttuomzukoaz.supabase.co";
+const supabaseKey = "sb_publishable__gYs0S-78kgVO2vk69r-fA_BMSZ722a";
+const { createClient } = supabase;
+const client = createClient(supabaseUrl, supabaseKey);
+
+async function loadPosts() {
+  const { data, error } = await client
+    .from("blogs")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  const container = document.getElementById("postsContainer");
+  container.innerHTML = "";
+
+    data.forEach(post => {
+    container.innerHTML += `
+        <div class="blog-horizontal-card">
+        <div class="blog-card-content">
+            <h3>${post.title}</h3>
+            <p>${post.content.substring(0, 180)}...</p>
+        </div>
+
+        <div class="blog-card-action">
+            <button onclick="viewPost(${post.id})" class="btn">
+            Ler Post →
+            </button>
+        </div>
+        </div>
+    `;
+    });
+}
+
+function viewPost(id) {
+  window.location.href = `blog-view.html?id=${id}`;
+}
+
+loadPosts();
+</script>
+
+</body>
+</html>

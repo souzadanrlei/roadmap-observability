@@ -1,24 +1,21 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Roadmap Observabilidade</title>
-  <link rel="stylesheet" href="./css/style.css" />
+  <meta charset="UTF-8" />
+  <title>Blog Observabilidade</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
-
 <body>
-  <!-- Canvas do Universo -->
-  <canvas id="universe"></canvas>
-  <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
 
-  <!-- ===================== HEADER ===================== -->
+      <!-- ===================== HEADER ===================== -->
   <header class="site-header">
     <div class="header-inner">
       <h1 class="logo">🚀 ROADMAP Observervability</h1>
 
       <nav class="menu">
         <a href="./index.html">Home</a>
+        <a href="./blog-creat.html">Criar Post</a>
         <a href="./blog-listpost.html">Blogs</a>
         <a href="#">Projetos</a>
         <a href="#">Contato</a>
@@ -26,37 +23,52 @@
     </div>
   </header>
 
-  <!-- ===================== MAIN ===================== -->
-<main class="content">
-
-  <h2 class="title">Roadmap Completo de Observabilidade</h2>
-  <p class="subtitle">
-    Da base ao avançado: tudo que você precisa dominar para atuar com Observabilidade no mercado atual.
-  </p>
-
-  <!-- ================= INICIANTE ================= -->
-  <section class="roadmap-section">
 <section class="lp-container">
-  <div class="lp-card">
-    <h1 class="lp-title">Roadmap de Observabilidade</h1>
-    <p class="lp-subtitle">
-      Escolha sua trilha de evolução profissional
-    </p>
+  <div class="lp-card blog-card">
+    <h1 class="lp-title">Blog de Observabilidade</h1>
 
-    <div class="lp-buttons">
-      <a href="./roadmapdev.html" class="lp-btn lp-btn-primary">
-        Roadmap para Desenvolvedor
-      </a>
-
-      <a href="roadmaparqobv.html" class="lp-btn lp-btn-secondary">
-        Roadmap para Arquiteto / Engenheiro de Sistemas
-      </a>
+    <div class="blog-form">
+      <input type="text" id="postTitle" placeholder="Título do Post" />
+      <textarea id="postContent" placeholder="Escreva seu conteúdo aqui..."></textarea>
+      <button onclick="addPost()" class="lp-btn lp-btn-primary">
+        Publicar
+      </button>
     </div>
+
+    <div id="blogPosts"></div>
   </div>
 </section>
 
+<script>
+const supabaseUrl = "https://rndbydowhttuomzukoaz.supabase.co";
+const supabaseKey = "sb_publishable__gYs0S-78kgVO2vk69r-fA_BMSZ722a";
 
-</main>
+const { createClient } = supabase;
+const client = createClient(supabaseUrl, supabaseKey);
+
+async function addPost() {
+  const title = document.getElementById("postTitle").value.trim();
+  const content = document.getElementById("postContent").value.trim();
+
+  if (!title || !content) {
+    alert("Preencha todos os campos");
+    return;
+  }
+
+  const { error } = await client
+    .from("blogs")
+    .insert([{ title, content }]);
+
+  if (error) {
+    console.error(error);
+    alert("Erro ao publicar");
+    return;
+  }
+
+  window.location.href = "blog-listpost.html";
+}
+
+</script>
 
 
   <!-- ===================== FOOTER ===================== -->

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Visualizar Post</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="./css/blog-view.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observervability</h1>
+
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-creat.html">Criar Post</a>
+        <a href="#">Projetos</a>
+        <a href="#">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+<div id="postContent"></div>
+ <!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="footer-grid">
+
+    <div class="footer-col">
+      <h4>Nashtec</h4>
+      <p>Roadmap completo de Observabilidade moderna, do zero ao avançado.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Roadmap</h4>
+      <ul>
+        <li>Fundamentos</li>
+        <li>Logs & Métricas</li>
+        <li>Tracing</li>
+        <li>Alertas</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Ferramentas</h4>
+      <ul>
+        <li>Grafana</li>
+        <li>OpenTelemetry</li>
+        <li>Prometheus</li>
+        <li>Loki</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Comunidade</h4>
+      <ul>
+        <li>Blog</li>
+        <li>GitHub</li>
+        <li>Contato</li>
+        <li>LinkedIn</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      Made with ❤️ by
+      <a href="https://dsouza13.github.io/" target="_blank">DSouza</a>
+      &amp;
+      <a href="#" target="_blank">EzBarros</a>
+    </p>
+  </div>
+</footer>
+
+
+<script>
+const supabaseUrl = "https://rndbydowhttuomzukoaz.supabase.co";
+const supabaseKey = "sb_publishable__gYs0S-78kgVO2vk69r-fA_BMSZ722a";
+const { createClient } = supabase;
+const client = createClient(supabaseUrl, supabaseKey);
+
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get("id");
+
+async function loadPost() {
+  const { data, error } = await client
+    .from("blogs")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  document.getElementById("postContent").innerHTML = `
+    <h1>${data.title}</h1>
+    <p>${data.content}</p>
+  `;
+}
+
+loadPost();
+</script>
+
+</body>
+</html>
