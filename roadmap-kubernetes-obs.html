@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Roadmap de Kubernetes Observability — kube-state-metrics, eBPF, service mesh, autoscaling e cluster observability." />
+  <title>Roadmap Kubernetes Observability</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☸️</text></svg>">
+</head>
+<body>
+  <canvas id="universe"></canvas>
+  <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observability</h1>
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-listpost.html">Blogs</a>
+        <a href="./labs.html">Labs</a>
+        <a href="./comparacoes.html">Comparações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <a href="./index.html" class="back-link">← Voltar para Home</a>
+    <h2 class="title">☸️ Kubernetes Observability</h2>
+    <p class="subtitle">Monitoramento completo de clusters Kubernetes — do nó ao pod, do control plane ao service mesh.</p>
+
+    <section class="roadmap-section">
+      <h3>🔰 Fundamentos K8s Observability</h3>
+      <div class="button-group">
+        <button class="btn">Kubernetes Observability</button>
+        <button class="btn">Kubernetes Events</button>
+        <button class="btn">Pod Logs</button>
+        <button class="btn">kubectl logs / describe</button>
+        <button class="btn">Resource Requests &amp; Limits</button>
+        <button class="btn">Liveness &amp; Readiness Probes</button>
+        <button class="btn">Startup Probes</button>
+        <button class="btn">Namespace Isolation</button>
+        <button class="btn">kubectl top</button>
+        <button class="btn">Metrics Server</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>📘 Stack kube-prometheus</h3>
+      <div class="button-group">
+        <button class="btn">kube-prometheus-stack</button>
+        <button class="btn">kube-state-metrics</button>
+        <button class="btn">Node Exporter</button>
+        <button class="btn">cAdvisor</button>
+        <button class="btn">Prometheus Operator</button>
+        <button class="btn">ServiceMonitor</button>
+        <button class="btn">PodMonitor</button>
+        <button class="btn">PrometheusRule</button>
+        <button class="btn">Grafana K8s Dashboards</button>
+        <button class="btn">Loki no Kubernetes</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⚙️ OpenTelemetry no Kubernetes</h3>
+      <div class="button-group">
+        <button class="btn">OTel Operator</button>
+        <button class="btn">Auto-instrumentação via Operator</button>
+        <button class="btn">Instrumentation CRD</button>
+        <button class="btn">OTel Collector como DaemonSet</button>
+        <button class="btn">OTel Collector como Deployment</button>
+        <button class="btn">OTel Collector como Sidecar</button>
+        <button class="btn">Target Allocator</button>
+        <button class="btn">Kubernetes Receiver</button>
+        <button class="btn">Grafana Alloy no K8s</button>
+        <button class="btn">OpAMP Supervisor</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🚀 Observabilidade de Workloads</h3>
+      <div class="button-group">
+        <button class="btn">Deployment Observability</button>
+        <button class="btn">StatefulSet Observability</button>
+        <button class="btn">DaemonSet Observability</button>
+        <button class="btn">Job &amp; CronJob Observability</button>
+        <button class="btn">HPA Observability</button>
+        <button class="btn">VPA Observability</button>
+        <button class="btn">KEDA Observability</button>
+        <button class="btn">Argo Rollouts Observability</button>
+        <button class="btn">Flagger Observability</button>
+        <button class="btn">GitOps Pipeline Observability</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⭐ Control Plane &amp; Networking</h3>
+      <div class="button-group">
+        <button class="btn">etcd Monitoring</button>
+        <button class="btn">API Server Monitoring</button>
+        <button class="btn">Scheduler Monitoring</button>
+        <button class="btn">Controller Manager Monitoring</button>
+        <button class="btn">CoreDNS Monitoring</button>
+        <button class="btn">Ingress Monitoring (NGINX, Traefik)</button>
+        <button class="btn">CNI Observability</button>
+        <button class="btn">Network Policy Observability</button>
+        <button class="btn">Cilium</button>
+        <button class="btn">Hubble (Cilium Network UI)</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🕸️ Service Mesh Observability</h3>
+      <div class="button-group">
+        <button class="btn">Istio Observability</button>
+        <button class="btn">Linkerd Observability</button>
+        <button class="btn">Envoy Proxy Metrics</button>
+        <button class="btn">mTLS Observability</button>
+        <button class="btn">Traffic Management Metrics</button>
+        <button class="btn">Service Mesh Tracing</button>
+        <button class="btn">Kiali (Istio Dashboard)</button>
+        <button class="btn">Buoyant Cloud (Linkerd)</button>
+        <button class="btn">Service Mesh vs eBPF</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🏆 eBPF e Observabilidade Avançada</h3>
+      <div class="button-group">
+        <button class="btn">eBPF</button>
+        <button class="btn">Cilium</button>
+        <button class="btn">Pixie</button>
+        <button class="btn">Beyla</button>
+        <button class="btn">Continuous Profiling</button>
+        <button class="btn">Pyroscope</button>
+        <button class="btn">Falco (Security)</button>
+        <button class="btn">Tetragon (Security Observability)</button>
+        <button class="btn">Multi-cluster Observability</button>
+        <button class="btn">Fleet Management</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="topicModal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close">×</button>
+      <div class="modal-header"><span class="modal-icon">📖</span><div><div class="modal-title">Tópico</div><span class="modal-level level-badge pleno">Nível</span></div></div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>🚀 Nashtec</h4><p>Roadmap completo de Observabilidade moderna.</p></div>
+      <div class="footer-col"><h4>Relacionados</h4><ul>
+        <li><a href="./roadmap-prometheus.html">Prometheus</a></li>
+        <li><a href="./roadmap-opentelemetry.html">OpenTelemetry</a></li>
+        <li><a href="./roadmap-ebpf.html">eBPF</a></li>
+        <li><a href="./roadmap-grafana.html">Grafana</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Carreiras</h4><ul>
+        <li><a href="./carreira-sre.html">SRE</a></li>
+        <li><a href="./carreira-devops.html">DevOps</a></li>
+        <li><a href="./carreira-platform.html">Platform</a></li>
+        <li><a href="./carreira-engobv.html">Eng. Observabilidade</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Recursos</h4><ul>
+        <li><a href="./labs.html">Labs</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+        <li><a href="./certificacoes.html">Certificações</a></li>
+        <li><a href="./blog-listpost.html">Blog</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>Made with ❤️ by <a href="https://dsouza13.github.io/" target="_blank">DSouza</a> &amp; <a href="#" target="_blank">EzBarros</a></p></div>
+  </footer>
+
+  <script src="./js/animation.js"></script>
+  <script src="./js/topics-data.js"></script>
+  <script src="./js/modal.js"></script>
+</body>
+</html>

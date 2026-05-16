@@ -3,114 +3,287 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Roadmap Observabilidade</title>
+  <meta name="description" content="O roadmap de observabilidade mais completo do mercado. Do zero ao Staff Engineer — logs, métricas, traces, OpenTelemetry, Prometheus, Grafana, Kubernetes e muito mais." />
+  <meta name="keywords" content="observabilidade, opentelemetry, prometheus, grafana, loki, tracing, SRE, DevOps, kubernetes, roadmap" />
+  <meta property="og:title" content="Roadmap Observabilidade — Do Zero ao Staff" />
+  <meta property="og:description" content="Trilhas de carreira e roadmaps técnicos completos para Observabilidade moderna." />
+  <title>Roadmap Observabilidade — Do Zero ao Staff</title>
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
 </head>
 
 <body>
-  <!-- Canvas do Universo -->
   <canvas id="universe"></canvas>
   <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
 
-  <!-- ===================== HEADER ===================== -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
-      <h1 class="logo">🚀 ROADMAP Observervability</h1>
-
+      <h1 class="logo">🚀 ROADMAP Observability</h1>
       <nav class="menu">
         <a href="./index.html">Home</a>
         <a href="./blog-listpost.html">Blogs</a>
-        <a href="#">Projetos</a>
-        <a href="#">Contato</a>
+        <a href="./labs.html">Labs</a>
+        <a href="./comparacoes.html">Comparações</a>
       </nav>
     </div>
   </header>
 
-  <!-- ===================== MAIN ===================== -->
-<main class="content">
+  <!-- MAIN -->
+  <main class="content">
 
-  <h2 class="title">Roadmap Completo de Observabilidade</h2>
-  <p class="subtitle">
-    Da base ao avançado: tudo que você precisa dominar para atuar com Observabilidade no mercado atual.
-  </p>
+    <!-- HERO -->
+    <section class="lp-container">
+      <div class="lp-card">
+        <h1 class="lp-title">🔭 Roadmap de Observabilidade</h1>
+        <p class="lp-subtitle">
+          Do zero ao Staff Engineer — a plataforma de aprendizado de observabilidade moderna mais completa do mercado.
+        </p>
+        <div class="lp-buttons">
+          <a href="./roadmapdev.html" class="lp-btn lp-btn-primary">👨‍💻 Trilha para Desenvolvedor</a>
+          <a href="./roadmaparqobv.html" class="lp-btn lp-btn-secondary">🏗️ Trilha para Arquiteto / SRE</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- ================= INICIANTE ================= -->
-  <section class="roadmap-section">
-<section class="lp-container">
-  <div class="lp-card">
-    <h1 class="lp-title">Roadmap de Observabilidade</h1>
-    <p class="lp-subtitle">
-      Escolha sua trilha de evolução profissional
-    </p>
+    <!-- TRILHAS DE CARREIRA -->
+    <section class="hub-section">
+      <h2 class="hub-section-title">🎯 Trilhas de Carreira</h2>
+      <p class="hub-section-subtitle">Escolha sua trilha especializada e evolua do iniciante ao nível Staff+</p>
+      <div class="hub-divider"></div>
 
-    <div class="lp-buttons">
-      <a href="./roadmapdev.html" class="lp-btn lp-btn-primary">
-        Roadmap para Desenvolvedor
-      </a>
+      <div class="cards-grid">
+        <a href="./carreira-sre.html" class="card-link">
+          <span class="card-icon">🛡️</span>
+          <div class="card-title">SRE — Site Reliability Engineering</div>
+          <p class="card-desc">Confiabilidade, SLOs, incidentes, error budgets e engenharia de operações.</p>
+          <div class="card-tags">
+            <span class="card-tag">SLI/SLO</span>
+            <span class="card-tag">Alertas</span>
+            <span class="card-tag">On-call</span>
+          </div>
+        </a>
 
-      <a href="roadmaparqobv.html" class="lp-btn lp-btn-secondary">
-        Roadmap para Arquiteto / Engenheiro de Sistemas
-      </a>
+        <a href="./carreira-devops.html" class="card-link">
+          <span class="card-icon">⚙️</span>
+          <div class="card-title">DevOps Engineer</div>
+          <p class="card-desc">Pipelines, CI/CD, infraestrutura, cloud e monitoramento operacional.</p>
+          <div class="card-tags">
+            <span class="card-tag">CI/CD</span>
+            <span class="card-tag">Infraestrutura</span>
+            <span class="card-tag">Cloud</span>
+          </div>
+        </a>
+
+        <a href="./carreira-dev.html" class="card-link">
+          <span class="card-icon">👨‍💻</span>
+          <div class="card-title">Desenvolvedor com Observabilidade</div>
+          <p class="card-desc">Instrumentação, OpenTelemetry, logs estruturados e debugging distribuído.</p>
+          <div class="card-tags">
+            <span class="card-tag">OpenTelemetry</span>
+            <span class="card-tag">Instrumentação</span>
+            <span class="card-tag">Profiling</span>
+          </div>
+        </a>
+
+        <a href="./carreira-platform.html" class="card-link">
+          <span class="card-icon">🏗️</span>
+          <div class="card-title">Platform Engineer</div>
+          <p class="card-desc">Plataformas internas, golden paths, self-service observability e multi-tenancy.</p>
+          <div class="card-tags">
+            <span class="card-tag">IDP</span>
+            <span class="card-tag">Golden Paths</span>
+            <span class="card-tag">Backstage</span>
+          </div>
+        </a>
+
+        <a href="./carreira-cloud.html" class="card-link">
+          <span class="card-icon">☁️</span>
+          <div class="card-title">Cloud Engineer</div>
+          <p class="card-desc">Observabilidade em AWS, Azure e GCP com serviços gerenciados e multi-cloud.</p>
+          <div class="card-tags">
+            <span class="card-tag">AWS</span>
+            <span class="card-tag">Azure</span>
+            <span class="card-tag">GCP</span>
+          </div>
+        </a>
+
+        <a href="./carreira-engobv.html" class="card-link">
+          <span class="card-icon">🔭</span>
+          <div class="card-title">Engenheiro de Observabilidade</div>
+          <p class="card-desc">Pipelines de telemetria, collectors, arquitetura de observabilidade e HA.</p>
+          <div class="card-tags">
+            <span class="card-tag">OTel Collector</span>
+            <span class="card-tag">Arquitetura</span>
+            <span class="card-tag">Scaling</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ROADMAPS DE TECNOLOGIA -->
+    <section class="hub-section">
+      <h2 class="hub-section-title">🛠️ Roadmaps de Tecnologia</h2>
+      <p class="hub-section-subtitle">Deep dives em cada ferramenta e ecossistema — do básico ao avançado</p>
+      <div class="hub-divider"></div>
+
+      <div class="cards-grid">
+        <a href="./roadmap-opentelemetry.html" class="card-link">
+          <span class="card-icon">🌐</span>
+          <div class="card-title">OpenTelemetry</div>
+          <p class="card-desc">API, SDK, Collector, OTLP, semantic conventions e instrumentação por linguagem.</p>
+          <div class="card-tags"><span class="card-tag">CNCF Graduated</span><span class="card-tag">Vendor-neutral</span></div>
+        </a>
+
+        <a href="./roadmap-prometheus.html" class="card-link">
+          <span class="card-icon">🔥</span>
+          <div class="card-title">Prometheus</div>
+          <p class="card-desc">PromQL, exporters, alerting, federation, Thanos, Mimir e scaling.</p>
+          <div class="card-tags"><span class="card-tag">CNCF Graduated</span><span class="card-tag">PromQL</span></div>
+        </a>
+
+        <a href="./roadmap-grafana.html" class="card-link">
+          <span class="card-icon">📈</span>
+          <div class="card-title">Grafana Stack</div>
+          <p class="card-desc">Dashboards, Loki, Tempo, Mimir, Alloy, OnCall e Grafana Enterprise.</p>
+          <div class="card-tags"><span class="card-tag">LGTM Stack</span><span class="card-tag">Grafana Cloud</span></div>
+        </a>
+
+        <a href="./roadmap-logs.html" class="card-link">
+          <span class="card-icon">🗂️</span>
+          <div class="card-title">Logs & Log Management</div>
+          <p class="card-desc">Loki, ELK, FluentBit, Vector, Logstash, parsing e pipelines de logs.</p>
+          <div class="card-tags"><span class="card-tag">Loki</span><span class="card-tag">ELK</span><span class="card-tag">FluentBit</span></div>
+        </a>
+
+        <a href="./roadmap-tracing.html" class="card-link">
+          <span class="card-icon">🕵️</span>
+          <div class="card-title">Distributed Tracing</div>
+          <p class="card-desc">Jaeger, Tempo, Zipkin, TraceQL, context propagation e análise de latência.</p>
+          <div class="card-tags"><span class="card-tag">Jaeger</span><span class="card-tag">Tempo</span><span class="card-tag">TraceQL</span></div>
+        </a>
+
+        <a href="./roadmap-kubernetes-obs.html" class="card-link">
+          <span class="card-icon">☸️</span>
+          <div class="card-title">Kubernetes Observability</div>
+          <p class="card-desc">kube-state-metrics, node-exporter, eBPF, service mesh e autoscaling.</p>
+          <div class="card-tags"><span class="card-tag">kube-prometheus</span><span class="card-tag">eBPF</span></div>
+        </a>
+
+        <a href="./roadmap-cloud-obs.html" class="card-link">
+          <span class="card-icon">☁️</span>
+          <div class="card-title">Cloud Observability</div>
+          <p class="card-desc">CloudWatch, Azure Monitor, GCP Operations Suite e serviços gerenciados.</p>
+          <div class="card-tags"><span class="card-tag">AWS</span><span class="card-tag">Azure</span><span class="card-tag">GCP</span></div>
+        </a>
+
+        <a href="./roadmap-ebpf.html" class="card-link">
+          <span class="card-icon">⚡</span>
+          <div class="card-title">eBPF Observability</div>
+          <p class="card-desc">Cilium, Pixie, Beyla, kernel observability e continuous profiling.</p>
+          <div class="card-tags"><span class="card-tag">Cilium</span><span class="card-tag">Pixie</span><span class="card-tag">Beyla</span></div>
+        </a>
+
+        <a href="./roadmap-apm.html" class="card-link">
+          <span class="card-icon">🏢</span>
+          <div class="card-title">APM Comerciais</div>
+          <p class="card-desc">Datadog, Dynatrace, New Relic, Elastic APM — comparações e casos de uso.</p>
+          <div class="card-tags"><span class="card-tag">Datadog</span><span class="card-tag">Dynatrace</span><span class="card-tag">New Relic</span></div>
+        </a>
+
+        <a href="./roadmap-finops-obs.html" class="card-link">
+          <span class="card-icon">💰</span>
+          <div class="card-title">FinOps + Observabilidade</div>
+          <p class="card-desc">Redução de cardinalidade, sampling inteligente, retenção e otimização de custos.</p>
+          <div class="card-tags"><span class="card-tag">Custo</span><span class="card-tag">Sampling</span><span class="card-tag">Retenção</span></div>
+        </a>
+
+        <a href="./roadmap-seguranca.html" class="card-link">
+          <span class="card-icon">🔒</span>
+          <div class="card-title">Segurança & Compliance</div>
+          <p class="card-desc">Observabilidade segura, LGPD, PII masking, RBAC e auditoria.</p>
+          <div class="card-tags"><span class="card-tag">LGPD</span><span class="card-tag">RBAC</span><span class="card-tag">Auditoria</span></div>
+        </a>
+
+        <a href="./roadmap-fundamentos.html" class="card-link">
+          <span class="card-icon">📐</span>
+          <div class="card-title">Fundamentos Técnicos</div>
+          <p class="card-desc">Linux, redes, HTTP, DNS, containers, Docker e Kubernetes para começar.</p>
+          <div class="card-tags"><span class="card-tag">Linux</span><span class="card-tag">Docker</span><span class="card-tag">Redes</span></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- RECURSOS ESPECIAIS -->
+    <section class="hub-section">
+      <h2 class="hub-section-title">📚 Recursos Especiais</h2>
+      <p class="hub-section-subtitle">Labs práticos, comparações detalhadas e guias de certificação</p>
+      <div class="hub-divider"></div>
+
+      <div class="cards-grid-3">
+        <a href="./labs.html" class="card-link">
+          <span class="card-icon">🧪</span>
+          <div class="card-title">Labs & Projetos Práticos</div>
+          <p class="card-desc">Exercícios hands-on em Kubernetes, cenários enterprise e ambientes reais de debugging.</p>
+        </a>
+
+        <a href="./comparacoes.html" class="card-link">
+          <span class="card-icon">⚖️</span>
+          <div class="card-title">Comparações de Ferramentas</div>
+          <p class="card-desc">Grafana vs Kibana, Prometheus vs Datadog, Tempo vs Jaeger e muito mais com tabelas detalhadas.</p>
+        </a>
+
+        <a href="./certificacoes.html" class="card-link">
+          <span class="card-icon">🎓</span>
+          <div class="card-title">Guia de Certificações</div>
+          <p class="card-desc">CKA, CKAD, CKS, Grafana, OpenTelemetry e outras certificações relevantes para o mercado.</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>🚀 Nashtec</h4>
+        <p>Roadmap completo de Observabilidade moderna, do zero ao Staff Engineer.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Carreiras</h4>
+        <ul>
+          <li><a href="./carreira-sre.html">SRE</a></li>
+          <li><a href="./carreira-devops.html">DevOps</a></li>
+          <li><a href="./carreira-platform.html">Platform Engineer</a></li>
+          <li><a href="./carreira-cloud.html">Cloud Engineer</a></li>
+          <li><a href="./carreira-dev.html">Desenvolvedor</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tecnologias</h4>
+        <ul>
+          <li><a href="./roadmap-opentelemetry.html">OpenTelemetry</a></li>
+          <li><a href="./roadmap-prometheus.html">Prometheus</a></li>
+          <li><a href="./roadmap-grafana.html">Grafana Stack</a></li>
+          <li><a href="./roadmap-kubernetes-obs.html">Kubernetes</a></li>
+          <li><a href="./roadmap-ebpf.html">eBPF</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="./labs.html">Labs Práticos</a></li>
+          <li><a href="./comparacoes.html">Comparações</a></li>
+          <li><a href="./certificacoes.html">Certificações</a></li>
+          <li><a href="./blog-listpost.html">Blog</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
-
-
-</main>
-
-
-  <!-- ===================== FOOTER ===================== -->
-<footer class="site-footer">
-  <div class="footer-grid">
-
-    <div class="footer-col">
-      <h4>Nashtec</h4>
-      <p>Roadmap completo de Observabilidade moderna, do zero ao avançado.</p>
+    <div class="footer-bottom">
+      <p>Made with ❤️ by <a href="https://dsouza13.github.io/" target="_blank">DSouza</a> &amp; <a href="#" target="_blank">EzBarros</a></p>
     </div>
-
-    <div class="footer-col">
-      <h4>Roadmap</h4>
-      <ul>
-        <li>Fundamentos</li>
-        <li>Logs & Métricas</li>
-        <li>Tracing</li>
-        <li>Alertas</li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Ferramentas</h4>
-      <ul>
-        <li>Grafana</li>
-        <li>OpenTelemetry</li>
-        <li>Prometheus</li>
-        <li>Loki</li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Comunidade</h4>
-      <ul>
-        <li>Blog</li>
-        <li>GitHub</li>
-        <li>Contato</li>
-        <li>LinkedIn</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    <p>
-      Made with ❤️ by
-      <a href="https://dsouza13.github.io/" target="_blank">DSouza</a>
-      &amp;
-      <a href="#" target="_blank">EzBarros</a>
-    </p>
-  </div>
-</footer>
-
+  </footer>
 
   <script src="./js/animation.js"></script>
 </body>

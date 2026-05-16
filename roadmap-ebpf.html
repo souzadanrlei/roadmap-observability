@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Roadmap de eBPF — Cilium, Pixie, Beyla, kernel observability, network observability e continuous profiling." />
+  <title>Roadmap eBPF Observability</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+  <canvas id="universe"></canvas>
+  <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observability</h1>
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-listpost.html">Blogs</a>
+        <a href="./labs.html">Labs</a>
+        <a href="./comparacoes.html">Comparações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <a href="./index.html" class="back-link">← Voltar para Home</a>
+    <h2 class="title">⚡ eBPF Observability</h2>
+    <p class="subtitle">A revolução da observabilidade no kernel Linux — instrumentação zero-code, network observability e continuous profiling.</p>
+
+    <section class="roadmap-section">
+      <h3>🔰 eBPF Fundamentos</h3>
+      <div class="button-group">
+        <button class="btn">eBPF</button>
+        <button class="btn">O que é BPF / eBPF</button>
+        <button class="btn">BPF Programs e Maps</button>
+        <button class="btn">eBPF Verifier</button>
+        <button class="btn">Tracepoints</button>
+        <button class="btn">Kprobes &amp; Uprobes</button>
+        <button class="btn">XDP (eXpress Data Path)</button>
+        <button class="btn">TC (Traffic Control)</button>
+        <button class="btn">Perf Events</button>
+        <button class="btn">CO-RE (Compile Once, Run Everywhere)</button>
+        <button class="btn">BTF (BPF Type Format)</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>📘 Ferramentas eBPF</h3>
+      <div class="button-group">
+        <button class="btn">bpftrace</button>
+        <button class="btn">BCC (BPF Compiler Collection)</button>
+        <button class="btn">libbpf</button>
+        <button class="btn">bpf-go</button>
+        <button class="btn">aya (Rust)</button>
+        <button class="btn">kubectl trace</button>
+        <button class="btn">bpftool</button>
+        <button class="btn">inspektor-gadget</button>
+        <button class="btn">Cilium</button>
+        <button class="btn">Pixie</button>
+        <button class="btn">Beyla</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🌐 Cilium — CNI &amp; Network Observability</h3>
+      <div class="button-group">
+        <button class="btn">Cilium</button>
+        <button class="btn">Hubble (Network Observability UI)</button>
+        <button class="btn">Network Policy Observability</button>
+        <button class="btn">L3/L4/L7 Visibility</button>
+        <button class="btn">mTLS com Cilium</button>
+        <button class="btn">Cilium Service Mesh</button>
+        <button class="btn">Cilium Cluster Mesh</button>
+        <button class="btn">Tetragon (Security)</button>
+        <button class="btn">DNS Observability</button>
+        <button class="btn">Flow Visualization</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🔬 Pixie — Auto-instrumentação</h3>
+      <div class="button-group">
+        <button class="btn">Pixie</button>
+        <button class="btn">PxL Language</button>
+        <button class="btn">Pixie Protocols</button>
+        <button class="btn">Pixie HTTP Tracing</button>
+        <button class="btn">Pixie Database Tracing</button>
+        <button class="btn">Pixie Performance Profiling</button>
+        <button class="btn">Pixie Memory Analysis</button>
+        <button class="btn">Pixie + OTel Export</button>
+        <button class="btn">Pixie Dashboards</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⚡ Beyla — Zero-code Instrumentação</h3>
+      <div class="button-group">
+        <button class="btn">Beyla</button>
+        <button class="btn">Beyla HTTP Tracing</button>
+        <button class="btn">Beyla gRPC Tracing</button>
+        <button class="btn">Beyla RED Metrics</button>
+        <button class="btn">Beyla + OTel</button>
+        <button class="btn">Beyla + Grafana</button>
+        <button class="btn">Beyla no Kubernetes</button>
+        <button class="btn">Linguagens Suportadas</button>
+        <button class="btn">Beyla vs Auto-instrut. OTel</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>📊 Continuous Profiling</h3>
+      <div class="button-group">
+        <button class="btn">Continuous Profiling</button>
+        <button class="btn">Pyroscope</button>
+        <button class="btn">eBPF Profiling</button>
+        <button class="btn">CPU Profiling</button>
+        <button class="btn">Memory Profiling</button>
+        <button class="btn">Goroutine Profiling (Go)</button>
+        <button class="btn">Flamegraphs</button>
+        <button class="btn">Differential Profiling</button>
+        <button class="btn">Parca</button>
+        <button class="btn">Grafana Pyroscope</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🏆 Kernel e Security Observability</h3>
+      <div class="button-group">
+        <button class="btn">Falco</button>
+        <button class="btn">Tetragon</button>
+        <button class="btn">Syscall Monitoring</button>
+        <button class="btn">File Access Monitoring</button>
+        <button class="btn">Network Threat Detection</button>
+        <button class="btn">Container Escape Detection</button>
+        <button class="btn">Audit Log com eBPF</button>
+        <button class="btn">Runtime Security</button>
+        <button class="btn">eBPF + SIEM</button>
+        <button class="btn">eBPF Performance Overhead</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="topicModal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close">×</button>
+      <div class="modal-header"><span class="modal-icon">📖</span><div><div class="modal-title">Tópico</div><span class="modal-level level-badge especialista">Nível</span></div></div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>🚀 Nashtec</h4><p>Roadmap completo de Observabilidade moderna.</p></div>
+      <div class="footer-col"><h4>Relacionados</h4><ul>
+        <li><a href="./roadmap-kubernetes-obs.html">Kubernetes</a></li>
+        <li><a href="./roadmap-opentelemetry.html">OpenTelemetry</a></li>
+        <li><a href="./roadmap-seguranca.html">Segurança</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Carreiras</h4><ul>
+        <li><a href="./carreira-engobv.html">Eng. Observabilidade</a></li>
+        <li><a href="./carreira-platform.html">Platform</a></li>
+        <li><a href="./carreira-sre.html">SRE</a></li>
+        <li><a href="./carreira-devops.html">DevOps</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Recursos</h4><ul>
+        <li><a href="./labs.html">Labs</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+        <li><a href="./certificacoes.html">Certificações</a></li>
+        <li><a href="./blog-listpost.html">Blog</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>Made with ❤️ by <a href="https://dsouza13.github.io/" target="_blank">DSouza</a> &amp; <a href="#" target="_blank">EzBarros</a></p></div>
+  </footer>
+
+  <script src="./js/animation.js"></script>
+  <script src="./js/topics-data.js"></script>
+  <script src="./js/modal.js"></script>
+</body>
+</html>

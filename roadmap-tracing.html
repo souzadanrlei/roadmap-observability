@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Roadmap de Distributed Tracing — Jaeger, Grafana Tempo, Zipkin, TraceQL, context propagation e análise de latência." />
+  <title>Roadmap Distributed Tracing</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕵️</text></svg>">
+</head>
+<body>
+  <canvas id="universe"></canvas>
+  <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observability</h1>
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-listpost.html">Blogs</a>
+        <a href="./labs.html">Labs</a>
+        <a href="./comparacoes.html">Comparações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <a href="./index.html" class="back-link">← Voltar para Home</a>
+    <h2 class="title">🕵️ Distributed Tracing</h2>
+    <p class="subtitle">Rastreamento distribuído — do conceito ao TraceQL avançado, passando por Jaeger, Tempo e análise de latência.</p>
+
+    <section class="roadmap-section">
+      <h3>🔰 Fundamentos de Tracing</h3>
+      <div class="button-group">
+        <button class="btn">Traces</button>
+        <button class="btn">O que é Distributed Tracing</button>
+        <button class="btn">Spans &amp; Trace ID</button>
+        <button class="btn">Parent-Child Spans</button>
+        <button class="btn">Context Propagation</button>
+        <button class="btn">W3C Trace Context</button>
+        <button class="btn">B3 Propagation</button>
+        <button class="btn">Jaeger Propagation</button>
+        <button class="btn">Head-based Sampling</button>
+        <button class="btn">Tail-based Sampling</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>📘 Jaeger</h3>
+      <div class="button-group">
+        <button class="btn">Jaeger</button>
+        <button class="btn">Jaeger Collector</button>
+        <button class="btn">Jaeger Query</button>
+        <button class="btn">Jaeger Agent</button>
+        <button class="btn">Jaeger UI</button>
+        <button class="btn">Backends: Elasticsearch, Cassandra, Badger</button>
+        <button class="btn">Jaeger HotROD Demo</button>
+        <button class="btn">Jaeger + OTel</button>
+        <button class="btn">Adaptive Sampling</button>
+        <button class="btn">Jaeger Search &amp; Filter</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⏱️ Grafana Tempo</h3>
+      <div class="button-group">
+        <button class="btn">Grafana Tempo</button>
+        <button class="btn">TraceQL</button>
+        <button class="btn">Tempo + Object Storage</button>
+        <button class="btn">Trace-to-Logs</button>
+        <button class="btn">Trace-to-Metrics</button>
+        <button class="btn">Exemplars</button>
+        <button class="btn">Service Graph</button>
+        <button class="btn">Tempo Distribuído</button>
+        <button class="btn">Tempo + OTel Collector</button>
+        <button class="btn">Span Metrics</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⚙️ Context Propagation Avançado</h3>
+      <div class="button-group">
+        <button class="btn">Baggage</button>
+        <button class="btn">Baggage em HTTP Headers</button>
+        <button class="btn">Propagação em Mensageria (Kafka, RabbitMQ)</button>
+        <button class="btn">Propagação em gRPC Metadata</button>
+        <button class="btn">Propagação em GraphQL</button>
+        <button class="btn">Propagação Cross-language</button>
+        <button class="btn">Custom Propagators</button>
+        <button class="btn">Multi-tenant Tracing</button>
+        <button class="btn">Trace Correlation com Logs</button>
+        <button class="btn">Trace Correlation com Métricas</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🚀 Análise e Debugging</h3>
+      <div class="button-group">
+        <button class="btn">Análise de Latência com Traces</button>
+        <button class="btn">Identificando Gargalos</button>
+        <button class="btn">Comparing Traces</button>
+        <button class="btn">Service Dependency Maps</button>
+        <button class="btn">Critical Path Analysis</button>
+        <button class="btn">Error Traces</button>
+        <button class="btn">Slow Span Detection</button>
+        <button class="btn">Database Span Analysis</button>
+        <button class="btn">External Call Analysis</button>
+        <button class="btn">Fan-out Pattern</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⭐ Sampling Strategies</h3>
+      <div class="button-group">
+        <button class="btn">Probabilistic Sampling</button>
+        <button class="btn">Rate-limiting Sampling</button>
+        <button class="btn">Tail-based Sampling</button>
+        <button class="btn">Adaptive Sampling</button>
+        <button class="btn">Error-always Sampling</button>
+        <button class="btn">Composite Sampler</button>
+        <button class="btn">Sampling Decision Propagation</button>
+        <button class="btn">OTel Sampling Processor</button>
+        <button class="btn">Sampling Cost Analysis</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🏆 Tracing em Escala</h3>
+      <div class="button-group">
+        <button class="btn">High-volume Tracing</button>
+        <button class="btn">Trace Storage Optimization</button>
+        <button class="btn">TraceQL Avançado</button>
+        <button class="btn">Continuous Tracing</button>
+        <button class="btn">Tracing para Microserviços</button>
+        <button class="btn">Tracing para Monolitos</button>
+        <button class="btn">Tracing para Serverless</button>
+        <button class="btn">Tracing para Streaming</button>
+        <button class="btn">FinOps de Tracing</button>
+        <button class="btn">Compliance com Traces</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="topicModal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close">×</button>
+      <div class="modal-header"><span class="modal-icon">📖</span><div><div class="modal-title">Tópico</div><span class="modal-level level-badge pleno">Nível</span></div></div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>🚀 Nashtec</h4><p>Roadmap completo de Observabilidade moderna.</p></div>
+      <div class="footer-col"><h4>Relacionados</h4><ul>
+        <li><a href="./roadmap-opentelemetry.html">OpenTelemetry</a></li>
+        <li><a href="./roadmap-grafana.html">Grafana Stack</a></li>
+        <li><a href="./roadmap-logs.html">Logs</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Carreiras</h4><ul>
+        <li><a href="./carreira-dev.html">Desenvolvedor</a></li>
+        <li><a href="./carreira-sre.html">SRE</a></li>
+        <li><a href="./carreira-engobv.html">Eng. Observabilidade</a></li>
+        <li><a href="./carreira-platform.html">Platform</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Recursos</h4><ul>
+        <li><a href="./labs.html">Labs</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+        <li><a href="./certificacoes.html">Certificações</a></li>
+        <li><a href="./blog-listpost.html">Blog</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>Made with ❤️ by <a href="https://dsouza13.github.io/" target="_blank">DSouza</a> &amp; <a href="#" target="_blank">EzBarros</a></p></div>
+  </footer>
+
+  <script src="./js/animation.js"></script>
+  <script src="./js/topics-data.js"></script>
+  <script src="./js/modal.js"></script>
+</body>
+</html>

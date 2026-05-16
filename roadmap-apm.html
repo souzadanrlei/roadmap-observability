@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Roadmap de APM Comerciais — Datadog, Dynatrace, New Relic, Elastic APM, Honeycomb — comparações, casos de uso e decisões." />
+  <title>Roadmap APM Comerciais — Comparação Completa</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏢</text></svg>">
+</head>
+<body>
+  <canvas id="universe"></canvas>
+  <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observability</h1>
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-listpost.html">Blogs</a>
+        <a href="./labs.html">Labs</a>
+        <a href="./comparacoes.html">Comparações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <a href="./index.html" class="back-link">← Voltar para Home</a>
+    <h2 class="title">🏢 APM Comerciais</h2>
+    <p class="subtitle">Datadog, Dynatrace, New Relic, Elastic APM, Honeycomb — como avaliar, quando usar e como migrar.</p>
+
+    <section class="roadmap-section">
+      <h3>🔰 Fundamentos de APM</h3>
+      <div class="button-group">
+        <button class="btn">O que é APM</button>
+        <button class="btn">APM vs Observabilidade</button>
+        <button class="btn">Full-stack Observability</button>
+        <button class="btn">Agentes APM</button>
+        <button class="btn">Auto-instrumentação por APM</button>
+        <button class="btn">TCO (Total Cost of Ownership)</button>
+        <button class="btn">Vendor Lock-in em APM</button>
+        <button class="btn">OpenTelemetry como escape</button>
+        <button class="btn">APM em Kubernetes</button>
+        <button class="btn">APM em Cloud</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🟣 Datadog</h3>
+      <div class="button-group">
+        <button class="btn">Datadog APM</button>
+        <button class="btn">Datadog Metrics</button>
+        <button class="btn">Datadog Logs</button>
+        <button class="btn">Datadog Traces</button>
+        <button class="btn">Datadog Dashboards</button>
+        <button class="btn">Datadog Monitors &amp; Alerts</button>
+        <button class="btn">Datadog Infrastructure</button>
+        <button class="btn">Datadog Kubernetes</button>
+        <button class="btn">Datadog Synthetics</button>
+        <button class="btn">Datadog RUM</button>
+        <button class="btn">Datadog Pricing Model</button>
+        <button class="btn">Datadog vs Grafana Cloud</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🟡 Dynatrace</h3>
+      <div class="button-group">
+        <button class="btn">Dynatrace OneAgent</button>
+        <button class="btn">Dynatrace Smartscape</button>
+        <button class="btn">Dynatrace Davis AI</button>
+        <button class="btn">Dynatrace DQL</button>
+        <button class="btn">Dynatrace Grail</button>
+        <button class="btn">Dynatrace Kubernetes</button>
+        <button class="btn">Dynatrace Cloud Integration</button>
+        <button class="btn">Dynatrace + OTel</button>
+        <button class="btn">Dynatrace vs New Relic</button>
+        <button class="btn">Dynatrace Platform</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🔵 New Relic</h3>
+      <div class="button-group">
+        <button class="btn">New Relic APM</button>
+        <button class="btn">New Relic Infrastructure</button>
+        <button class="btn">New Relic Logs</button>
+        <button class="btn">NRQL</button>
+        <button class="btn">New Relic Dashboards</button>
+        <button class="btn">New Relic Alerts</button>
+        <button class="btn">New Relic Kubernetes</button>
+        <button class="btn">New Relic + OTel</button>
+        <button class="btn">New Relic Free Tier</button>
+        <button class="btn">New Relic vs Datadog</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🟠 Elastic APM &amp; Outros</h3>
+      <div class="button-group">
+        <button class="btn">Elastic APM</button>
+        <button class="btn">Elastic Observability</button>
+        <button class="btn">Honeycomb</button>
+        <button class="btn">Honeycomb BubbleUp</button>
+        <button class="btn">Splunk Observability</button>
+        <button class="btn">AppDynamics</button>
+        <button class="btn">Instana (IBM)</button>
+        <button class="btn">Lightstep</button>
+        <button class="btn">Chronosphere</button>
+        <button class="btn">Grafana Cloud Enterprise</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⭐ Estratégia de Seleção</h3>
+      <div class="button-group">
+        <button class="btn">Critérios de Avaliação de APM</button>
+        <button class="btn">PoC de APM</button>
+        <button class="btn">Negociação de Contratos</button>
+        <button class="btn">Migração entre APMs</button>
+        <button class="btn">OTel como Camada de Abstração</button>
+        <button class="btn">Build vs Buy Decision</button>
+        <button class="btn">ROI de APM</button>
+        <button class="btn">Custo por Host/Container/Trace</button>
+        <button class="btn">Enterprise Support Level</button>
+        <button class="btn">Compliance &amp; Data Residency</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🏆 AIOps e Recursos Avançados</h3>
+      <div class="button-group">
+        <button class="btn">Anomaly Detection</button>
+        <button class="btn">AIOps</button>
+        <button class="btn">Incident Correlation</button>
+        <button class="btn">Forecast &amp; Prediction</button>
+        <button class="btn">AI-driven Alerting</button>
+        <button class="btn">Root Cause Analysis Automático</button>
+        <button class="btn">Business Impact Analysis</button>
+        <button class="btn">SLO Integration</button>
+        <button class="btn">ML Observability</button>
+        <button class="btn">LLM / AI Cost Monitoring</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="topicModal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close">×</button>
+      <div class="modal-header"><span class="modal-icon">📖</span><div><div class="modal-title">Tópico</div><span class="modal-level level-badge pleno">Nível</span></div></div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>🚀 Nashtec</h4><p>Roadmap completo de Observabilidade moderna.</p></div>
+      <div class="footer-col"><h4>Relacionados</h4><ul>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+        <li><a href="./roadmap-cloud-obs.html">Cloud Observability</a></li>
+        <li><a href="./roadmap-opentelemetry.html">OpenTelemetry</a></li>
+        <li><a href="./roadmap-finops-obs.html">FinOps</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Carreiras</h4><ul>
+        <li><a href="./carreira-sre.html">SRE</a></li>
+        <li><a href="./carreira-cloud.html">Cloud</a></li>
+        <li><a href="./carreira-engobv.html">Eng. Observabilidade</a></li>
+        <li><a href="./carreira-platform.html">Platform</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Recursos</h4><ul>
+        <li><a href="./labs.html">Labs</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+        <li><a href="./certificacoes.html">Certificações</a></li>
+        <li><a href="./blog-listpost.html">Blog</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>Made with ❤️ by <a href="https://dsouza13.github.io/" target="_blank">DSouza</a> &amp; <a href="#" target="_blank">EzBarros</a></p></div>
+  </footer>
+
+  <script src="./js/animation.js"></script>
+  <script src="./js/topics-data.js"></script>
+  <script src="./js/modal.js"></script>
+</body>
+</html>

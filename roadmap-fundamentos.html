@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Fundamentos técnicos para Observabilidade — Linux, redes, HTTP, Docker, Kubernetes, Git e APIs." />
+  <title>Fundamentos Técnicos — Roadmap Observabilidade</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>">
+</head>
+<body>
+  <canvas id="universe"></canvas>
+  <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observability</h1>
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-listpost.html">Blogs</a>
+        <a href="./labs.html">Labs</a>
+        <a href="./comparacoes.html">Comparações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <a href="./index.html" class="back-link">← Voltar para Home</a>
+    <h2 class="title">📐 Fundamentos Técnicos</h2>
+    <p class="subtitle">A base necessária antes de mergulhar em observabilidade — Linux, redes, containers, cloud e APIs.</p>
+
+    <section class="roadmap-section">
+      <h3>🐧 Linux Essencial</h3>
+      <div class="button-group">
+        <button class="btn">Linha de Comando Básica</button>
+        <button class="btn">Processos e Sinais</button>
+        <button class="btn">Filesystem e Permissões</button>
+        <button class="btn">Systemd e Serviços</button>
+        <button class="btn">Bash Scripting</button>
+        <button class="btn">Logs do Sistema (/var/log)</button>
+        <button class="btn">Cron Jobs</button>
+        <button class="btn">SSH e Acesso Remoto</button>
+        <button class="btn">Monitoramento Básico (top, htop, iostat)</button>
+        <button class="btn">Strace e lsof</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🌐 Redes e Protocolos</h3>
+      <div class="button-group">
+        <button class="btn">TCP/IP</button>
+        <button class="btn">UDP</button>
+        <button class="btn">DNS</button>
+        <button class="btn">HTTP/HTTPS</button>
+        <button class="btn">HTTP/2</button>
+        <button class="btn">gRPC</button>
+        <button class="btn">TLS / mTLS</button>
+        <button class="btn">Load Balancers</button>
+        <button class="btn">Proxies</button>
+        <button class="btn">Firewalls e NAT</button>
+        <button class="btn">traceroute e tcpdump</button>
+        <button class="btn">curl e wget</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>📦 Containers e Docker</h3>
+      <div class="button-group">
+        <button class="btn">Docker Básico</button>
+        <button class="btn">Dockerfile</button>
+        <button class="btn">Docker Compose</button>
+        <button class="btn">Imagens e Registries</button>
+        <button class="btn">Volumes e Redes Docker</button>
+        <button class="btn">Container Logs</button>
+        <button class="btn">Docker Stats e Inspect</button>
+        <button class="btn">Multi-stage Builds</button>
+        <button class="btn">Container Security</button>
+        <button class="btn">OCI (Open Container Initiative)</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>☸️ Kubernetes Básico</h3>
+      <div class="button-group">
+        <button class="btn">Pods, Deployments, Services</button>
+        <button class="btn">Namespaces</button>
+        <button class="btn">ConfigMaps e Secrets</button>
+        <button class="btn">Ingress</button>
+        <button class="btn">PersistentVolumes</button>
+        <button class="btn">RBAC</button>
+        <button class="btn">kubectl Essencial</button>
+        <button class="btn">Helm Básico</button>
+        <button class="btn">K8s Networking</button>
+        <button class="btn">kube-dns</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🔧 APIs e Desenvolvimento</h3>
+      <div class="button-group">
+        <button class="btn">REST APIs</button>
+        <button class="btn">GraphQL</button>
+        <button class="btn">gRPC</button>
+        <button class="btn">JSON e YAML</button>
+        <button class="btn">OpenAPI / Swagger</button>
+        <button class="btn">Autenticação (JWT, OAuth2)</button>
+        <button class="btn">API Versioning</button>
+        <button class="btn">Rate Limiting</button>
+        <button class="btn">API Gateways</button>
+        <button class="btn">Webhooks</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🗄️ Bancos de Dados e Mensageria</h3>
+      <div class="button-group">
+        <button class="btn">SQL Básico</button>
+        <button class="btn">NoSQL Conceitos</button>
+        <button class="btn">Redis</button>
+        <button class="btn">PostgreSQL</button>
+        <button class="btn">MySQL</button>
+        <button class="btn">Kafka Básico</button>
+        <button class="btn">RabbitMQ Básico</button>
+        <button class="btn">Mensageria e Filas</button>
+        <button class="btn">Object Storage (S3)</button>
+        <button class="btn">Time Series Databases</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🔄 Git e CI/CD</h3>
+      <div class="button-group">
+        <button class="btn">Git Fundamentos</button>
+        <button class="btn">GitFlow e Branching</button>
+        <button class="btn">GitHub / GitLab</button>
+        <button class="btn">CI/CD Conceitos</button>
+        <button class="btn">GitHub Actions</button>
+        <button class="btn">GitLab CI</button>
+        <button class="btn">Testes Automatizados</button>
+        <button class="btn">Docker no CI/CD</button>
+        <button class="btn">ArgoCD Básico</button>
+        <button class="btn">GitOps</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>☁️ Cloud Fundamentos</h3>
+      <div class="button-group">
+        <button class="btn">AWS Básico</button>
+        <button class="btn">Azure Básico</button>
+        <button class="btn">GCP Básico</button>
+        <button class="btn">IAM e Permissões</button>
+        <button class="btn">VPC e Redes Cloud</button>
+        <button class="btn">Terraform Básico</button>
+        <button class="btn">Serverless (Lambda/Functions)</button>
+        <button class="btn">Managed Kubernetes</button>
+        <button class="btn">Storage na Cloud</button>
+        <button class="btn">Segurança na Cloud</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="topicModal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close">×</button>
+      <div class="modal-header"><span class="modal-icon">📖</span><div><div class="modal-title">Tópico</div><span class="modal-level level-badge iniciante">Nível</span></div></div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>🚀 Nashtec</h4><p>Roadmap completo de Observabilidade moderna.</p></div>
+      <div class="footer-col"><h4>Próximos Passos</h4><ul>
+        <li><a href="./roadmapdev.html">Roadmap Desenvolvedor</a></li>
+        <li><a href="./roadmaparqobv.html">Roadmap Arquiteto</a></li>
+        <li><a href="./roadmap-opentelemetry.html">OpenTelemetry</a></li>
+        <li><a href="./roadmap-prometheus.html">Prometheus</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Carreiras</h4><ul>
+        <li><a href="./carreira-dev.html">Desenvolvedor</a></li>
+        <li><a href="./carreira-devops.html">DevOps</a></li>
+        <li><a href="./carreira-sre.html">SRE</a></li>
+        <li><a href="./carreira-cloud.html">Cloud</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Recursos</h4><ul>
+        <li><a href="./labs.html">Labs Práticos</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+        <li><a href="./certificacoes.html">Certificações</a></li>
+        <li><a href="./blog-listpost.html">Blog</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>Made with ❤️ by <a href="https://dsouza13.github.io/" target="_blank">DSouza</a> &amp; <a href="#" target="_blank">EzBarros</a></p></div>
+  </footer>
+
+  <script src="./js/animation.js"></script>
+  <script src="./js/topics-data.js"></script>
+  <script src="./js/modal.js"></script>
+</body>
+</html>

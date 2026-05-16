@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Roadmap completo para SRE — Site Reliability Engineering, do iniciante ao Staff." />
+  <title>Roadmap SRE — Site Reliability Engineering</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body>
+  <canvas id="universe"></canvas>
+  <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observability</h1>
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-listpost.html">Blogs</a>
+        <a href="./labs.html">Labs</a>
+        <a href="./comparacoes.html">Comparações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <a href="./index.html" class="back-link">← Voltar para Home</a>
+    <h2 class="title">🛡️ Roadmap SRE</h2>
+    <p class="subtitle">Site Reliability Engineering — confiabilidade, incidentes, SLOs e engenharia de operações em escala.</p>
+
+    <section class="roadmap-section">
+      <h3>🔰 Iniciante — Base de Operações</h3>
+      <div class="button-group">
+        <button class="btn">O que é SRE</button>
+        <button class="btn">Linux Fundamentos</button>
+        <button class="btn">Redes &amp; TCP/IP</button>
+        <button class="btn">Bash &amp; Shell Scripting</button>
+        <button class="btn">Git &amp; Versionamento</button>
+        <button class="btn">Docker &amp; Containers</button>
+        <button class="btn">O que é Observabilidade</button>
+        <button class="btn">Logs</button>
+        <button class="btn">Métricas</button>
+        <button class="btn">Traces</button>
+        <button class="btn">Incidentes Básicos</button>
+        <button class="btn">On-call 101</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>📘 Júnior — Primeiras Ferramentas SRE</h3>
+      <div class="button-group">
+        <button class="btn">Prometheus</button>
+        <button class="btn">Grafana</button>
+        <button class="btn">Loki</button>
+        <button class="btn">Alertmanager</button>
+        <button class="btn">SLI / SLO / SLA</button>
+        <button class="btn">Golden Signals</button>
+        <button class="btn">MTTR &amp; MTTD</button>
+        <button class="btn">Kubernetes Básico</button>
+        <button class="btn">Runbooks Básicos</button>
+        <button class="btn">Postmortem Básico</button>
+        <button class="btn">PagerDuty / OpsGenie</button>
+        <button class="btn">Incident Severity Levels</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⚙️ Pleno — Engenharia de Confiabilidade</h3>
+      <div class="button-group">
+        <button class="btn">PromQL</button>
+        <button class="btn">SLO-based Alerting</button>
+        <button class="btn">Error Budget Policy</button>
+        <button class="btn">Alertas Inteligentes</button>
+        <button class="btn">Dashboards Avançados</button>
+        <button class="btn">OpenTelemetry</button>
+        <button class="btn">Kubernetes Observability</button>
+        <button class="btn">CI/CD + O11y</button>
+        <button class="btn">Toil Reduction</button>
+        <button class="btn">Postmortems Blameless</button>
+        <button class="btn">Incident Management Avançado</button>
+        <button class="btn">Automação de Operações</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🚀 Sênior — Alta Confiabilidade</h3>
+      <div class="button-group">
+        <button class="btn">Thanos</button>
+        <button class="btn">Mimir</button>
+        <button class="btn">Multi-cluster Observability</button>
+        <button class="btn">Chaos Engineering</button>
+        <button class="btn">Reliability Testing</button>
+        <button class="btn">Capacity Planning</button>
+        <button class="btn">Disaster Recovery</button>
+        <button class="btn">Grafana OnCall</button>
+        <button class="btn">SRE</button>
+        <button class="btn">Platform Engineering</button>
+        <button class="btn">DORA Metrics</button>
+        <button class="btn">Load Testing</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⭐ Especialista — Liderança Técnica em Confiabilidade</h3>
+      <div class="button-group">
+        <button class="btn">SRE Culture &amp; Adoption</button>
+        <button class="btn">Error Budget Negotiation</button>
+        <button class="btn">AIOps &amp; Anomaly Detection</button>
+        <button class="btn">Incident Command Framework</button>
+        <button class="btn">SLO Program Management</button>
+        <button class="btn">Multi-team On-call Design</button>
+        <button class="btn">Observabilidade como Produto</button>
+        <button class="btn">Reliability Reviews</button>
+        <button class="btn">FinOps</button>
+        <button class="btn">Security Observability</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🏆 Staff SRE — Estratégia e Organização</h3>
+      <div class="button-group">
+        <button class="btn">SRE Organizational Design</button>
+        <button class="btn">Reliability Strategy</button>
+        <button class="btn">Vendor Selection</button>
+        <button class="btn">Enterprise Incident Process</button>
+        <button class="btn">Cross-team SLO Governance</button>
+        <button class="btn">Engenharia de Plataforma Global</button>
+        <button class="btn">Mentoria de SREs</button>
+        <button class="btn">Roadmap Plurianual de Confiabilidade</button>
+      </div>
+    </section>
+
+    <!-- Leituras e Certificações -->
+    <section class="roadmap-section">
+      <h3>📚 Referências Essenciais SRE</h3>
+      <div class="button-group">
+        <button class="btn">Google SRE Book</button>
+        <button class="btn">Google SRE Workbook</button>
+        <button class="btn">Building Secure &amp; Reliable Systems</button>
+        <button class="btn">CKA — Certified Kubernetes Administrator</button>
+        <button class="btn">AWS SysOps Associate</button>
+        <button class="btn">Grafana Certified Associate</button>
+        <button class="btn">Datadog SRE Fundamentals</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="topicModal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close">×</button>
+      <div class="modal-header">
+        <span class="modal-icon">📖</span>
+        <div><div class="modal-title">Tópico</div><span class="modal-level level-badge pleno">Nível</span></div>
+      </div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>🚀 Nashtec</h4><p>Roadmap completo de Observabilidade moderna, do zero ao Staff Engineer.</p></div>
+      <div class="footer-col"><h4>Trilhas</h4><ul>
+        <li><a href="./carreira-sre.html">SRE</a></li>
+        <li><a href="./carreira-devops.html">DevOps</a></li>
+        <li><a href="./carreira-platform.html">Platform Engineer</a></li>
+        <li><a href="./carreira-cloud.html">Cloud Engineer</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Tecnologias</h4><ul>
+        <li><a href="./roadmap-prometheus.html">Prometheus</a></li>
+        <li><a href="./roadmap-grafana.html">Grafana</a></li>
+        <li><a href="./roadmap-kubernetes-obs.html">Kubernetes</a></li>
+        <li><a href="./roadmap-ebpf.html">eBPF</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Recursos</h4><ul>
+        <li><a href="./labs.html">Labs</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+        <li><a href="./certificacoes.html">Certificações</a></li>
+        <li><a href="./blog-listpost.html">Blog</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>Made with ❤️ by <a href="https://dsouza13.github.io/" target="_blank">DSouza</a> &amp; <a href="#" target="_blank">EzBarros</a></p></div>
+  </footer>
+
+  <script src="./js/animation.js"></script>
+  <script src="./js/topics-data.js"></script>
+  <script src="./js/modal.js"></script>
+</body>
+</html>

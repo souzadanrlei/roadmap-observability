@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Segurança em Observabilidade — LGPD, PII masking, RBAC, auditoria, secrets e compliance." />
+  <title>Segurança &amp; Compliance em Observabilidade</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔒</text></svg>">
+</head>
+<body>
+  <canvas id="universe"></canvas>
+  <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observability</h1>
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-listpost.html">Blogs</a>
+        <a href="./labs.html">Labs</a>
+        <a href="./comparacoes.html">Comparações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <a href="./index.html" class="back-link">← Voltar para Home</a>
+    <h2 class="title">🔒 Segurança &amp; Compliance</h2>
+    <p class="subtitle">Observabilidade segura — LGPD, PII masking, RBAC, secrets, multi-tenancy e auditoria de acessos.</p>
+
+    <section class="roadmap-section">
+      <h3>🔰 Fundamentos de Segurança em O11y</h3>
+      <div class="button-group">
+        <button class="btn">Dados Sensíveis em Logs</button>
+        <button class="btn">PII (Personally Identifiable Information)</button>
+        <button class="btn">LGPD e Observabilidade</button>
+        <button class="btn">GDPR Compliance</button>
+        <button class="btn">Secrets em Logs</button>
+        <button class="btn">Tokens e Credenciais</button>
+        <button class="btn">Data Minimization</button>
+        <button class="btn">Audit Logs</button>
+        <button class="btn">Retenção Compliance</button>
+        <button class="btn">Data Residency</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🎭 PII Masking e Redação</h3>
+      <div class="button-group">
+        <button class="btn">PII Masking</button>
+        <button class="btn">Log Redaction</button>
+        <button class="btn">Regex-based Masking</button>
+        <button class="btn">FluentBit PII Filter</button>
+        <button class="btn">Vector PII Transform</button>
+        <button class="btn">OTel Attribute Masking</button>
+        <button class="btn">Tokenização de Dados</button>
+        <button class="btn">Pseudoanonimização</button>
+        <button class="btn">Hashing de Identificadores</button>
+        <button class="btn">Masking de CPF/CNPJ</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🔐 Autenticação e Autorização</h3>
+      <div class="button-group">
+        <button class="btn">Grafana RBAC</button>
+        <button class="btn">Grafana Teams e Orgs</button>
+        <button class="btn">SSO / LDAP / OAuth</button>
+        <button class="btn">API Keys</button>
+        <button class="btn">Service Accounts</button>
+        <button class="btn">mTLS entre Componentes</button>
+        <button class="btn">Prometheus Auth</button>
+        <button class="btn">Loki Auth (X-Scope-OrgID)</button>
+        <button class="btn">Tempo Auth</button>
+        <button class="btn">Multi-tenant RBAC</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🛡️ Secrets Management</h3>
+      <div class="button-group">
+        <button class="btn">HashiCorp Vault</button>
+        <button class="btn">External Secrets Operator</button>
+        <button class="btn">Kubernetes Secrets</button>
+        <button class="btn">AWS Secrets Manager</button>
+        <button class="btn">Azure Key Vault</button>
+        <button class="btn">GCP Secret Manager</button>
+        <button class="btn">Sealed Secrets</button>
+        <button class="btn">SOPS</button>
+        <button class="btn">Secrets em ConfigMaps vs Secrets</button>
+        <button class="btn">Rotation de Secrets</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🔍 Security Observability</h3>
+      <div class="button-group">
+        <button class="btn">Security Observability</button>
+        <button class="btn">Falco (Runtime Security)</button>
+        <button class="btn">Tetragon</button>
+        <button class="btn">Anomaly Detection</button>
+        <button class="btn">Intrusion Detection</button>
+        <button class="btn">Network Flow Analysis</button>
+        <button class="btn">Audit Log Analysis</button>
+        <button class="btn">SIEM Integration</button>
+        <button class="btn">SOC (Security Operations Center)</button>
+        <button class="btn">Threat Detection com eBPF</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>📋 Compliance e Auditoria</h3>
+      <div class="button-group">
+        <button class="btn">SOC 2 e Observabilidade</button>
+        <button class="btn">ISO 27001</button>
+        <button class="btn">PCI DSS</button>
+        <button class="btn">HIPAA</button>
+        <button class="btn">Audit Trail Completo</button>
+        <button class="btn">Log Immutability</button>
+        <button class="btn">Data Classification</button>
+        <button class="btn">Change Management Logging</button>
+        <button class="btn">Access Logging</button>
+        <button class="btn">Compliance Dashboards</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🏆 Multi-tenancy e Isolamento</h3>
+      <div class="button-group">
+        <button class="btn">Multi-tenant Observability</button>
+        <button class="btn">Tenant Isolation</button>
+        <button class="btn">Data Segregation</button>
+        <button class="btn">Network Policies para O11y</button>
+        <button class="btn">Namespace Isolation</button>
+        <button class="btn">Zero-trust Observability</button>
+        <button class="btn">Encrypted Storage</button>
+        <button class="btn">Encrypted Transport (TLS)</button>
+        <button class="btn">Key Management</button>
+        <button class="btn">Disaster Recovery Seguro</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="topicModal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close">×</button>
+      <div class="modal-header"><span class="modal-icon">📖</span><div><div class="modal-title">Tópico</div><span class="modal-level level-badge senior">Nível</span></div></div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>🚀 Nashtec</h4><p>Roadmap completo de Observabilidade moderna.</p></div>
+      <div class="footer-col"><h4>Relacionados</h4><ul>
+        <li><a href="./roadmap-ebpf.html">eBPF</a></li>
+        <li><a href="./roadmap-kubernetes-obs.html">Kubernetes</a></li>
+        <li><a href="./roadmap-logs.html">Logs</a></li>
+        <li><a href="./roadmap-cloud-obs.html">Cloud</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Carreiras</h4><ul>
+        <li><a href="./carreira-sre.html">SRE</a></li>
+        <li><a href="./carreira-platform.html">Platform</a></li>
+        <li><a href="./carreira-engobv.html">Eng. Observabilidade</a></li>
+        <li><a href="./carreira-cloud.html">Cloud</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Recursos</h4><ul>
+        <li><a href="./labs.html">Labs</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+        <li><a href="./certificacoes.html">Certificações</a></li>
+        <li><a href="./blog-listpost.html">Blog</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>Made with ❤️ by <a href="https://dsouza13.github.io/" target="_blank">DSouza</a> &amp; <a href="#" target="_blank">EzBarros</a></p></div>
+  </footer>
+
+  <script src="./js/animation.js"></script>
+  <script src="./js/topics-data.js"></script>
+  <script src="./js/modal.js"></script>
+</body>
+</html>

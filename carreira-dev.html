@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Roadmap para Desenvolvedor com Observabilidade — instrumentação, OpenTelemetry, logs estruturados e debugging distribuído." />
+  <title>Roadmap Desenvolvedor com Observabilidade</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+</head>
+<body>
+  <canvas id="universe"></canvas>
+  <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observability</h1>
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-listpost.html">Blogs</a>
+        <a href="./labs.html">Labs</a>
+        <a href="./comparacoes.html">Comparações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <a href="./index.html" class="back-link">← Voltar para Home</a>
+    <h2 class="title">👨‍💻 Desenvolvedor com Observabilidade</h2>
+    <p class="subtitle">Aprenda a instrumentar código, criar logs estruturados, traces e métricas de aplicação — com OpenTelemetry como padrão.</p>
+
+    <section class="roadmap-section">
+      <h3>🔰 Iniciante — Conceitos para Devs</h3>
+      <div class="button-group">
+        <button class="btn">O que é Observabilidade</button>
+        <button class="btn">Por que Observabilidade importa para Devs</button>
+        <button class="btn">Logs Estruturados</button>
+        <button class="btn">Métricas de Aplicação</button>
+        <button class="btn">Traces Básicos</button>
+        <button class="btn">Health Checks</button>
+        <button class="btn">Readiness &amp; Liveness Probes</button>
+        <button class="btn">HTTP Status Codes</button>
+        <button class="btn">Error Handling Observável</button>
+        <button class="btn">Correlação de Logs</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>📘 Júnior — Primeiros Passos com Instrumentação</h3>
+      <div class="button-group">
+        <button class="btn">JSON Logging</button>
+        <button class="btn">Log Levels Corretos</button>
+        <button class="btn">Request ID / Trace ID nos Logs</button>
+        <button class="btn">Expor /metrics para Prometheus</button>
+        <button class="btn">Counters e Gauges Básicos</button>
+        <button class="btn">OpenTelemetry Conceitos</button>
+        <button class="btn">Auto-instrumentação OTel</button>
+        <button class="btn">Grafana Básico</button>
+        <button class="btn">Jaeger Básico</button>
+        <button class="btn">Loki Básico</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⚙️ Pleno — Instrumentação Profissional</h3>
+      <div class="button-group">
+        <button class="btn">OpenTelemetry SDK</button>
+        <button class="btn">Instrumentação Manual</button>
+        <button class="btn">Context Propagation</button>
+        <button class="btn">Semantic Conventions</button>
+        <button class="btn">Baggage</button>
+        <button class="btn">Span Attributes &amp; Events</button>
+        <button class="btn">Error Recording em Spans</button>
+        <button class="btn">Database Tracing</button>
+        <button class="btn">HTTP Client Tracing</button>
+        <button class="btn">gRPC Tracing</button>
+        <button class="btn">Queue / Messaging Tracing</button>
+        <button class="btn">Exemplars em Métricas</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🚀 Sênior — Observabilidade em Produção</h3>
+      <div class="button-group">
+        <button class="btn">Profiling Contínuo</button>
+        <button class="btn">Pyroscope</button>
+        <button class="btn">Performance Debugging</button>
+        <button class="btn">Sampling Strategies</button>
+        <button class="btn">Tail-based Sampling</button>
+        <button class="btn">Custom OTel Exporters</button>
+        <button class="btn">Async &amp; Event-driven Observability</button>
+        <button class="btn">Serverless Observability</button>
+        <button class="btn">SLI / SLO para Devs</button>
+        <button class="btn">PromQL para Análise</button>
+        <button class="btn">Debugging Multi-service</button>
+        <button class="btn">Frontend Observability</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⭐ Especialista — Domínio Completo</h3>
+      <div class="button-group">
+        <button class="btn">AI/LLM Observability</button>
+        <button class="btn">Observabilidade de Agentes IA</button>
+        <button class="btn">OpenLLMetry</button>
+        <button class="btn">RUM (Real User Monitoring)</button>
+        <button class="btn">Synthetic Monitoring</button>
+        <button class="btn">Chaos Engineering</button>
+        <button class="btn">FinOps de Instrumentação</button>
+        <button class="btn">Custom Semantic Conventions</button>
+        <button class="btn">OTel Custom Processors</button>
+        <button class="btn">Benchmark de Overhead de Instrumentação</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🏆 Staff Dev — Liderança de Instrumentação</h3>
+      <div class="button-group">
+        <button class="btn">Observability as Code</button>
+        <button class="btn">Golden Paths de Instrumentação</button>
+        <button class="btn">Shared Libraries de Telemetria</button>
+        <button class="btn">Padrões de Instrumentação</button>
+        <button class="btn">RFC de Observabilidade</button>
+        <button class="btn">Code Review de Telemetria</button>
+        <button class="btn">Onboarding de Times</button>
+        <button class="btn">OTel Governance</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🌍 Instrumentação por Linguagem</h3>
+      <div class="button-group">
+        <button class="btn">OTel Java / Spring Boot</button>
+        <button class="btn">OTel Python / FastAPI</button>
+        <button class="btn">OTel Python / Django</button>
+        <button class="btn">OTel Node.js / Express</button>
+        <button class="btn">OTel Node.js / NestJS</button>
+        <button class="btn">OTel Go / Gin</button>
+        <button class="btn">OTel .NET / ASP.NET</button>
+        <button class="btn">OTel PHP</button>
+        <button class="btn">OTel Ruby / Rails</button>
+        <button class="btn">OTel Rust</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="topicModal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close">×</button>
+      <div class="modal-header"><span class="modal-icon">📖</span><div><div class="modal-title">Tópico</div><span class="modal-level level-badge pleno">Nível</span></div></div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>🚀 Nashtec</h4><p>Roadmap completo de Observabilidade moderna.</p></div>
+      <div class="footer-col"><h4>Trilhas</h4><ul>
+        <li><a href="./carreira-sre.html">SRE</a></li>
+        <li><a href="./carreira-devops.html">DevOps</a></li>
+        <li><a href="./carreira-platform.html">Platform</a></li>
+        <li><a href="./carreira-cloud.html">Cloud</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Tecnologias</h4><ul>
+        <li><a href="./roadmap-opentelemetry.html">OpenTelemetry</a></li>
+        <li><a href="./roadmap-tracing.html">Tracing</a></li>
+        <li><a href="./roadmap-logs.html">Logs</a></li>
+        <li><a href="./roadmap-prometheus.html">Prometheus</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Recursos</h4><ul>
+        <li><a href="./labs.html">Labs</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+        <li><a href="./certificacoes.html">Certificações</a></li>
+        <li><a href="./blog-listpost.html">Blog</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>Made with ❤️ by <a href="https://dsouza13.github.io/" target="_blank">DSouza</a> &amp; <a href="#" target="_blank">EzBarros</a></p></div>
+  </footer>
+
+  <script src="./js/animation.js"></script>
+  <script src="./js/topics-data.js"></script>
+  <script src="./js/modal.js"></script>
+</body>
+</html>

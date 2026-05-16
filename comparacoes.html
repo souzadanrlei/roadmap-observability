@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Comparações detalhadas de ferramentas de observabilidade — Grafana vs Kibana, Prometheus vs Datadog, Loki vs ELK, Tempo vs Jaeger e muito mais." />
+  <title>Comparações de Ferramentas — Roadmap Observabilidade</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+</head>
+<body>
+  <canvas id="universe"></canvas>
+  <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observability</h1>
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-listpost.html">Blogs</a>
+        <a href="./labs.html">Labs</a>
+        <a href="./comparacoes.html">Comparações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <a href="./index.html" class="back-link">← Voltar para Home</a>
+    <h2 class="title">⚖️ Comparações de Ferramentas</h2>
+    <p class="subtitle">Análises side-by-side para você tomar a melhor decisão na sua stack de observabilidade.</p>
+
+    <!-- LOKI vs ELK -->
+    <section class="roadmap-section">
+      <h3>🗂️ Loki vs ELK Stack</h3>
+      <div class="comparison-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Critério</th><th>Grafana Loki</th><th>ELK Stack</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Indexação</td><td>Apenas labels (baixo custo)</td><td>Full-text index (alto custo)</td></tr>
+            <tr><td>Custo de Storage</td><td><span class="check">✓</span> Muito baixo (chunks comprimidos)</td><td><span class="cross">✗</span> Alto (índices Elasticsearch)</td></tr>
+            <tr><td>Velocidade de Busca</td><td><span class="partial">~</span> Média (busca no conteúdo é mais lenta)</td><td><span class="check">✓</span> Rápida para full-text</td></tr>
+            <tr><td>Linguagem de Query</td><td>LogQL</td><td>KQL / Lucene</td></tr>
+            <tr><td>Integração Grafana</td><td><span class="check">✓</span> Nativa (mesma stack)</td><td><span class="partial">~</span> Via plugin</td></tr>
+            <tr><td>Complexidade Operacional</td><td><span class="check">✓</span> Baixa</td><td><span class="cross">✗</span> Alta (JVM, cluster ES)</td></tr>
+            <tr><td>Multi-tenancy</td><td><span class="check">✓</span> Nativo</td><td><span class="partial">~</span> Requer configuração</td></tr>
+            <tr><td>Alertas de Log</td><td><span class="check">✓</span> Via Ruler</td><td><span class="check">✓</span> Via Watcher/Kibana</td></tr>
+            <tr><td>Analytics Avançado</td><td><span class="partial">~</span> Limitado</td><td><span class="check">✓</span> Kibana Lens, TSVB</td></tr>
+            <tr><td>Caso de Uso Ideal</td><td>Cloud-native, Kubernetes, custo baixo</td><td>Full-text search, analytics, SIEM</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PROMETHEUS vs DATADOG -->
+    <section class="roadmap-section">
+      <h3>🔥 Prometheus vs Datadog</h3>
+      <div class="comparison-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Critério</th><th>Prometheus + Grafana</th><th>Datadog</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Modelo</td><td>Open Source / Self-hosted</td><td>SaaS / Comercial</td></tr>
+            <tr><td>Custo</td><td><span class="check">✓</span> Baixo (infraestrutura)</td><td><span class="cross">✗</span> Alto (por host/container)</td></tr>
+            <tr><td>Setup Inicial</td><td><span class="cross">✗</span> Complexo</td><td><span class="check">✓</span> Simples (agente)</td></tr>
+            <tr><td>Scalability</td><td><span class="partial">~</span> Requer Thanos/Mimir</td><td><span class="check">✓</span> Nativa (SaaS)</td></tr>
+            <tr><td>Vendor Lock-in</td><td><span class="check">✓</span> Nenhum</td><td><span class="cross">✗</span> Alto</td></tr>
+            <tr><td>APM / Tracing</td><td><span class="partial">~</span> Via OTel + Tempo</td><td><span class="check">✓</span> Nativo e completo</td></tr>
+            <tr><td>Alerting</td><td>Alertmanager (flexível)</td><td>Monitors (mais fácil)</td></tr>
+            <tr><td>IA / AIOps</td><td><span class="partial">~</span> Externo</td><td><span class="check">✓</span> Watchdog, Forecast</td></tr>
+            <tr><td>Multi-cloud</td><td><span class="check">✓</span> Funciona em qualquer lugar</td><td><span class="check">✓</span> SaaS multi-cloud</td></tr>
+            <tr><td>Controle de Dados</td><td><span class="check">✓</span> Total</td><td><span class="cross">✗</span> Dados no Datadog</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TEMPO vs JAEGER -->
+    <section class="roadmap-section">
+      <h3>🕵️ Grafana Tempo vs Jaeger</h3>
+      <div class="comparison-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Critério</th><th>Grafana Tempo</th><th>Jaeger</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Storage</td><td><span class="check">✓</span> Object Storage (S3/GCS) nativo</td><td><span class="partial">~</span> ES/Cassandra/Badger</td></tr>
+            <tr><td>Custo</td><td><span class="check">✓</span> Muito baixo (object storage)</td><td><span class="partial">~</span> Depende do backend</td></tr>
+            <tr><td>Query Language</td><td>TraceQL (poderoso)</td><td>UI search (limitado)</td></tr>
+            <tr><td>Integração Grafana</td><td><span class="check">✓</span> Nativa</td><td><span class="partial">~</span> Via datasource</td></tr>
+            <tr><td>Trace-to-Logs</td><td><span class="check">✓</span> Nativo com Loki</td><td><span class="cross">✗</span> Manual</td></tr>
+            <tr><td>Trace-to-Metrics</td><td><span class="check">✓</span> Via exemplars</td><td><span class="cross">✗</span> Não nativo</td></tr>
+            <tr><td>Service Graph</td><td><span class="check">✓</span> Nativo</td><td><span class="partial">~</span> Limitado</td></tr>
+            <tr><td>Maturidade</td><td>Novo (2020+)</td><td>Maduro (2016+)</td></tr>
+            <tr><td>Multi-tenancy</td><td><span class="check">✓</span> Nativo</td><td><span class="partial">~</span> Requer configuração</td></tr>
+            <tr><td>Melhor Para</td><td>Stack Grafana/LGTM, K8s</td><td>Sistemas legados, Kubernetes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- MIMIR vs THANOS -->
+    <section class="roadmap-section">
+      <h3>💫 Grafana Mimir vs Thanos</h3>
+      <div class="comparison-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Critério</th><th>Grafana Mimir</th><th>Thanos</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Multi-tenancy</td><td><span class="check">✓</span> Nativo e completo</td><td><span class="partial">~</span> Via prom-label-proxy</td></tr>
+            <tr><td>Modo Monolítico</td><td><span class="check">✓</span> Disponível</td><td><span class="cross">✗</span> Apenas microserviços</td></tr>
+            <tr><td>Query Performance</td><td><span class="check">✓</span> Melhor (sharding interno)</td><td><span class="partial">~</span> Bom</td></tr>
+            <tr><td>Compatibilidade</td><td><span class="check">✓</span> Drop-in para Cortex</td><td><span class="check">✓</span> Usa Prometheus nativo</td></tr>
+            <tr><td>Long-term Storage</td><td><span class="check">✓</span> Object Storage nativo</td><td><span class="check">✓</span> Object Storage via sidecar</td></tr>
+            <tr><td>Deployment Complexity</td><td><span class="partial">~</span> Média</td><td><span class="partial">~</span> Média (mais componentes)</td></tr>
+            <tr><td>Adaptive Metrics</td><td><span class="check">✓</span> Grafana Enterprise</td><td><span class="cross">✗</span> Não</td></tr>
+            <tr><td>Melhor Para</td><td>Multi-tenancy, cloud-native</td><td>Federated Prometheus existente</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FLUENTBIT vs VECTOR -->
+    <section class="roadmap-section">
+      <h3>🔄 FluentBit vs Vector</h3>
+      <div class="comparison-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Critério</th><th>FluentBit</th><th>Vector (Datadog)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Linguagem</td><td>C (muito eficiente)</td><td>Rust (muito eficiente)</td></tr>
+            <tr><td>Consumo de Memória</td><td><span class="check">✓</span> Muito baixo (~1MB)</td><td><span class="check">✓</span> Baixo</td></tr>
+            <tr><td>Configuração</td><td>INI / YAML</td><td>TOML / YAML</td></tr>
+            <tr><td>Transformações</td><td><span class="partial">~</span> Lua scripts</td><td><span class="check">✓</span> VRL (Vector Remap Language)</td></tr>
+            <tr><td>Métricas</td><td><span class="partial">~</span> Limitado</td><td><span class="check">✓</span> Logs + Métricas + Traces</td></tr>
+            <tr><td>Kubernetes Nativo</td><td><span class="check">✓</span> DaemonSet oficial</td><td><span class="check">✓</span> Suporte K8s</td></tr>
+            <tr><td>Ecossistema</td><td><span class="check">✓</span> Fluentd plugins compat.</td><td>Próprio ecossistema</td></tr>
+            <tr><td>Maturidade</td><td>Muito maduro</td><td>Maduro (2019+)</td></tr>
+            <tr><td>Melhor Para</td><td>Edge, IoT, K8s DaemonSet</td><td>Transformações complexas, ETL de logs</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- OTEL vs AGENT PROPRIETÁRIO -->
+    <section class="roadmap-section">
+      <h3>🌐 OpenTelemetry vs Agentes Proprietários</h3>
+      <div class="comparison-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Critério</th><th>OpenTelemetry</th><th>Agente Proprietário (Datadog/DD)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Vendor Lock-in</td><td><span class="check">✓</span> Nenhum</td><td><span class="cross">✗</span> Alto</td></tr>
+            <tr><td>Multi-backend</td><td><span class="check">✓</span> Qualquer backend</td><td><span class="cross">✗</span> Apenas vendor</td></tr>
+            <tr><td>Padronização</td><td><span class="check">✓</span> CNCF standard</td><td><span class="partial">~</span> Padrão proprietário</td></tr>
+            <tr><td>Auto-instrumentação</td><td><span class="check">✓</span> Todas linguagens principais</td><td><span class="check">✓</span> Boa cobertura</td></tr>
+            <tr><td>Performance Overhead</td><td><span class="partial">~</span> Varia por SDK</td><td><span class="partial">~</span> Otimizado pelo vendor</td></tr>
+            <tr><td>Setup Complexity</td><td><span class="partial">~</span> Média (mais config)</td><td><span class="check">✓</span> Simples</td></tr>
+            <tr><td>Suporte Profissional</td><td>Comunidade + CNCF</td><td><span class="check">✓</span> Enterprise support</td></tr>
+            <tr><td>Custo</td><td><span class="check">✓</span> Free</td><td><span class="cross">✗</span> Por host/serviço</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SELF-HOSTED vs SAAS -->
+    <section class="roadmap-section">
+      <h3>🏠 Self-hosted vs SaaS de Observabilidade</h3>
+      <div class="comparison-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Critério</th><th>Self-hosted (LGTM)</th><th>SaaS (Grafana Cloud, Datadog)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Controle de Dados</td><td><span class="check">✓</span> Total</td><td><span class="cross">✗</span> Nos servidores do vendor</td></tr>
+            <tr><td>Custo Inicial</td><td><span class="cross">✗</span> Infra + Ops</td><td><span class="check">✓</span> Baixo (pay-as-you-go)</td></tr>
+            <tr><td>Custo em Escala</td><td><span class="check">✓</span> Mais barato</td><td><span class="cross">✗</span> Pode crescer muito</td></tr>
+            <tr><td>Operação</td><td><span class="cross">✗</span> Você opera</td><td><span class="check">✓</span> Managed pelo vendor</td></tr>
+            <tr><td>SLA</td><td>Você define</td><td><span class="check">✓</span> Garantido pelo vendor</td></tr>
+            <tr><td>Compliance</td><td><span class="check">✓</span> Você controla</td><td><span class="partial">~</span> Depende do vendor</td></tr>
+            <tr><td>Escalabilidade</td><td>Requer planejamento</td><td><span class="check">✓</span> Auto-scale</td></tr>
+            <tr><td>Time to Value</td><td><span class="cross">✗</span> Dias/semanas</td><td><span class="check">✓</span> Minutos</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>🚀 Nashtec</h4><p>Roadmap completo de Observabilidade moderna.</p></div>
+      <div class="footer-col"><h4>Tecnologias</h4><ul>
+        <li><a href="./roadmap-grafana.html">Grafana</a></li>
+        <li><a href="./roadmap-prometheus.html">Prometheus</a></li>
+        <li><a href="./roadmap-logs.html">Logs</a></li>
+        <li><a href="./roadmap-apm.html">APM</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Carreiras</h4><ul>
+        <li><a href="./carreira-sre.html">SRE</a></li>
+        <li><a href="./carreira-devops.html">DevOps</a></li>
+        <li><a href="./carreira-platform.html">Platform</a></li>
+        <li><a href="./carreira-engobv.html">Eng. Observabilidade</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Recursos</h4><ul>
+        <li><a href="./labs.html">Labs</a></li>
+        <li><a href="./certificacoes.html">Certificações</a></li>
+        <li><a href="./blog-listpost.html">Blog</a></li>
+        <li><a href="./index.html">Home</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>Made with ❤️ by <a href="https://dsouza13.github.io/" target="_blank">DSouza</a> &amp; <a href="#" target="_blank">EzBarros</a></p></div>
+  </footer>
+
+  <script src="./js/animation.js"></script>
+</body>
+</html>

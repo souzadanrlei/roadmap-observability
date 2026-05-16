@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Roadmap completo de Prometheus — PromQL, exporters, alerting, federation, Thanos, Mimir, VictoriaMetrics." />
+  <title>Roadmap Prometheus — Completo</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+</head>
+<body>
+  <canvas id="universe"></canvas>
+  <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observability</h1>
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-listpost.html">Blogs</a>
+        <a href="./labs.html">Labs</a>
+        <a href="./comparacoes.html">Comparações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <a href="./index.html" class="back-link">← Voltar para Home</a>
+    <h2 class="title">🔥 Roadmap Prometheus</h2>
+    <p class="subtitle">O sistema de monitoramento CNCF — PromQL, exporters, federation, HA com Thanos/Mimir e scaling enterprise.</p>
+
+    <section class="roadmap-section">
+      <h3>🔰 Iniciante — Prometheus Fundamentos</h3>
+      <div class="button-group">
+        <button class="btn">Prometheus</button>
+        <button class="btn">Arquitetura Pull-based</button>
+        <button class="btn">TSDB (Time Series Database)</button>
+        <button class="btn">Tipos de Métricas</button>
+        <button class="btn">Labels e Dimensões</button>
+        <button class="btn">Endpoint /metrics</button>
+        <button class="btn">Formato de Exposição (text/openmetrics)</button>
+        <button class="btn">Configuração Básica (prometheus.yml)</button>
+        <button class="btn">Targets &amp; Jobs</button>
+        <button class="btn">Grafana + Prometheus</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>📘 Júnior — PromQL e Alertas</h3>
+      <div class="button-group">
+        <button class="btn">PromQL</button>
+        <button class="btn">Instant Vectors</button>
+        <button class="btn">Range Vectors</button>
+        <button class="btn">rate() e irate()</button>
+        <button class="btn">increase()</button>
+        <button class="btn">histogram_quantile()</button>
+        <button class="btn">Aggregation Operators</button>
+        <button class="btn">Alertmanager</button>
+        <button class="btn">Alert Rules</button>
+        <button class="btn">Receivers (Slack, PagerDuty, Email)</button>
+        <button class="btn">Alertas Inteligentes</button>
+        <button class="btn">Silencing &amp; Inhibition</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⚙️ Pleno — Exporters e Service Discovery</h3>
+      <div class="button-group">
+        <button class="btn">Node Exporter</button>
+        <button class="btn">Blackbox Exporter</button>
+        <button class="btn">kube-state-metrics</button>
+        <button class="btn">cAdvisor</button>
+        <button class="btn">MySQL Exporter</button>
+        <button class="btn">PostgreSQL Exporter</button>
+        <button class="btn">Redis Exporter</button>
+        <button class="btn">NGINX Exporter</button>
+        <button class="btn">Kubernetes Service Discovery</button>
+        <button class="btn">EC2 / GCE Service Discovery</button>
+        <button class="btn">Recording Rules</button>
+        <button class="btn">Pushgateway</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🚀 Sênior — Performance e HA</h3>
+      <div class="button-group">
+        <button class="btn">Cardinalidade e Otimização</button>
+        <button class="btn">Remote Write</button>
+        <button class="btn">Federation</button>
+        <button class="btn">Prometheus HA (duplo)</button>
+        <button class="btn">Thanos</button>
+        <button class="btn">Mimir</button>
+        <button class="btn">VictoriaMetrics</button>
+        <button class="btn">Cortex</button>
+        <button class="btn">Prometheus Operator</button>
+        <button class="btn">ServiceMonitor / PodMonitor</button>
+        <button class="btn">Retention Configurado</button>
+        <button class="btn">TSDB Compaction</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⭐ Especialista — Escala e Otimização</h3>
+      <div class="button-group">
+        <button class="btn">Prometheus Sharding</button>
+        <button class="btn">Prometheus Agent Mode</button>
+        <button class="btn">Object Storage Integration</button>
+        <button class="btn">Downsampling</button>
+        <button class="btn">Meta-monitoring (Monitorar o Prometheus)</button>
+        <button class="btn">SLO com Prometheus</button>
+        <button class="btn">Sloth</button>
+        <button class="btn">Pyrra</button>
+        <button class="btn">OpenSLO</button>
+        <button class="btn">PromQL Avançado</button>
+        <button class="btn">Custom Exporters</button>
+        <button class="btn">Multi-tenant Prometheus</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🏆 Staff — Arquitetura Enterprise de Métricas</h3>
+      <div class="button-group">
+        <button class="btn">Mimir em Produção</button>
+        <button class="btn">Thanos Global Query</button>
+        <button class="btn">VictoriaMetrics Cluster</button>
+        <button class="btn">Multi-cluster Federation</button>
+        <button class="btn">Observabilidade de Custos de Métricas</button>
+        <button class="btn">Adaptive Metrics</button>
+        <button class="btn">Cardinality API</button>
+        <button class="btn">Métricas para IA/LLM</button>
+        <button class="btn">Governance de Métricas</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🔧 Ferramentas do Ecossistema Prometheus</h3>
+      <div class="button-group">
+        <button class="btn">Prometheus</button>
+        <button class="btn">Alertmanager</button>
+        <button class="btn">Pushgateway</button>
+        <button class="btn">Thanos</button>
+        <button class="btn">Mimir</button>
+        <button class="btn">Cortex</button>
+        <button class="btn">VictoriaMetrics</button>
+        <button class="btn">Grafana</button>
+        <button class="btn">Sloth</button>
+        <button class="btn">Pyrra</button>
+        <button class="btn">promtool</button>
+        <button class="btn">prom-label-proxy</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="topicModal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close">×</button>
+      <div class="modal-header"><span class="modal-icon">📖</span><div><div class="modal-title">Tópico</div><span class="modal-level level-badge pleno">Nível</span></div></div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>🚀 Nashtec</h4><p>Roadmap completo de Observabilidade moderna.</p></div>
+      <div class="footer-col"><h4>Relacionados</h4><ul>
+        <li><a href="./roadmap-grafana.html">Grafana Stack</a></li>
+        <li><a href="./roadmap-kubernetes-obs.html">Kubernetes</a></li>
+        <li><a href="./roadmap-opentelemetry.html">OpenTelemetry</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Carreiras</h4><ul>
+        <li><a href="./carreira-sre.html">SRE</a></li>
+        <li><a href="./carreira-devops.html">DevOps</a></li>
+        <li><a href="./carreira-engobv.html">Eng. Observabilidade</a></li>
+        <li><a href="./carreira-platform.html">Platform</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Recursos</h4><ul>
+        <li><a href="./labs.html">Labs</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+        <li><a href="./certificacoes.html">Certificações</a></li>
+        <li><a href="./blog-listpost.html">Blog</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>Made with ❤️ by <a href="https://dsouza13.github.io/" target="_blank">DSouza</a> &amp; <a href="#" target="_blank">EzBarros</a></p></div>
+  </footer>
+
+  <script src="./js/animation.js"></script>
+  <script src="./js/topics-data.js"></script>
+  <script src="./js/modal.js"></script>
+</body>
+</html>

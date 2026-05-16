@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Roadmap para Engenheiro de Observabilidade — pipelines de telemetria, arquitetura, collectors, HA e scaling." />
+  <title>Roadmap Engenheiro de Observabilidade</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔭</text></svg>">
+</head>
+<body>
+  <canvas id="universe"></canvas>
+  <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observability</h1>
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-listpost.html">Blogs</a>
+        <a href="./labs.html">Labs</a>
+        <a href="./comparacoes.html">Comparações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <a href="./index.html" class="back-link">← Voltar para Home</a>
+    <h2 class="title">🔭 Engenheiro de Observabilidade</h2>
+    <p class="subtitle">A trilha mais especializada — pipelines de telemetria, arquitetura de plataformas de observabilidade, HA e escala global.</p>
+
+    <section class="roadmap-section">
+      <h3>🔰 Iniciante — Fundamentos Sólidos</h3>
+      <div class="button-group">
+        <button class="btn">O que é Observabilidade</button>
+        <button class="btn">Os 3 Pilares (Logs, Métricas, Traces)</button>
+        <button class="btn">Linux &amp; Sistemas</button>
+        <button class="btn">Redes &amp; Protocolos</button>
+        <button class="btn">Docker &amp; Containers</button>
+        <button class="btn">Kubernetes Base</button>
+        <button class="btn">Prometheus</button>
+        <button class="btn">Grafana</button>
+        <button class="btn">Loki</button>
+        <button class="btn">Jaeger</button>
+        <button class="btn">FluentBit Básico</button>
+        <button class="btn">OpenTelemetry Conceitos</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>📘 Júnior — Stack de Observabilidade</h3>
+      <div class="button-group">
+        <button class="btn">PromQL</button>
+        <button class="btn">LogQL</button>
+        <button class="btn">OpenTelemetry SDK</button>
+        <button class="btn">OpenTelemetry Collector</button>
+        <button class="btn">Grafana Tempo</button>
+        <button class="btn">kube-prometheus-stack</button>
+        <button class="btn">Alertmanager</button>
+        <button class="btn">SLI / SLO / SLA</button>
+        <button class="btn">Dashboards Avançados</button>
+        <button class="btn">Recording Rules</button>
+        <button class="btn">Alert Rules</button>
+        <button class="btn">Helm para O11y</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⚙️ Pleno — Pipelines de Telemetria</h3>
+      <div class="button-group">
+        <button class="btn">OTel Collector Avançado</button>
+        <button class="btn">Grafana Alloy</button>
+        <button class="btn">FluentBit Avançado</button>
+        <button class="btn">Vector</button>
+        <button class="btn">Prometheus Remote Write</button>
+        <button class="btn">OTLP Protocol</button>
+        <button class="btn">Tail-based Sampling</button>
+        <button class="btn">Batch Processing</button>
+        <button class="btn">Data Transformation</button>
+        <button class="btn">Multi-backend Routing</button>
+        <button class="btn">OTel Operator</button>
+        <button class="btn">Service Discovery</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🚀 Sênior — Alta Disponibilidade e Escala</h3>
+      <div class="button-group">
+        <button class="btn">Thanos</button>
+        <button class="btn">Mimir</button>
+        <button class="btn">VictoriaMetrics</button>
+        <button class="btn">Loki Distribuído</button>
+        <button class="btn">Tempo Distribuído</button>
+        <button class="btn">Object Storage (S3/GCS)</button>
+        <button class="btn">Multi-cluster Observability</button>
+        <button class="btn">Cardinality Management</button>
+        <button class="btn">eBPF</button>
+        <button class="btn">Cilium</button>
+        <button class="btn">Network Observability</button>
+        <button class="btn">Service Mesh Observability</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⭐ Especialista — Arquitetura Avançada</h3>
+      <div class="button-group">
+        <button class="btn">Platform Engineering</button>
+        <button class="btn">FinOps</button>
+        <button class="btn">Adaptive Sampling</button>
+        <button class="btn">Continuous Profiling</button>
+        <button class="btn">Pyroscope</button>
+        <button class="btn">eBPF Profiling</button>
+        <button class="btn">AIOps &amp; Anomaly Detection</button>
+        <button class="btn">Security Observability</button>
+        <button class="btn">Multi-tenancy Avançado</button>
+        <button class="btn">Disaster Recovery de O11y</button>
+        <button class="btn">Capacity Planning</button>
+        <button class="btn">Database Observability</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🏆 Staff — Arquitetura Enterprise Global</h3>
+      <div class="button-group">
+        <button class="btn">Arquitetura Multi-cluster Global</button>
+        <button class="btn">Global Telemetry Pipelines</button>
+        <button class="btn">Multi-region Observability</button>
+        <button class="btn">Enterprise Governance</button>
+        <button class="btn">Observability Platform Design</button>
+        <button class="btn">FinOps Estratégico</button>
+        <button class="btn">RFC &amp; ADR de Observabilidade</button>
+        <button class="btn">Vendor Evaluation</button>
+        <button class="btn">Mentoria de Times</button>
+        <button class="btn">Roadmap Técnico Plurianual</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🔬 Tecnologias Emergentes</h3>
+      <div class="button-group">
+        <button class="btn">AI/LLM Observability</button>
+        <button class="btn">OpenLLMetry</button>
+        <button class="btn">GPU Monitoring</button>
+        <button class="btn">Edge Observability</button>
+        <button class="btn">Serverless Observability</button>
+        <button class="btn">WebAssembly Observability</button>
+        <button class="btn">eBPF Avançado</button>
+        <button class="btn">Beyla</button>
+        <button class="btn">Pixie</button>
+        <button class="btn">Grafana Beyla</button>
+        <button class="btn">OpAMP Protocol</button>
+        <button class="btn">Perses (nova UI)</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="topicModal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close">×</button>
+      <div class="modal-header"><span class="modal-icon">📖</span><div><div class="modal-title">Tópico</div><span class="modal-level level-badge pleno">Nível</span></div></div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>🚀 Nashtec</h4><p>Roadmap completo de Observabilidade moderna.</p></div>
+      <div class="footer-col"><h4>Trilhas</h4><ul>
+        <li><a href="./carreira-sre.html">SRE</a></li>
+        <li><a href="./carreira-devops.html">DevOps</a></li>
+        <li><a href="./carreira-platform.html">Platform</a></li>
+        <li><a href="./carreira-engobv.html">Eng. Observabilidade</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Tecnologias</h4><ul>
+        <li><a href="./roadmap-opentelemetry.html">OpenTelemetry</a></li>
+        <li><a href="./roadmap-prometheus.html">Prometheus</a></li>
+        <li><a href="./roadmap-grafana.html">Grafana</a></li>
+        <li><a href="./roadmap-ebpf.html">eBPF</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Recursos</h4><ul>
+        <li><a href="./labs.html">Labs</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+        <li><a href="./certificacoes.html">Certificações</a></li>
+        <li><a href="./blog-listpost.html">Blog</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>Made with ❤️ by <a href="https://dsouza13.github.io/" target="_blank">DSouza</a> &amp; <a href="#" target="_blank">EzBarros</a></p></div>
+  </footer>
+
+  <script src="./js/animation.js"></script>
+  <script src="./js/topics-data.js"></script>
+  <script src="./js/modal.js"></script>
+</body>
+</html>

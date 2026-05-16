@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Roadmap completo de OpenTelemetry — API, SDK, Collector, OTLP, instrumentação por linguagem e semantic conventions." />
+  <title>Roadmap OpenTelemetry — Completo</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+</head>
+<body>
+  <canvas id="universe"></canvas>
+  <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observability</h1>
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-listpost.html">Blogs</a>
+        <a href="./labs.html">Labs</a>
+        <a href="./comparacoes.html">Comparações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <a href="./index.html" class="back-link">← Voltar para Home</a>
+    <h2 class="title">🌐 Roadmap OpenTelemetry</h2>
+    <p class="subtitle">O padrão CNCF para telemetria — API, SDK, Collector, OTLP e instrumentação em qualquer linguagem.</p>
+
+    <section class="roadmap-section">
+      <h3>🔰 Conceitos Fundamentais</h3>
+      <div class="button-group">
+        <button class="btn">O que é OpenTelemetry</button>
+        <button class="btn">Histórico: OpenTracing + OpenCensus</button>
+        <button class="btn">CNCF Graduated Project</button>
+        <button class="btn">Vendor Neutrality</button>
+        <button class="btn">Os 3 Sinais: Traces, Metrics, Logs</button>
+        <button class="btn">Profiling (Beta)</button>
+        <button class="btn">API vs SDK</button>
+        <button class="btn">Collector vs Agent</button>
+        <button class="btn">OTLP Protocol</button>
+        <button class="btn">Semantic Conventions</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>📘 API &amp; SDK</h3>
+      <div class="button-group">
+        <button class="btn">TracerProvider</button>
+        <button class="btn">MeterProvider</button>
+        <button class="btn">LoggerProvider</button>
+        <button class="btn">Spans &amp; Atributos</button>
+        <button class="btn">Span Events</button>
+        <button class="btn">Span Links</button>
+        <button class="btn">Span Status</button>
+        <button class="btn">Metrics: Counter, Gauge, Histogram</button>
+        <button class="btn">Logs Bridge API</button>
+        <button class="btn">Baggage</button>
+        <button class="btn">Context API</button>
+        <button class="btn">Propagators (W3C, B3, Jaeger)</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⚙️ Auto-instrumentação</h3>
+      <div class="button-group">
+        <button class="btn">Auto-instrumentação Java (javaagent)</button>
+        <button class="btn">Auto-instrumentação Python</button>
+        <button class="btn">Auto-instrumentação Node.js</button>
+        <button class="btn">Auto-instrumentação .NET</button>
+        <button class="btn">Auto-instrumentação Go</button>
+        <button class="btn">OTel Operator (K8s)</button>
+        <button class="btn">Beyla (eBPF zero-code)</button>
+        <button class="btn">Instrumentação de Frameworks</button>
+        <button class="btn">Spring Boot Auto-config</button>
+        <button class="btn">Flask / FastAPI Auto</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🚀 Instrumentação Manual</h3>
+      <div class="button-group">
+        <button class="btn">Criando Spans Custom</button>
+        <button class="btn">Adicionando Atributos</button>
+        <button class="btn">Recording Exceptions</button>
+        <button class="btn">Propagação Manual de Contexto</button>
+        <button class="btn">Custom Metrics</button>
+        <button class="btn">Structured Logs com OTel</button>
+        <button class="btn">Correlação Trace-Log</button>
+        <button class="btn">Custom Samplers</button>
+        <button class="btn">Custom Exporters</button>
+        <button class="btn">Custom Processors</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🔄 OpenTelemetry Collector</h3>
+      <div class="button-group">
+        <button class="btn">OpenTelemetry Collector</button>
+        <button class="btn">Receivers</button>
+        <button class="btn">Processors</button>
+        <button class="btn">Exporters</button>
+        <button class="btn">Connectors</button>
+        <button class="btn">Pipelines</button>
+        <button class="btn">Extensions</button>
+        <button class="btn">Batch Processor</button>
+        <button class="btn">Filter Processor</button>
+        <button class="btn">Attributes Processor</button>
+        <button class="btn">Tail Sampling Processor</button>
+        <button class="btn">Memory Limiter</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⭐ Semantic Conventions</h3>
+      <div class="button-group">
+        <button class="btn">HTTP Conventions</button>
+        <button class="btn">Database Conventions</button>
+        <button class="btn">Messaging Conventions</button>
+        <button class="btn">RPC Conventions</button>
+        <button class="btn">Cloud Conventions</button>
+        <button class="btn">Container Conventions</button>
+        <button class="btn">Kubernetes Conventions</button>
+        <button class="btn">Service Conventions</button>
+        <button class="btn">Custom Conventions</button>
+        <button class="btn">GenAI Conventions (LLM)</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🌍 Por Linguagem</h3>
+      <div class="button-group">
+        <button class="btn">OTel Java / Spring Boot</button>
+        <button class="btn">OTel Python / FastAPI</button>
+        <button class="btn">OTel Python / Django</button>
+        <button class="btn">OTel Node.js / Express</button>
+        <button class="btn">OTel Node.js / NestJS</button>
+        <button class="btn">OTel Go / Gin</button>
+        <button class="btn">OTel Go / Fiber</button>
+        <button class="btn">OTel .NET / ASP.NET</button>
+        <button class="btn">OTel PHP</button>
+        <button class="btn">OTel Ruby / Rails</button>
+        <button class="btn">OTel Rust</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🏆 OTel Avançado &amp; Enterprise</h3>
+      <div class="button-group">
+        <button class="btn">OpAMP Protocol</button>
+        <button class="btn">OTel Operator (Kubernetes)</button>
+        <button class="btn">Target Allocator</button>
+        <button class="btn">Collector HA</button>
+        <button class="btn">Collector Gateway Pattern</button>
+        <button class="btn">Exemplars</button>
+        <button class="btn">Profiling Signal (Preview)</button>
+        <button class="btn">AI/LLM Observability</button>
+        <button class="btn">OpenLLMetry</button>
+        <button class="btn">OTel Governance</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="topicModal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close">×</button>
+      <div class="modal-header"><span class="modal-icon">📖</span><div><div class="modal-title">Tópico</div><span class="modal-level level-badge pleno">Nível</span></div></div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>🚀 Nashtec</h4><p>Roadmap completo de Observabilidade moderna.</p></div>
+      <div class="footer-col"><h4>Relacionados</h4><ul>
+        <li><a href="./roadmap-tracing.html">Distributed Tracing</a></li>
+        <li><a href="./roadmap-prometheus.html">Prometheus</a></li>
+        <li><a href="./roadmap-logs.html">Logs</a></li>
+        <li><a href="./roadmap-kubernetes-obs.html">Kubernetes</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Carreiras</h4><ul>
+        <li><a href="./carreira-dev.html">Desenvolvedor</a></li>
+        <li><a href="./carreira-engobv.html">Eng. Observabilidade</a></li>
+        <li><a href="./carreira-platform.html">Platform Engineer</a></li>
+        <li><a href="./carreira-sre.html">SRE</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Recursos</h4><ul>
+        <li><a href="./labs.html">Labs</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+        <li><a href="./certificacoes.html">Certificações</a></li>
+        <li><a href="./blog-listpost.html">Blog</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>Made with ❤️ by <a href="https://dsouza13.github.io/" target="_blank">DSouza</a> &amp; <a href="#" target="_blank">EzBarros</a></p></div>
+  </footer>
+
+  <script src="./js/animation.js"></script>
+  <script src="./js/topics-data.js"></script>
+  <script src="./js/modal.js"></script>
+</body>
+</html>

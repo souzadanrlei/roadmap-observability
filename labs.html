@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Labs práticos de Observabilidade — exercícios hands-on em Kubernetes, Prometheus, Grafana, OpenTelemetry e muito mais." />
+  <title>Labs Práticos — Roadmap Observabilidade</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧪</text></svg>">
+</head>
+<body>
+  <canvas id="universe"></canvas>
+  <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observability</h1>
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-listpost.html">Blogs</a>
+        <a href="./labs.html">Labs</a>
+        <a href="./comparacoes.html">Comparações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <a href="./index.html" class="back-link">← Voltar para Home</a>
+    <h2 class="title">🧪 Labs Práticos</h2>
+    <p class="subtitle">Exercícios hands-on para desenvolver habilidades reais — do básico ao enterprise.</p>
+
+    <!-- INICIANTE -->
+    <section class="roadmap-section">
+      <h3>🔰 Labs Iniciante</h3>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level iniciante">Iniciante</span>
+          <h3>Lab 01 — Stack LGTM com Docker Compose</h3>
+        </div>
+        <p>Configure Loki, Grafana, Tempo e Mimir (Prometheus) localmente usando Docker Compose. Explore os datasources no Grafana e entenda a arquitetura LGTM na prática.</p>
+        <p><strong>Objetivo:</strong> Subir uma stack completa localmente em menos de 10 minutos.</p>
+        <div class="lab-tools">
+          <span class="tag">Docker Compose</span>
+          <span class="tag">Grafana</span>
+          <span class="tag">Prometheus</span>
+          <span class="tag">Loki</span>
+          <span class="tag">Tempo</span>
+        </div>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level iniciante">Iniciante</span>
+          <h3>Lab 02 — Primeiros Logs Estruturados</h3>
+        </div>
+        <p>Modifique uma aplicação de exemplo para emitir logs em JSON com campos padronizados: timestamp, level, service, trace_id, message. Visualize no Grafana com LogQL.</p>
+        <p><strong>Objetivo:</strong> Entender por que logs estruturados são fundamentais.</p>
+        <div class="lab-tools">
+          <span class="tag">JSON Logging</span>
+          <span class="tag">Loki</span>
+          <span class="tag">LogQL</span>
+          <span class="tag">Grafana</span>
+        </div>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level iniciante">Iniciante</span>
+          <h3>Lab 03 — Expose /metrics com Prometheus</h3>
+        </div>
+        <p>Adicione um endpoint /metrics em uma aplicação Python (Flask) ou Node.js com contadores e histogramas. Configure o Prometheus para fazer scraping e crie seu primeiro dashboard.</p>
+        <p><strong>Objetivo:</strong> Expor e visualizar métricas de aplicação.</p>
+        <div class="lab-tools">
+          <span class="tag">Prometheus Client</span>
+          <span class="tag">Prometheus</span>
+          <span class="tag">Grafana</span>
+          <span class="tag">PromQL</span>
+        </div>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level iniciante">Iniciante</span>
+          <h3>Lab 04 — Dashboard dos Golden Signals</h3>
+        </div>
+        <p>Crie um dashboard com os 4 Golden Signals (Latency, Traffic, Errors, Saturation) para uma aplicação de exemplo. Use variáveis para filtragem por serviço e ambiente.</p>
+        <p><strong>Objetivo:</strong> Dominar dashboards baseados em Golden Signals.</p>
+        <div class="lab-tools">
+          <span class="tag">Grafana</span>
+          <span class="tag">Prometheus</span>
+          <span class="tag">PromQL</span>
+          <span class="tag">Dashboard Variables</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERMEDIÁRIO -->
+    <section class="roadmap-section">
+      <h3>⚙️ Labs Intermediários</h3>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level intermediario">Intermediário</span>
+          <h3>Lab 05 — Instrumentação com OpenTelemetry</h3>
+        </div>
+        <p>Instrumente uma aplicação multi-serviço (API + worker + banco) com OpenTelemetry SDK. Configure context propagation entre serviços. Visualize traces correlacionados com logs no Grafana.</p>
+        <p><strong>Objetivo:</strong> Implementar distributed tracing de ponta a ponta.</p>
+        <div class="lab-tools">
+          <span class="tag">OpenTelemetry SDK</span>
+          <span class="tag">OTel Collector</span>
+          <span class="tag">Grafana Tempo</span>
+          <span class="tag">Loki</span>
+          <span class="tag">Trace-to-Logs</span>
+        </div>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level intermediario">Intermediário</span>
+          <h3>Lab 06 — OTel Collector Pipeline</h3>
+        </div>
+        <p>Configure um OTel Collector com múltiplos receivers (OTLP, Prometheus), processors (batch, filter, attributes) e exporters (Loki, Tempo, Prometheus). Filtre traces de health checks.</p>
+        <p><strong>Objetivo:</strong> Dominar pipelines de telemetria.</p>
+        <div class="lab-tools">
+          <span class="tag">OTel Collector</span>
+          <span class="tag">OTLP</span>
+          <span class="tag">Processors</span>
+          <span class="tag">Pipelines</span>
+        </div>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level intermediario">Intermediário</span>
+          <h3>Lab 07 — Alertas Baseados em SLO</h3>
+        </div>
+        <p>Defina um SLO de disponibilidade (99.9%) para um serviço HTTP. Configure alertas multi-window burn rate com Alertmanager. Envie alertas para Slack. Teste o erro budget.</p>
+        <p><strong>Objetivo:</strong> Implementar SLO-based alerting profissional.</p>
+        <div class="lab-tools">
+          <span class="tag">Prometheus</span>
+          <span class="tag">Alertmanager</span>
+          <span class="tag">SLO</span>
+          <span class="tag">Sloth</span>
+          <span class="tag">Slack</span>
+        </div>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level intermediario">Intermediário</span>
+          <h3>Lab 08 — Kubernetes Observability com kube-prometheus</h3>
+        </div>
+        <p>Instale o kube-prometheus-stack em um cluster K8s (kind/minikube). Explore dashboards de cluster, nodes e pods. Configure ServiceMonitor para sua própria aplicação.</p>
+        <p><strong>Objetivo:</strong> Monitorar Kubernetes com a stack padrão.</p>
+        <div class="lab-tools">
+          <span class="tag">kube-prometheus-stack</span>
+          <span class="tag">Helm</span>
+          <span class="tag">ServiceMonitor</span>
+          <span class="tag">Kubernetes</span>
+        </div>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level intermediario">Intermediário</span>
+          <h3>Lab 09 — Debugging de Latência com Traces</h3>
+        </div>
+        <p>Uma aplicação de e-commerce tem lentidão esporádica. Use distributed traces para identificar qual microserviço é o gargalo. Analise spans de banco de dados e chamadas externas.</p>
+        <p><strong>Objetivo:</strong> Usar traces para identificar gargalos reais.</p>
+        <div class="lab-tools">
+          <span class="tag">Grafana Tempo</span>
+          <span class="tag">TraceQL</span>
+          <span class="tag">OpenTelemetry</span>
+          <span class="tag">Span Analysis</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- AVANÇADO -->
+    <section class="roadmap-section">
+      <h3>🚀 Labs Avançados</h3>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level avancado">Avançado</span>
+          <h3>Lab 10 — Thanos para Multi-cluster</h3>
+        </div>
+        <p>Configure Thanos com dois Prometheus em clusters diferentes. Use Thanos Query para consultas federadas. Configure upload para S3. Implemente downsampling e compaction.</p>
+        <p><strong>Objetivo:</strong> Federação de métricas entre múltiplos clusters.</p>
+        <div class="lab-tools">
+          <span class="tag">Thanos</span>
+          <span class="tag">Prometheus</span>
+          <span class="tag">S3 / MinIO</span>
+          <span class="tag">Multi-cluster</span>
+        </div>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level avancado">Avançado</span>
+          <h3>Lab 11 — eBPF com Cilium e Hubble</h3>
+        </div>
+        <p>Instale Cilium como CNI em um cluster Kubernetes. Ative Hubble para observabilidade de rede L3/L4/L7. Observe fluxos de rede e DNS. Implemente Network Policies baseadas em identidade.</p>
+        <p><strong>Objetivo:</strong> Observabilidade de rede com eBPF.</p>
+        <div class="lab-tools">
+          <span class="tag">Cilium</span>
+          <span class="tag">Hubble</span>
+          <span class="tag">eBPF</span>
+          <span class="tag">Network Policies</span>
+        </div>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level avancado">Avançado</span>
+          <h3>Lab 12 — Continuous Profiling com Pyroscope</h3>
+        </div>
+        <p>Adicione profiling contínuo de CPU e memória em uma aplicação Go e Python usando Pyroscope. Identifique funções que consomem mais recursos. Correlacione profiles com traces no Grafana.</p>
+        <p><strong>Objetivo:</strong> Identificar hotspots de performance com profiling contínuo.</p>
+        <div class="lab-tools">
+          <span class="tag">Pyroscope</span>
+          <span class="tag">Grafana</span>
+          <span class="tag">Flamegraphs</span>
+          <span class="tag">Go / Python</span>
+        </div>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level avancado">Avançado</span>
+          <h3>Lab 13 — Chaos Engineering com Grafana</h3>
+        </div>
+        <p>Use Chaos Mesh para injetar falhas em um cluster Kubernetes enquanto observa o impacto nos dashboards, traces e alertas. Valide se os SLOs e alertas respondem corretamente.</p>
+        <p><strong>Objetivo:</strong> Validar observabilidade sob falhas reais.</p>
+        <div class="lab-tools">
+          <span class="tag">Chaos Mesh</span>
+          <span class="tag">Grafana</span>
+          <span class="tag">SLO Alerting</span>
+          <span class="tag">Kubernetes</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERT -->
+    <section class="roadmap-section">
+      <h3>⭐ Labs Expert</h3>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level expert">Expert</span>
+          <h3>Lab 14 — Plataforma Multi-tenant de Observabilidade</h3>
+        </div>
+        <p>Construa uma plataforma completa com Mimir, Loki e Tempo em modo multi-tenant. Configure RBAC, limites de cardinalidade por tenant, dashboards de custo e billing. Integre com OTel Operator.</p>
+        <p><strong>Objetivo:</strong> Construir uma plataforma enterprise de observabilidade.</p>
+        <div class="lab-tools">
+          <span class="tag">Mimir</span>
+          <span class="tag">Loki Multi-tenant</span>
+          <span class="tag">Tempo</span>
+          <span class="tag">OTel Operator</span>
+          <span class="tag">RBAC</span>
+        </div>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level expert">Expert</span>
+          <h3>Lab 15 — Observabilidade para LLMs e IA</h3>
+        </div>
+        <p>Instrumente uma aplicação de chatbot com LLM (OpenAI/Ollama) usando OpenLLMetry. Rastreie tokens, latência de inferência, erros e custo por request. Crie dashboards de AI observability.</p>
+        <p><strong>Objetivo:</strong> Aplicar observabilidade moderna a sistemas de IA.</p>
+        <div class="lab-tools">
+          <span class="tag">OpenLLMetry</span>
+          <span class="tag">OpenTelemetry</span>
+          <span class="tag">Grafana</span>
+          <span class="tag">LLM Metrics</span>
+          <span class="tag">AI Tracing</span>
+        </div>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-header">
+          <span class="lab-level expert">Expert</span>
+          <h3>Lab 16 — FinOps: Reduzindo Custo de Métricas em 60%</h3>
+        </div>
+        <p>Analise uma stack com alta cardinalidade usando a API do Mimir. Identifique métricas desnecessárias. Implemente relabeling para dropar, agregar e reduzir volume. Valide a redução de custo.</p>
+        <p><strong>Objetivo:</strong> Reduzir custo de observabilidade sem perder visibilidade.</p>
+        <div class="lab-tools">
+          <span class="tag">Mimir Cardinality API</span>
+          <span class="tag">Prometheus Relabeling</span>
+          <span class="tag">Adaptive Metrics</span>
+          <span class="tag">FinOps</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>🚀 Nashtec</h4><p>Roadmap completo de Observabilidade moderna.</p></div>
+      <div class="footer-col"><h4>Tecnologias</h4><ul>
+        <li><a href="./roadmap-opentelemetry.html">OpenTelemetry</a></li>
+        <li><a href="./roadmap-prometheus.html">Prometheus</a></li>
+        <li><a href="./roadmap-grafana.html">Grafana</a></li>
+        <li><a href="./roadmap-ebpf.html">eBPF</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Carreiras</h4><ul>
+        <li><a href="./carreira-sre.html">SRE</a></li>
+        <li><a href="./carreira-devops.html">DevOps</a></li>
+        <li><a href="./carreira-dev.html">Desenvolvedor</a></li>
+        <li><a href="./carreira-engobv.html">Eng. Observabilidade</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Recursos</h4><ul>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+        <li><a href="./certificacoes.html">Certificações</a></li>
+        <li><a href="./blog-listpost.html">Blog</a></li>
+        <li><a href="./index.html">Home</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>Made with ❤️ by <a href="https://dsouza13.github.io/" target="_blank">DSouza</a> &amp; <a href="#" target="_blank">EzBarros</a></p></div>
+  </footer>
+
+  <script src="./js/animation.js"></script>
+</body>
+</html>

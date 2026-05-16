@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"C:/Users/argen/OneDrive/Área de Trabalho/roadmap-observability\" /b)",
+      "Bash(ls \"C:/Users/argen/OneDrive/Área de Trabalho/roadmap-observability/js\" /b)",
+      "Bash(dir \"C:/Users/argen/OneDrive/Área de Trabalho/roadmap-observability/js\" /b)"
+    ]
+  }
+}

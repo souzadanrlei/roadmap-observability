@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Roadmap completo de Logs — Loki, ELK, OpenSearch, FluentBit, Vector, parsing, pipelines e retenção." />
+  <title>Roadmap Logs &amp; Log Management</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗂️</text></svg>">
+</head>
+<body>
+  <canvas id="universe"></canvas>
+  <img id="telescope" src="./img/Designer (5) (1).png" alt="telescope" />
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">🚀 ROADMAP Observability</h1>
+      <nav class="menu">
+        <a href="./index.html">Home</a>
+        <a href="./blog-listpost.html">Blogs</a>
+        <a href="./labs.html">Labs</a>
+        <a href="./comparacoes.html">Comparações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <a href="./index.html" class="back-link">← Voltar para Home</a>
+    <h2 class="title">🗂️ Logs &amp; Log Management</h2>
+    <p class="subtitle">Loki, ELK, OpenSearch, FluentBit, Vector — do log básico ao pipeline de logs enterprise.</p>
+
+    <section class="roadmap-section">
+      <h3>🔰 Fundamentos de Logs</h3>
+      <div class="button-group">
+        <button class="btn">Logs</button>
+        <button class="btn">O que são Logs Estruturados</button>
+        <button class="btn">JSON Logging</button>
+        <button class="btn">Log Levels</button>
+        <button class="btn">Correlação com Traces</button>
+        <button class="btn">Syslog</button>
+        <button class="btn">Journald</button>
+        <button class="btn">Logs de Aplicação vs Sistema</button>
+        <button class="btn">Logs em Containers (stdout/stderr)</button>
+        <button class="btn">Log Rotation</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>📘 Grafana Loki</h3>
+      <div class="button-group">
+        <button class="btn">Loki</button>
+        <button class="btn">LogQL</button>
+        <button class="btn">Labels e Streams</button>
+        <button class="btn">Promtail</button>
+        <button class="btn">Grafana Alloy</button>
+        <button class="btn">Loki Stack Helm</button>
+        <button class="btn">Retenção e Compressão</button>
+        <button class="btn">Loki Ruler</button>
+        <button class="btn">Loki Multi-tenant</button>
+        <button class="btn">Loki Distribuído</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⚙️ Stack ELK / OpenSearch</h3>
+      <div class="button-group">
+        <button class="btn">Elasticsearch</button>
+        <button class="btn">Logstash</button>
+        <button class="btn">Kibana</button>
+        <button class="btn">OpenSearch</button>
+        <button class="btn">Beats (Filebeat, Metricbeat)</button>
+        <button class="btn">Index Management</button>
+        <button class="btn">ILM (Index Lifecycle Management)</button>
+        <button class="btn">KQL (Kibana Query Language)</button>
+        <button class="btn">Elastic APM</button>
+        <button class="btn">OpenSearch Dashboards</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🚀 Coletores e Pipelines</h3>
+      <div class="button-group">
+        <button class="btn">FluentBit</button>
+        <button class="btn">Fluentd</button>
+        <button class="btn">Vector</button>
+        <button class="btn">Logstash</button>
+        <button class="btn">Grafana Alloy</button>
+        <button class="btn">OTel Collector (logs)</button>
+        <button class="btn">Syslog-ng</button>
+        <button class="btn">Parsing &amp; Grok</button>
+        <button class="btn">Pipelines Multi-destino</button>
+        <button class="btn">Backpressure &amp; Buffering</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>⭐ Parsing e Enriquecimento</h3>
+      <div class="button-group">
+        <button class="btn">Regex Parsing</button>
+        <button class="btn">JSON Parsing</button>
+        <button class="btn">Grok Patterns</button>
+        <button class="btn">VRL (Vector Remap Language)</button>
+        <button class="btn">Lua Scripts (FluentBit)</button>
+        <button class="btn">Enrichment com Dados Externos</button>
+        <button class="btn">PII Masking / Redaction</button>
+        <button class="btn">Log Sampling</button>
+        <button class="btn">Log Deduplication</button>
+        <button class="btn">Multiline Parsing</button>
+      </div>
+    </section>
+
+    <section class="roadmap-section">
+      <h3>🏆 Logs em Escala Enterprise</h3>
+      <div class="button-group">
+        <button class="btn">Retenção por Tier (Hot/Warm/Cold)</button>
+        <button class="btn">S3 / GCS para Logs</button>
+        <button class="btn">ClickHouse para Logs</button>
+        <button class="btn">Kafka para Logs</button>
+        <button class="btn">Log Cost Optimization</button>
+        <button class="btn">Cardinality de Labels de Log</button>
+        <button class="btn">Multi-cluster Log Aggregation</button>
+        <button class="btn">Compliance &amp; Auditoria</button>
+        <button class="btn">SIEM Integration</button>
+        <button class="btn">Security Log Analysis</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="topicModal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close">×</button>
+      <div class="modal-header"><span class="modal-icon">📖</span><div><div class="modal-title">Tópico</div><span class="modal-level level-badge pleno">Nível</span></div></div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>🚀 Nashtec</h4><p>Roadmap completo de Observabilidade moderna.</p></div>
+      <div class="footer-col"><h4>Relacionados</h4><ul>
+        <li><a href="./roadmap-grafana.html">Grafana Stack</a></li>
+        <li><a href="./roadmap-tracing.html">Tracing</a></li>
+        <li><a href="./roadmap-opentelemetry.html">OpenTelemetry</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Carreiras</h4><ul>
+        <li><a href="./carreira-sre.html">SRE</a></li>
+        <li><a href="./carreira-devops.html">DevOps</a></li>
+        <li><a href="./carreira-engobv.html">Eng. Observabilidade</a></li>
+        <li><a href="./carreira-dev.html">Desenvolvedor</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Recursos</h4><ul>
+        <li><a href="./labs.html">Labs</a></li>
+        <li><a href="./comparacoes.html">Comparações</a></li>
+        <li><a href="./certificacoes.html">Certificações</a></li>
+        <li><a href="./blog-listpost.html">Blog</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><p>Made with ❤️ by <a href="https://dsouza13.github.io/" target="_blank">DSouza</a> &amp; <a href="#" target="_blank">EzBarros</a></p></div>
+  </footer>
+
+  <script src="./js/animation.js"></script>
+  <script src="./js/topics-data.js"></script>
+  <script src="./js/modal.js"></script>
+</body>
+</html>
