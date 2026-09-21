@@ -7,22 +7,29 @@ window.TOPICS = {
   /* ============ FUNDAMENTOS ============ */
   "O que é Observabilidade": {
     icon: "🔭", level: "Iniciante", levelClass: "iniciante",
-    description: "Observabilidade é a capacidade de entender o estado interno de um sistema a partir de suas saídas externas — logs, métricas e traces. Diferente de monitoramento tradicional (reativo), observabilidade é proativa: você consegue fazer perguntas que ainda não tinha imaginado.",
+    description: "Observabilidade é a capacidade de entender o estado interno de um sistema a partir das saídas que ele produz. Na prática, ela combina telemetria (logs, métricas, traces e perfis), contexto de negócio e engenharia de confiabilidade para explicar por que um sistema está se comportando de determinada forma. Monitoramento acompanha sinais conhecidos; observabilidade permite investigar perguntas novas, inclusive em sistemas distribuídos, ambientes cloud-native e arquiteturas com muitos serviços.",
     concepts: [
       "Os três pilares: Logs, Métricas e Traces (o11y trinity)",
+      "Perfis contínuos (profiling) para investigar CPU, memória e latência",
       "Diferença entre monitoramento e observabilidade",
+      "OpenTelemetry e o modelo vendor-neutral de telemetria",
       "Cardinalidade: impacto no custo e na granularidade",
       "Telemetria: coleta estruturada de dados de sistemas",
       "Context propagation: carregar contexto entre serviços",
-      "Observabilidade ativa vs passiva"
+      "SLIs, SLOs e error budgets orientando decisões de confiabilidade",
+      "Observabilidade ativa vs passiva",
+      "Correlação entre telemetria técnica e impacto para o usuário"
     ],
     tools: ["OpenTelemetry", "Prometheus", "Grafana", "Jaeger", "Loki"],
     realCase: "Google, Netflix e Amazon usam observabilidade como base para operar sistemas distribuídos em escala global com SLOs de 99,99%.",
     bestPractices: [
       "Instrumente desde o início, não como afterthought",
+      "Comece pelas jornadas críticas do usuário e pelos SLIs mais importantes",
       "Use IDs de correlação em todos os serviços",
       "Prefira logs estruturados (JSON) a texto livre",
-      "Defina SLOs antes de construir alertas"
+      "Defina SLOs antes de construir alertas",
+      "Controle cardinalidade, retenção e amostragem para equilibrar valor e custo",
+      "Teste consultas, painéis e alertas como parte do ciclo de entrega"
     ],
     antiPatterns: [
       "Monitorar apenas infraestrutura e esquecer a aplicação",
@@ -32,8 +39,16 @@ window.TOPICS = {
     prerequisites: ["Conceitos básicos de redes", "HTTP", "Sistemas distribuídos básico"],
     nextSteps: ["Logs", "Métricas", "Traces", "SLI/SLO/SLA", "Golden Signals"],
     links: [
-      { label: "OpenTelemetry.io", url: "https://opentelemetry.io" },
-      { label: "Google SRE Book", url: "https://sre.google/books/" }
+      { label: "OpenTelemetry — documentação oficial", url: "https://opentelemetry.io/docs/" },
+      { label: "OpenTelemetry — conceitos de observabilidade", url: "https://opentelemetry.io/docs/concepts/observability-primer/" },
+      { label: "Google SRE Book — monitoramento distribuído", url: "https://sre.google/sre-book/monitoring-distributed-systems/" },
+      { label: "Google SRE Workbook — SLOs", url: "https://sre.google/workbook/implementing-slos/" },
+      { label: "CNCF Cloud Native Observability Whitepaper", url: "https://github.com/cncf/sig-observability/blob/main/whitepaper.md" },
+      { label: "Prometheus — documentação oficial", url: "https://prometheus.io/docs/introduction/overview/" },
+      { label: "Grafana — fundamentos de observabilidade", url: "https://grafana.com/docs/learning-journeys/" },
+      { label: "Jaeger — documentação de tracing", url: "https://www.jaegertracing.io/docs/" },
+      { label: "Grafana Loki — documentação de logs", url: "https://grafana.com/docs/loki/latest/" },
+      { label: "Elastic Observability — guia de conceitos", url: "https://www.elastic.co/guide/en/observability/current/observability-introduction.html" }
     ]
   },
 
@@ -75,7 +90,12 @@ window.TOPICS = {
     ],
     prerequisites: ["O que é Observabilidade"],
     nextSteps: ["Loki", "LogQL", "FluentBit", "Correlação de Logs e Traces"],
-    links: [{ label: "Grafana Loki Docs", url: "https://grafana.com/docs/loki/latest/" }]
+    links: [
+      { label: "Grafana Loki Docs", url: "https://grafana.com/docs/loki/latest/" },
+      { label: "OpenTelemetry — logs", url: "https://opentelemetry.io/docs/concepts/signals/logs/" },
+      { label: "Fluent Bit — documentação oficial", url: "https://docs.fluentbit.io/manual/" },
+      { label: "Google SRE — monitoramento em sistemas distribuídos", url: "https://sre.google/sre-book/monitoring-distributed-systems/" }
+    ]
   },
 
   "Métricas": {
@@ -110,7 +130,12 @@ http_requests_total{method="GET", status="500", endpoint="/api/v1/orders"} 12`,
     ],
     prerequisites: ["O que é Observabilidade"],
     nextSteps: ["Prometheus", "PromQL", "Golden Signals", "Alertas"],
-    links: [{ label: "Prometheus Docs", url: "https://prometheus.io/docs/" }]
+    links: [
+      { label: "Prometheus — documentação oficial", url: "https://prometheus.io/docs/introduction/overview/" },
+      { label: "Prometheus — tipos de métricas", url: "https://prometheus.io/docs/concepts/metric_types/" },
+      { label: "OpenTelemetry — métricas", url: "https://opentelemetry.io/docs/concepts/signals/metrics/" },
+      { label: "Prometheus — práticas de instrumentação", url: "https://prometheus.io/docs/practices/instrumentation/" }
+    ]
   },
 
   "Traces": {
@@ -149,7 +174,9 @@ tracestate: vendor1=value1
     nextSteps: ["Jaeger", "Grafana Tempo", "OpenTelemetry", "Context Propagation"],
     links: [
       { label: "OpenTelemetry Tracing", url: "https://opentelemetry.io/docs/concepts/signals/traces/" },
-      { label: "Jaeger Docs", url: "https://www.jaegertracing.io/docs/" }
+      { label: "Jaeger Docs", url: "https://www.jaegertracing.io/docs/" },
+      { label: "W3C Trace Context", url: "https://www.w3.org/TR/trace-context/" },
+      { label: "OpenTelemetry — amostragem", url: "https://opentelemetry.io/docs/concepts/sampling/" }
     ]
   },
 
@@ -189,7 +216,9 @@ spec:
     nextSteps: ["Error Budget Policy", "Alertas baseados em SLO", "Sloth/Pyrra"],
     links: [
       { label: "Google SRE Workbook — SLOs", url: "https://sre.google/workbook/implementing-slos/" },
-      { label: "Sloth — SLO Tool", url: "https://sloth.slok.dev/" }
+      { label: "Sloth — SLO Tool", url: "https://sloth.slok.dev/" },
+      { label: "OpenSLO — especificação", url: "https://openslo.com/" },
+      { label: "Google SRE Book — error budgets", url: "https://sre.google/sre-book/embracing-risk/" }
     ]
   },
 
@@ -211,7 +240,12 @@ spec:
       "Combine Golden Signals com SLOs para alertas baseados em SLO"
     ],
     prerequisites: ["Métricas", "Prometheus básico"],
-    nextSteps: ["Dashboards", "SLI/SLO/SLA", "Alertas", "RED Method", "USE Method"]
+    nextSteps: ["Dashboards", "SLI/SLO/SLA", "Alertas", "RED Method", "USE Method"],
+    links: [
+      { label: "Google SRE Book — monitoring", url: "https://sre.google/sre-book/monitoring-distributed-systems/" },
+      { label: "Grafana — RED method", url: "https://grafana.com/docs/grafana-cloud/monitor-applications/application-observability/instrumentation/" },
+      { label: "Brendan Gregg — USE method", url: "https://www.brendangregg.com/usemethod.html" }
+    ]
   },
 
   "Grafana": {
@@ -239,7 +273,12 @@ spec:
     ],
     prerequisites: ["Prometheus básico", "Conceitos de métricas"],
     nextSteps: ["PromQL", "Loki", "Grafana Tempo", "Dashboards Avançados", "Alertas"],
-    links: [{ label: "Grafana Docs", url: "https://grafana.com/docs/grafana/latest/" }]
+    links: [
+      { label: "Grafana Docs", url: "https://grafana.com/docs/grafana/latest/" },
+      { label: "Grafana — Learning Journeys", url: "https://grafana.com/docs/learning-journeys/" },
+      { label: "Grafana Alerting", url: "https://grafana.com/docs/grafana/latest/alerting/" },
+      { label: "Grafana — dashboards as code", url: "https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/manage-dashboard-links/" }
+    ]
   },
 
   "Prometheus": {
@@ -276,7 +315,12 @@ scrape_configs:
     ],
     prerequisites: ["Métricas", "Docker/Kubernetes básico"],
     nextSteps: ["PromQL", "Alertmanager", "Thanos", "Mimir", "Recording Rules"],
-    links: [{ label: "Prometheus Docs", url: "https://prometheus.io/docs/introduction/overview/" }]
+    links: [
+      { label: "Prometheus Docs", url: "https://prometheus.io/docs/introduction/overview/" },
+      { label: "Prometheus — configuração", url: "https://prometheus.io/docs/prometheus/latest/configuration/configuration/" },
+      { label: "Prometheus — alerting rules", url: "https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/" },
+      { label: "Prometheus — exporters", url: "https://prometheus.io/docs/instrumenting/exporters/" }
+    ]
   },
 
   "Loki": {
@@ -314,7 +358,12 @@ sum(rate({app="checkout"} |= "ERROR" [5m])) by (pod)`,
     ],
     prerequisites: ["Logs", "Docker/Kubernetes básico"],
     nextSteps: ["LogQL", "FluentBit", "Grafana Correlations", "Loki HA"],
-    links: [{ label: "Grafana Loki Docs", url: "https://grafana.com/docs/loki/latest/" }]
+    links: [
+      { label: "Grafana Loki Docs", url: "https://grafana.com/docs/loki/latest/" },
+      { label: "LogQL — documentação", url: "https://grafana.com/docs/loki/latest/query/" },
+      { label: "Loki — arquitetura", url: "https://grafana.com/docs/loki/latest/get-started/architecture/" },
+      { label: "Grafana Alloy — coleta de logs", url: "https://grafana.com/docs/alloy/latest/" }
+    ]
   },
 
   "Jaeger": {
@@ -337,7 +386,11 @@ sum(rate({app="checkout"} |= "ERROR" [5m])) by (pod)`,
     ],
     prerequisites: ["Traces", "Docker básico"],
     nextSteps: ["Grafana Tempo", "OpenTelemetry", "Distributed Tracing avançado"],
-    links: [{ label: "Jaeger Docs", url: "https://www.jaegertracing.io/docs/" }]
+    links: [
+      { label: "Jaeger Docs", url: "https://www.jaegertracing.io/docs/" },
+      { label: "Jaeger — arquitetura", url: "https://www.jaegertracing.io/docs/2.0/architecture/" },
+      { label: "OpenTelemetry — instrumentação", url: "https://opentelemetry.io/docs/languages/" }
+    ]
   },
 
   /* ============ INTERMEDIÁRIO ============ */
@@ -373,7 +426,12 @@ predict_linear(node_filesystem_avail_bytes[1h], 4*3600) < 0`,
     ],
     prerequisites: ["Prometheus", "Métricas", "Labels"],
     nextSteps: ["Recording Rules", "Alertas", "Thanos Query", "MetricsQL (VictoriaMetrics)"],
-    links: [{ label: "PromQL Docs", url: "https://prometheus.io/docs/prometheus/latest/querying/basics/" }]
+    links: [
+      { label: "PromQL — conceitos básicos", url: "https://prometheus.io/docs/prometheus/latest/querying/basics/" },
+      { label: "PromQL — funções", url: "https://prometheus.io/docs/prometheus/latest/querying/functions/" },
+      { label: "PromQL — operadores", url: "https://prometheus.io/docs/prometheus/latest/querying/operators/" },
+      { label: "Prometheus — recording rules", url: "https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/" }
+    ]
   },
 
   "LogQL": {
@@ -399,7 +457,12 @@ sum by (service) (
 # Taxa de bytes por app
 sum by (app) (bytes_rate({namespace="prod"}[5m]))`,
     prerequisites: ["Loki", "Logs estruturados"],
-    nextSteps: ["Loki Ruler", "Derived Fields", "Grafana Correlations"]
+    nextSteps: ["Loki Ruler", "Derived Fields", "Grafana Correlations"],
+    links: [
+      { label: "LogQL — documentação oficial", url: "https://grafana.com/docs/loki/latest/query/" },
+      { label: "LogQL — consultas de métricas", url: "https://grafana.com/docs/loki/latest/query/metric_queries/" },
+      { label: "Grafana — correlação entre sinais", url: "https://grafana.com/docs/grafana/latest/explore/trace-integration/" }
+    ]
   },
 
   "OpenTelemetry": {
@@ -445,7 +508,10 @@ async function processOrder(orderId) {
     nextSteps: ["OTel Collector", "OTel SDK avançado", "Semantic Conventions", "Auto-instrumentation"],
     links: [
       { label: "OpenTelemetry.io", url: "https://opentelemetry.io/docs/" },
-      { label: "OTel Semantic Conventions", url: "https://opentelemetry.io/docs/concepts/semantic-conventions/" }
+      { label: "OTel Semantic Conventions", url: "https://opentelemetry.io/docs/concepts/semantic-conventions/" },
+      { label: "OpenTelemetry — getting started", url: "https://opentelemetry.io/docs/getting-started/" },
+      { label: "OpenTelemetry — linguagens", url: "https://opentelemetry.io/docs/languages/" },
+      { label: "CNCF — projeto OpenTelemetry", url: "https://www.cncf.io/projects/opentelemetry/" }
     ]
   },
 
@@ -475,7 +541,10 @@ helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack \\
     prerequisites: ["Kubernetes básico", "Prometheus", "Helm"],
     nextSteps: ["OTel Operator", "eBPF", "Service Mesh", "kube-state-metrics avançado"],
     links: [
-      { label: "kube-prometheus-stack", url: "https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack" }
+      { label: "kube-prometheus-stack", url: "https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack" },
+      { label: "Kubernetes — observabilidade", url: "https://kubernetes.io/docs/concepts/cluster-administration/monitoring/" },
+      { label: "kube-state-metrics", url: "https://github.com/kubernetes/kube-state-metrics" },
+      { label: "OpenTelemetry Operator", url: "https://opentelemetry.io/docs/kubernetes/operator/" }
     ]
   },
 
@@ -547,7 +616,12 @@ service:
     ],
     prerequisites: ["OpenTelemetry", "Docker/K8s intermediário", "OTLP"],
     nextSteps: ["Tail Sampling Processor", "OTel Operator", "OpAMP", "Grafana Alloy"],
-    links: [{ label: "OTel Collector Docs", url: "https://opentelemetry.io/docs/collector/" }]
+    links: [
+      { label: "OTel Collector Docs", url: "https://opentelemetry.io/docs/collector/" },
+      { label: "Collector — configuração", url: "https://opentelemetry.io/docs/collector/configuration/" },
+      { label: "Collector — processors", url: "https://opentelemetry.io/docs/collector/configuration/#processors" },
+      { label: "OpenTelemetry Collector Contrib", url: "https://github.com/open-telemetry/opentelemetry-collector-contrib" }
+    ]
   },
 
   "Thanos": {
@@ -570,7 +644,11 @@ service:
     ],
     prerequisites: ["Prometheus intermediário", "PromQL", "Object Storage (S3/GCS)"],
     nextSteps: ["Mimir", "VictoriaMetrics", "Cortex"],
-    links: [{ label: "Thanos Docs", url: "https://thanos.io/tip/thanos/quick-tutorial.md/" }]
+    links: [
+      { label: "Thanos Docs", url: "https://thanos.io/tip/thanos/quick-tutorial.md/" },
+      { label: "Thanos — arquitetura", url: "https://thanos.io/tip/components/query.md" },
+      { label: "Thanos — object storage", url: "https://thanos.io/tip/thanos/storage.md/" }
+    ]
   },
 
   "Mimir": {
@@ -593,7 +671,11 @@ service:
     ],
     prerequisites: ["Prometheus", "PromQL", "Thanos conceitos", "Object Storage"],
     nextSteps: ["Grafana Enterprise", "Multi-tenancy avançado", "Mimir Operator"],
-    links: [{ label: "Mimir Docs", url: "https://grafana.com/docs/mimir/latest/" }]
+    links: [
+      { label: "Mimir Docs", url: "https://grafana.com/docs/mimir/latest/" },
+      { label: "Mimir — arquitetura", url: "https://grafana.com/docs/mimir/latest/get-started/architecture/" },
+      { label: "Mimir — limites por tenant", url: "https://grafana.com/docs/mimir/latest/configure/configure-metrics/" }
+    ]
   },
 
   "eBPF": {
@@ -654,7 +736,12 @@ px.display(df)`,
       "Crie guias de onboarding para novos serviços"
     ],
     prerequisites: ["Kubernetes avançado", "CI/CD", "OTel Collector", "Grafana enterprise"],
-    nextSteps: ["IDP com Backstage", "GitOps para observabilidade", "FinOps de observabilidade"]
+    nextSteps: ["IDP com Backstage", "GitOps para observabilidade", "FinOps de observabilidade"],
+    links: [
+      { label: "CNCF — Platform Engineering", url: "https://tag-app-delivery.cncf.io/whitepapers/platform-eng/" },
+      { label: "Backstage — documentação", url: "https://backstage.io/docs/" },
+      { label: "OpenTelemetry Operator", url: "https://opentelemetry.io/docs/kubernetes/operator/" }
+    ]
   },
 
   "FinOps": {
@@ -676,7 +763,12 @@ px.display(df)`,
       "Revise semanalmente os top 10 geradores de custo"
     ],
     prerequisites: ["Prometheus avançado", "OTel Collector", "Object Storage"],
-    nextSteps: ["Grafana Adaptive Metrics", "Mimir Cardinality API", "Vector transforms"]
+    nextSteps: ["Grafana Adaptive Metrics", "Mimir Cardinality API", "Vector transforms"],
+    links: [
+      { label: "CNCF — FinOps", url: "https://www.cncf.io/finops/" },
+      { label: "Grafana — cardinalidade de métricas", url: "https://grafana.com/docs/grafana-cloud/monitor-infrastructure/metrics/cardinality/" },
+      { label: "OpenTelemetry — sampling", url: "https://opentelemetry.io/docs/concepts/sampling/" }
+    ]
   },
 
   /* ============ FERRAMENTAS AVANÇADAS ============ */
@@ -705,7 +797,11 @@ px.display(df)`,
     ],
     prerequisites: ["Traces", "Jaeger básico", "Object Storage"],
     nextSteps: ["TraceQL avançado", "Exemplars", "Service Graph", "Tempo Distributed"],
-    links: [{ label: "Grafana Tempo Docs", url: "https://grafana.com/docs/tempo/latest/" }]
+    links: [
+      { label: "Grafana Tempo Docs", url: "https://grafana.com/docs/tempo/latest/" },
+      { label: "Tempo — TraceQL", url: "https://grafana.com/docs/tempo/latest/traceql/" },
+      { label: "Tempo — Trace to logs", url: "https://grafana.com/docs/tempo/latest/configuration/trace-to-logs/" }
+    ]
   },
 
   "Dashboards Avançados": {
@@ -726,7 +822,12 @@ px.display(df)`,
       "Documente cada painel com description e links de runbook"
     ],
     prerequisites: ["Grafana básico", "PromQL", "LogQL"],
-    nextSteps: ["Grafana Scenes", "Grafonnet", "Grafana as Code", "RBAC"]
+    nextSteps: ["Grafana Scenes", "Grafonnet", "Grafana as Code", "RBAC"],
+    links: [
+      { label: "Grafana — dashboards", url: "https://grafana.com/docs/grafana/latest/dashboards/" },
+      { label: "Grafana — variáveis", url: "https://grafana.com/docs/grafana/latest/dashboards/variables/" },
+      { label: "Grafana — provisioning", url: "https://grafana.com/docs/grafana/latest/administration/provisioning/" }
+    ]
   },
 
   "Alertas Inteligentes": {
@@ -760,7 +861,12 @@ px.display(df)`,
       "Revise alertas mensalmente — remova os que nunca são acionáveis"
     ],
     prerequisites: ["Prometheus", "PromQL", "SLI/SLO/SLA", "Alertmanager"],
-    nextSteps: ["SLO Tooling", "Grafana OnCall", "PagerDuty integration", "Alert fatigue"]
+    nextSteps: ["SLO Tooling", "Grafana OnCall", "PagerDuty integration", "Alert fatigue"],
+    links: [
+      { label: "Prometheus Alertmanager", url: "https://prometheus.io/docs/alerting/latest/alertmanager/" },
+      { label: "Google SRE — alertas baseados em SLO", url: "https://sre.google/workbook/alerting-on-slos/" },
+      { label: "Grafana Alerting", url: "https://grafana.com/docs/grafana/latest/alerting/" }
+    ]
   },
 
   "CI/CD + O11y": {
@@ -782,7 +888,12 @@ px.display(df)`,
       "Monitore change failure rate como DORA metric"
     ],
     prerequisites: ["CI/CD intermediário", "Kubernetes", "Prometheus", "SLI/SLO"],
-    nextSteps: ["Flagger", "Argo Rollouts", "DORA Metrics", "Chaos Engineering"]
+    nextSteps: ["Flagger", "Argo Rollouts", "DORA Metrics", "Chaos Engineering"],
+    links: [
+      { label: "Argo Rollouts", url: "https://argo-rollouts.readthedocs.io/en/stable/" },
+      { label: "Flagger — progressive delivery", url: "https://flagger.app/" },
+      { label: "DORA — métricas de entrega", url: "https://dora.dev/guides/dora-metrics-four-keys/" }
+    ]
   },
 
   "SRE": {
@@ -807,6 +918,456 @@ px.display(df)`,
     links: [
       { label: "Google SRE Book", url: "https://sre.google/sre-book/table-of-contents/" },
       { label: "SRE Workbook", url: "https://sre.google/workbook/table-of-contents/" }
+    ]
+  },
+
+  "Linux Fundamentos": {
+    icon: "🐧", level: "Iniciante", levelClass: "iniciante",
+    description: "Fundamentos de Linux para operar servidores, containers e agentes de observabilidade com segurança.",
+    links: [
+      { label: "Linux Journey", url: "https://linuxjourney.com/" },
+      { label: "Ubuntu Server — documentação", url: "https://ubuntu.com/server/docs" },
+      { label: "Red Hat — fundamentos do Linux", url: "https://www.redhat.com/en/topics/linux" }
+    ]
+  },
+
+  "Redes & TCP/IP": {
+    icon: "🌐", level: "Iniciante", levelClass: "iniciante",
+    description: "Base de redes necessária para entender conectividade, latência, portas, roteamento e falhas entre serviços.",
+    links: [
+      { label: "Cloudflare — o que é TCP/IP", url: "https://www.cloudflare.com/learning/network-layer/what-is-tcp-ip/" },
+      { label: "Cloudflare — modelo OSI", url: "https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/" },
+      { label: "Kubernetes — modelo de rede", url: "https://kubernetes.io/docs/concepts/cluster-administration/networking/" }
+    ]
+  },
+
+  "DNS & HTTP": {
+    icon: "🔗", level: "Iniciante", levelClass: "iniciante",
+    description: "DNS e HTTP explicam como clientes encontram serviços e como requisições circulam entre aplicações.",
+    links: [
+      { label: "MDN — visão geral do HTTP", url: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview" },
+      { label: "Cloudflare — DNS explicado", url: "https://www.cloudflare.com/learning/dns/what-is-dns/" },
+      { label: "RFC 9110 — HTTP Semantics", url: "https://www.rfc-editor.org/rfc/rfc9110" }
+    ]
+  },
+
+  "Containers & Docker": {
+    icon: "🐳", level: "Iniciante", levelClass: "iniciante",
+    description: "Containers empacotam aplicações e dependências de forma reproduzível, sendo uma base importante para workloads cloud-native.",
+    links: [
+      { label: "Docker — documentação", url: "https://docs.docker.com/get-started/" },
+      { label: "Docker — boas práticas de imagens", url: "https://docs.docker.com/build/building/best-practices/" },
+      { label: "OCI — especificação de runtime", url: "https://opencontainers.org/" }
+    ]
+  },
+
+  "Kubernetes Básico": {
+    icon: "☸️", level: "Iniciante", levelClass: "iniciante",
+    description: "Kubernetes orquestra containers e fornece recursos para descoberta, escalabilidade, configuração e operação de serviços.",
+    links: [
+      { label: "Kubernetes — conceitos", url: "https://kubernetes.io/docs/concepts/" },
+      { label: "Kubernetes — tutorial interativo", url: "https://kubernetes.io/docs/tutorials/kubernetes-basics/" },
+      { label: "CNCF — Kubernetes", url: "https://www.cncf.io/projects/kubernetes/" }
+    ]
+  },
+
+  "YAML & Configuração": {
+    icon: "🧾", level: "Iniciante", levelClass: "iniciante",
+    description: "YAML é usado para declarar configurações de aplicações, pipelines, Helm e recursos Kubernetes.",
+    links: [
+      { label: "YAML — especificação", url: "https://yaml.org/spec/1.2.2/" },
+      { label: "Kubernetes — objetos e YAML", url: "https://kubernetes.io/docs/concepts/overview/working-with-objects/" },
+      { label: "Helm — valores e templates", url: "https://helm.sh/docs/chart_template_guide/values_files/" }
+    ]
+  },
+
+  "Git & GitOps": {
+    icon: "🌿", level: "Iniciante", levelClass: "iniciante",
+    description: "Git versiona código e configuração; GitOps usa o repositório como fonte declarativa para operar ambientes.",
+    links: [
+      { label: "Pro Git — livro gratuito", url: "https://git-scm.com/book/en/v2" },
+      { label: "OpenGitOps — princípios", url: "https://opengitops.dev/" },
+      { label: "CNCF — GitOps", url: "https://www.cncf.io/projects/gitops/" }
+    ]
+  },
+
+  "Cloud (AWS/GCP/Azure) Básico": {
+    icon: "☁️", level: "Iniciante", levelClass: "iniciante",
+    description: "Conheça computação, redes, identidade, armazenamento e serviços gerenciados nas principais nuvens.",
+    links: [
+      { label: "AWS — fundamentos", url: "https://aws.amazon.com/getting-started/" },
+      { label: "Google Cloud — training", url: "https://cloud.google.com/learn/training" },
+      { label: "Microsoft Learn — Azure", url: "https://learn.microsoft.com/en-us/training/azure/" }
+    ]
+  },
+
+  "FluentBit": {
+    icon: "📥", level: "Júnior", levelClass: "junior",
+    description: "Fluent Bit coleta, processa e encaminha logs e métricas com baixo consumo de recursos.",
+    links: [
+      { label: "Fluent Bit — documentação", url: "https://docs.fluentbit.io/manual/" },
+      { label: "Fluent Bit — pipeline de logs", url: "https://docs.fluentbit.io/manual/concepts/key-concepts" },
+      { label: "Fluent Bit — Kubernetes", url: "https://docs.fluentbit.io/manual/installation/kubernetes" }
+    ]
+  },
+
+  "Alertmanager": {
+    icon: "🔔", level: "Júnior", levelClass: "junior",
+    description: "Alertmanager agrupa, silencia, deduplica e roteia alertas do Prometheus para os canais responsáveis.",
+    links: [
+      { label: "Alertmanager — documentação", url: "https://prometheus.io/docs/alerting/latest/alertmanager/" },
+      { label: "Alertmanager — configuração", url: "https://prometheus.io/docs/alerting/latest/configuration/" },
+      { label: "Prometheus — regras de alerta", url: "https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/" }
+    ]
+  },
+
+  "kube-prometheus-stack": {
+    icon: "📦", level: "Júnior", levelClass: "junior",
+    description: "Chart Helm que reúne Prometheus, Alertmanager, Grafana e exporters para iniciar a observabilidade de um cluster.",
+    links: [
+      { label: "kube-prometheus-stack — chart", url: "https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack" },
+      { label: "Prometheus Operator — documentação", url: "https://prometheus-operator.dev/docs/" },
+      { label: "Prometheus Operator — API", url: "https://prometheus-operator.dev/docs/api-reference/api/" }
+    ]
+  },
+
+  "Helm Charts": {
+    icon: "⎈", level: "Júnior", levelClass: "junior",
+    description: "Helm empacota recursos Kubernetes em charts versionáveis e parametrizáveis.",
+    links: [
+      { label: "Helm — documentação", url: "https://helm.sh/docs/" },
+      { label: "Helm — criação de charts", url: "https://helm.sh/docs/topics/charts/" },
+      { label: "Artifact Hub — charts", url: "https://artifacthub.io/" }
+    ]
+  },
+
+  "Node Exporter": {
+    icon: "🖥️", level: "Júnior", levelClass: "junior",
+    description: "Node Exporter expõe métricas do sistema operacional e do hardware para o Prometheus.",
+    links: [
+      { label: "Node Exporter — projeto", url: "https://github.com/prometheus/node_exporter" },
+      { label: "Prometheus — exporters", url: "https://prometheus.io/docs/instrumenting/exporters/" },
+      { label: "Node Exporter — collectors", url: "https://github.com/prometheus/node_exporter#collectors" }
+    ]
+  },
+
+  "Blackbox Exporter": {
+    icon: "🔎", level: "Júnior", levelClass: "junior",
+    description: "Blackbox Exporter testa serviços externamente por HTTP, HTTPS, DNS, TCP e ICMP.",
+    links: [
+      { label: "Blackbox Exporter — projeto", url: "https://github.com/prometheus/blackbox_exporter" },
+      { label: "Blackbox Exporter — configuração", url: "https://github.com/prometheus/blackbox_exporter/blob/master/README.md" },
+      { label: "Prometheus — probes", url: "https://prometheus.io/docs/guides/multi-target-exporter/" }
+    ]
+  },
+
+  "Recording Rules": {
+    icon: "🧮", level: "Pleno", levelClass: "pleno",
+    description: "Recording rules pré-calculam expressões PromQL para acelerar dashboards, consultas repetidas e alertas.",
+    links: [
+      { label: "Prometheus — recording rules", url: "https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/" },
+      { label: "Prometheus — regras e alertas", url: "https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/" },
+      { label: "Prometheus — boas práticas de nomenclatura", url: "https://prometheus.io/docs/practices/rules/" }
+    ]
+  },
+
+  "Alertmanager Avançado": {
+    icon: "🚨", level: "Pleno", levelClass: "pleno",
+    description: "Operação avançada de alertas envolve rotas hierárquicas, agrupamento, silences, inibição e integração com plantões.",
+    links: [
+      { label: "Alertmanager — configuração", url: "https://prometheus.io/docs/alerting/latest/configuration/" },
+      { label: "Alertmanager — API", url: "https://prometheus.io/docs/alerting/latest/clients/" },
+      { label: "Google SRE — alertas acionáveis", url: "https://sre.google/sre-book/monitoring-distributed-systems/" }
+    ]
+  },
+
+  "Service Mesh (Istio/Linkerd)": {
+    icon: "🕸️", level: "Pleno", levelClass: "pleno",
+    description: "Service meshes control comunicação entre serviços e oferecem métricas, traces, segurança e políticas de tráfego.",
+    links: [
+      { label: "Istio — documentação", url: "https://istio.io/latest/docs/" },
+      { label: "Istio — observabilidade", url: "https://istio.io/latest/docs/tasks/observability/" },
+      { label: "Linkerd — observabilidade", url: "https://linkerd.io/2.16/features/observability/" }
+    ]
+  },
+
+  "VictoriaMetrics": {
+    icon: "📈", level: "Sênior", levelClass: "senior",
+    description: "VictoriaMetrics é uma plataforma de métricas compatível com Prometheus, focada em eficiência, retenção e escala.",
+    links: [
+      { label: "VictoriaMetrics — documentação", url: "https://docs.victoriametrics.com/" },
+      { label: "VictoriaMetrics — arquitetura cluster", url: "https://docs.victoriametrics.com/Cluster-VictoriaMetrics.html" },
+      { label: "MetricsQL — documentação", url: "https://docs.victoriametrics.com/metricsql/" }
+    ]
+  },
+
+  "Loki HA": {
+    icon: "🗃️", level: "Sênior", levelClass: "senior",
+    description: "Loki em alta disponibilidade exige componentes distribuídos, object storage, limites de ingestão e estratégia de retenção.",
+    links: [
+      { label: "Loki — arquitetura", url: "https://grafana.com/docs/loki/latest/get-started/architecture/" },
+      { label: "Loki — deployment", url: "https://grafana.com/docs/loki/latest/setup/install/" },
+      { label: "Loki — armazenamento", url: "https://grafana.com/docs/loki/latest/configure/storage/" }
+    ]
+  },
+
+  "Tempo Distributed": {
+    icon: "⏱️", level: "Sênior", levelClass: "senior",
+    description: "Tempo Distributed escala tracing horizontalmente com componentes separados e armazenamento durável em object storage.",
+    links: [
+      { label: "Tempo — deployment distribuído", url: "https://grafana.com/docs/tempo/latest/setup/helm-chart/" },
+      { label: "Tempo — arquitetura", url: "https://grafana.com/docs/tempo/latest/introduction/architecture/" },
+      { label: "Tempo — configuração", url: "https://grafana.com/docs/tempo/latest/configuration/" }
+    ]
+  },
+
+  "Cilium": {
+    icon: "🐝", level: "Sênior", levelClass: "senior",
+    description: "Cilium usa eBPF para networking, segurança e observabilidade de workloads Kubernetes.",
+    links: [
+      { label: "Cilium — documentação", url: "https://docs.cilium.io/en/stable/" },
+      { label: "Hubble — observabilidade de rede", url: "https://docs.cilium.io/en/stable/observability/" },
+      { label: "Cilium — Kubernetes networking", url: "https://docs.cilium.io/en/stable/network/" }
+    ]
+  },
+
+  "Multi-cluster Observability": {
+    icon: "🌍", level: "Sênior", levelClass: "senior",
+    description: "Observabilidade multi-cluster padroniza coleta, identidade, correlação e consulta entre vários clusters Kubernetes.",
+    links: [
+      { label: "OpenTelemetry — Collector gateway", url: "https://opentelemetry.io/docs/collector/deployment/gateway/" },
+      { label: "Thanos — múltiplos clusters", url: "https://thanos.io/tip/components/query.md/" },
+      { label: "Grafana Mimir — multi-tenancy", url: "https://grafana.com/docs/mimir/latest/manage/secure/authentication-and-authorization/" }
+    ]
+  },
+
+  "Object Storage (S3/GCS)": {
+    icon: "🪣", level: "Sênior", levelClass: "senior",
+    description: "Object storage oferece retenção durável e econômica para métricas, logs e traces de longo prazo.",
+    links: [
+      { label: "Amazon S3 — documentação", url: "https://docs.aws.amazon.com/s3/" },
+      { label: "Google Cloud Storage — documentação", url: "https://cloud.google.com/storage/docs" },
+      { label: "Thanos — object storage", url: "https://thanos.io/tip/thanos/storage.md/" }
+    ]
+  },
+
+  "Grafana Alloy": {
+    icon: "🔄", level: "Sênior", levelClass: "senior",
+    description: "Grafana Alloy é um distribuidor OpenTelemetry para coletar, processar e encaminhar sinais de observabilidade.",
+    links: [
+      { label: "Grafana Alloy — documentação", url: "https://grafana.com/docs/alloy/latest/" },
+      { label: "Alloy — componentes", url: "https://grafana.com/docs/alloy/latest/reference/" },
+      { label: "Alloy — Kubernetes", url: "https://grafana.com/docs/alloy/latest/set-up/install/kubernetes/" }
+    ]
+  },
+
+  "OTel Operator": {
+    icon: "⚙️", level: "Sênior", levelClass: "senior",
+    description: "O OpenTelemetry Operator gerencia Collectors e habilita padrões de instrumentação em clusters Kubernetes.",
+    links: [
+      { label: "OpenTelemetry Operator", url: "https://opentelemetry.io/docs/kubernetes/operator/" },
+      { label: "Operator — instalação", url: "https://opentelemetry.io/docs/kubernetes/operator/install/" },
+      { label: "Operator — auto-instrumentação", url: "https://opentelemetry.io/docs/kubernetes/operator/automatic/" }
+    ]
+  },
+
+  "Cardinality Management": {
+    icon: "📐", level: "Especialista", levelClass: "especialista",
+    description: "Gestão de cardinalidade evita séries, índices e custos desnecessários sem perder sinais importantes para investigação.",
+    links: [
+      { label: "Prometheus — cardinalidade", url: "https://prometheus.io/docs/practices/instrumentation/#do-not-overuse-labels" },
+      { label: "Grafana — cardinalidade", url: "https://grafana.com/docs/grafana-cloud/monitor-infrastructure/metrics/cardinality/" },
+      { label: "Mimir — limites de métricas", url: "https://grafana.com/docs/mimir/latest/configure/configure-metrics/" }
+    ]
+  },
+
+  "Adaptive Sampling": {
+    icon: "🎯", level: "Especialista", levelClass: "especialista",
+    description: "Amostragem adaptativa conserva sinais representativos e prioriza erros, latência alta e transações importantes.",
+    links: [
+      { label: "OpenTelemetry — sampling", url: "https://opentelemetry.io/docs/concepts/sampling/" },
+      { label: "Collector — tail sampling", url: "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor" },
+      { label: "Grafana Tempo — sampling", url: "https://grafana.com/docs/tempo/latest/configuration/" }
+    ]
+  },
+
+  "Multi-tenant Observability": {
+    icon: "🏢", level: "Especialista", levelClass: "especialista",
+    description: "Multi-tenancy isola dados, limites, acesso e custos de diferentes times ou clientes em uma plataforma compartilhada.",
+    links: [
+      { label: "Grafana Mimir — multi-tenancy", url: "https://grafana.com/docs/mimir/latest/manage/secure/authentication-and-authorization/" },
+      { label: "Loki — multi-tenancy", url: "https://grafana.com/docs/loki/latest/operations/multi-tenancy/" },
+      { label: "Tempo — multi-tenancy", url: "https://grafana.com/docs/tempo/latest/configuration/auth/" }
+    ]
+  },
+
+  "Chaos Engineering": {
+    icon: "💥", level: "Especialista", levelClass: "especialista",
+    description: "Chaos Engineering testa hipóteses de resiliência com experimentos controlados e aprendizado operacional.",
+    links: [
+      { label: "Principles of Chaos Engineering", url: "https://principlesofchaos.org/" },
+      { label: "CNCF — LitmusChaos", url: "https://litmuschaos.io/" },
+      { label: "AWS — Fault Injection Service", url: "https://aws.amazon.com/fis/" }
+    ]
+  },
+
+  "Incident Management": {
+    icon: "🧯", level: "Especialista", levelClass: "especialista",
+    description: "Gestão de incidentes organiza detecção, resposta, comunicação, mitigação e aprendizado após falhas.",
+    links: [
+      { label: "Google SRE — gerenciamento de incidentes", url: "https://sre.google/sre-book/managing-incidents/" },
+      { label: "PagerDuty — Incident Response", url: "https://response.pagerduty.com/" },
+      { label: "NIST — Computer Security Incident Handling", url: "https://csrc.nist.gov/pubs/sp/800/61/r2/final" }
+    ]
+  },
+
+  "Capacity Planning": {
+    icon: "📊", level: "Especialista", levelClass: "especialista",
+    description: "Capacity planning combina demanda, crescimento, limites e desempenho para antecipar necessidades de infraestrutura.",
+    links: [
+      { label: "Google SRE — handling overload", url: "https://sre.google/sre-book/handling-overload/" },
+      { label: "Kubernetes — autoscaling", url: "https://kubernetes.io/docs/concepts/workloads/autoscaling/" },
+      { label: "AWS — Well-Architected reliability", url: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html" }
+    ]
+  },
+
+  "AIOps & Anomaly Detection": {
+    icon: "🧠", level: "Especialista", levelClass: "especialista",
+    description: "Anomaly detection usa estatística e aprendizado de máquina para identificar desvios, sempre com contexto e validação humana.",
+    links: [
+      { label: "Grafana — alertas baseados em condições", url: "https://grafana.com/docs/grafana/latest/alerting/" },
+      { label: "Prometheus — funções preditivas", url: "https://prometheus.io/docs/prometheus/latest/querying/functions/" },
+      { label: "Google SRE — alertas", url: "https://sre.google/sre-book/monitoring-distributed-systems/" }
+    ]
+  },
+
+  "Network Observability": {
+    icon: "🛰️", level: "Especialista", levelClass: "especialista",
+    description: "Network observability relaciona fluxos, latência, perdas, dependências e políticas para explicar problemas de conectividade.",
+    links: [
+      { label: "Cilium Hubble", url: "https://docs.cilium.io/en/stable/observability/" },
+      { label: "Kubernetes — networking", url: "https://kubernetes.io/docs/concepts/cluster-administration/networking/" },
+      { label: "eBPF — networking", url: "https://ebpf.io/applications/#networking" }
+    ]
+  },
+
+  "Security Observability": {
+    icon: "🔐", level: "Especialista", levelClass: "especialista",
+    description: "Security observability conecta sinais de identidade, rede, workloads e eventos para detectar e investigar riscos.",
+    links: [
+      { label: "Falco — runtime security", url: "https://falco.org/docs/" },
+      { label: "CNCF — Falco", url: "https://www.cncf.io/projects/falco/" },
+      { label: "OpenTelemetry — segurança", url: "https://opentelemetry.io/docs/" }
+    ]
+  },
+
+  "Continuous Profiling": {
+    icon: "🔥", level: "Especialista", levelClass: "especialista",
+    description: "Continuous profiling coleta perfis de CPU, memória e goroutines continuamente para encontrar custos e gargalos em produção.",
+    links: [
+      { label: "Pyroscope — documentação", url: "https://grafana.com/docs/pyroscope/latest/" },
+      { label: "Parca — continuous profiling", url: "https://www.parca.dev/docs" },
+      { label: "OpenTelemetry — profiling", url: "https://opentelemetry.io/docs/" }
+    ]
+  },
+
+  "Arquitetura Multi-cluster": {
+    icon: "🏗️", level: "Staff", levelClass: "staff",
+    description: "Arquiteturas multi-cluster distribuem workloads e telemetria para isolamento, escala, resiliência e governança.",
+    links: [
+      { label: "Kubernetes — clusters federados", url: "https://kubernetes.io/docs/concepts/cluster-administration/federation/" },
+      { label: "CNCF — multi-cluster", url: "https://github.com/cncf/k8s-conformance" },
+      { label: "Thanos — query global", url: "https://thanos.io/tip/components/query.md/" }
+    ]
+  },
+
+  "Multi-region Observability": {
+    icon: "🌎", level: "Staff", levelClass: "staff",
+    description: "Observabilidade multi-região precisa preservar disponibilidade, ordenação, residência de dados e correlação entre regiões.",
+    links: [
+      { label: "Google SRE — serviços distribuídos", url: "https://sre.google/sre-book/monitoring-distributed-systems/" },
+      { label: "AWS — reliability pillar", url: "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html" },
+      { label: "Thanos — global querying", url: "https://thanos.io/tip/components/query.md/" }
+    ]
+  },
+
+  "Disaster Recovery O11y": {
+    icon: "🛟", level: "Staff", levelClass: "staff",
+    description: "DR de observabilidade garante que telemetria, alertas e acesso continuem úteis durante a recuperação de uma região ou plataforma.",
+    links: [
+      { label: "AWS — disaster recovery", url: "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.html" },
+      { label: "Kubernetes — backup e restore", url: "https://velero.io/docs/" },
+      { label: "Google SRE — emergency response", url: "https://sre.google/sre-book/emergency-response/" }
+    ]
+  },
+
+  "Global Telemetry Pipelines": {
+    icon: "🛤️", level: "Staff", levelClass: "staff",
+    description: "Pipelines globais de telemetria definem ingestão, processamento, roteamento, retenção e governança em escala.",
+    links: [
+      { label: "OpenTelemetry Collector — deployment", url: "https://opentelemetry.io/docs/collector/deployment/" },
+      { label: "OpenTelemetry — gateway", url: "https://opentelemetry.io/docs/collector/deployment/gateway/" },
+      { label: "CNCF — observability whitepaper", url: "https://github.com/cncf/sig-observability/blob/main/whitepaper.md" }
+    ]
+  },
+
+  "Enterprise Governance": {
+    icon: "⚖️", level: "Staff", levelClass: "staff",
+    description: "Governança enterprise define padrões, acesso, retenção, privacidade, custos e responsabilidades para observabilidade.",
+    links: [
+      { label: "CNCF — observability whitepaper", url: "https://github.com/cncf/sig-observability/blob/main/whitepaper.md" },
+      { label: "NIST — Privacy Framework", url: "https://www.nist.gov/privacy-framework" },
+      { label: "OpenTelemetry — semantic conventions", url: "https://opentelemetry.io/docs/concepts/semantic-conventions/" }
+    ]
+  },
+
+  "Observability Platform Design": {
+    icon: "🧩", level: "Staff", levelClass: "staff",
+    description: "Desenho de plataforma transforma telemetria em uma capacidade interna com experiência de desenvolvedor, confiabilidade e custos controlados.",
+    links: [
+      { label: "OpenTelemetry — arquitetura", url: "https://opentelemetry.io/docs/concepts/observability-primer/" },
+      { label: "CNCF — Platform Engineering", url: "https://tag-app-delivery.cncf.io/whitepapers/platform-eng/" },
+      { label: "Google SRE Book", url: "https://sre.google/sre-book/table-of-contents/" }
+    ]
+  },
+
+  "FinOps Estratégico": {
+    icon: "💰", level: "Staff", levelClass: "staff",
+    description: "FinOps estratégico conecta custos de telemetria a valor de negócio, decisões de arquitetura e responsabilidades por domínio.",
+    links: [
+      { label: "FinOps Framework", url: "https://www.finops.org/framework/" },
+      { label: "CNCF — FinOps", url: "https://www.cncf.io/finops/" },
+      { label: "Grafana — custos de observabilidade", url: "https://grafana.com/docs/grafana-cloud/cost-management-and-billing/" }
+    ]
+  },
+
+  "RFC & Standards Internos": {
+    icon: "📜", level: "Staff", levelClass: "staff",
+    description: "RFCs e padrões internos tornam decisões de instrumentação, nomenclatura, alertas e operação revisáveis e consistentes.",
+    links: [
+      { label: "IETF — RFC 2119", url: "https://www.rfc-editor.org/rfc/rfc2119" },
+      { label: "OpenTelemetry — semantic conventions", url: "https://opentelemetry.io/docs/concepts/semantic-conventions/" },
+      { label: "OpenSLO — specification", url: "https://openslo.com/" }
+    ]
+  },
+
+  "Vendor Evaluation": {
+    icon: "🔍", level: "Staff", levelClass: "staff",
+    description: "Avaliação de vendors compara cobertura de sinais, portabilidade, retenção, segurança, integração, suporte e custo total.",
+    links: [
+      { label: "CNCF — observability landscape", url: "https://landscape.cncf.io/?group=observability-and-analysis" },
+      { label: "OpenTelemetry — vendor neutrality", url: "https://opentelemetry.io/docs/concepts/observability-primer/" },
+      { label: "FinOps — decisões baseadas em valor", url: "https://www.finops.org/framework/" }
+    ]
+  },
+
+  "Roadmap Técnico Plurianual": {
+    icon: "🗺️", level: "Staff", levelClass: "staff",
+    description: "Um roadmap técnico plurianual organiza capacidades, riscos, migrações, investimentos e resultados esperados ao longo do tempo.",
+    links: [
+      { label: "Google SRE Workbook", url: "https://sre.google/workbook/table-of-contents/" },
+      { label: "CNCF — landscape", url: "https://landscape.cncf.io/" },
+      { label: "OpenTelemetry — roadmap do projeto", url: "https://github.com/open-telemetry/community/blob/main/projects/roadmap.md" }
     ]
   }
 };
