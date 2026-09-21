@@ -2,99 +2,58 @@
    TOPICS DATA — Roadmap Observability
    Data used by modal.js to show topic details
 ============================================= */
+
 window.TOPICS = {
 
   /* ============ FUNDAMENTOS ============ */
   "O que é Observabilidade": {
     icon: "🔭", level: "Iniciante", levelClass: "iniciante",
-    description: "Observabilidade é a capacidade de entender o estado interno de um sistema a partir das saídas que ele produz. Na prática, ela combina telemetria (logs, métricas, traces e perfis), contexto de negócio e engenharia de confiabilidade para explicar por que um sistema está se comportando de determinada forma. Monitoramento acompanha sinais conhecidos; observabilidade permite investigar perguntas novas, inclusive em sistemas distribuídos, ambientes cloud-native e arquiteturas com muitos serviços.",
+    description: "Observabilidade é a capacidade de entender o estado interno de um sistema a partir das saídas que ele produz. Na prática, ela combina telemetria (logs, métricas, traces e perfis), contexto de negócio e engenharia de confiabilidade para explicar por que um sistema está se comportando de determinada forma.",
     concepts: [
-      "Os três pilares: Logs, Métricas e Traces (o11y trinity)",
-      "Perfis contínuos (profiling) para investigar CPU, memória e latência",
+      "Os três pilares: Logs, Métricas e Traces",
+      "Perfis contínuos para CPU, memória e latência",
       "Diferença entre monitoramento e observabilidade",
-      "OpenTelemetry e o modelo vendor-neutral de telemetria",
-      "Cardinalidade: impacto no custo e na granularidade",
-      "Telemetria: coleta estruturada de dados de sistemas",
-      "Context propagation: carregar contexto entre serviços",
-      "SLIs, SLOs e error budgets orientando decisões de confiabilidade",
-      "Observabilidade ativa vs passiva",
-      "Correlação entre telemetria técnica e impacto para o usuário"
+      "OpenTelemetry e telemetria vendor-neutral",
+      "Cardinalidade, retenção e custo",
+      "Context propagation entre serviços",
+      "SLIs, SLOs e error budgets",
+      "Correlação entre telemetria técnica e experiência do usuário"
     ],
     tools: ["OpenTelemetry", "Prometheus", "Grafana", "Jaeger", "Loki"],
-    realCase: "Google, Netflix e Amazon usam observabilidade como base para operar sistemas distribuídos em escala global com SLOs de 99,99%.",
-    bestPractices: [
-      "Instrumente desde o início, não como afterthought",
-      "Comece pelas jornadas críticas do usuário e pelos SLIs mais importantes",
-      "Use IDs de correlação em todos os serviços",
-      "Prefira logs estruturados (JSON) a texto livre",
-      "Defina SLOs antes de construir alertas",
-      "Controle cardinalidade, retenção e amostragem para equilibrar valor e custo",
-      "Teste consultas, painéis e alertas como parte do ciclo de entrega"
-    ],
-    antiPatterns: [
-      "Monitorar apenas infraestrutura e esquecer a aplicação",
-      "Criar alertas sem SLO definido",
-      "Logs verbosos sem estrutura ou contexto"
-    ],
+    realCase: "Google, Netflix e Amazon usam observabilidade para operar sistemas distribuídos em escala com SLOs e telemetria correlacionada.",
+    code: "# Pergunta operacional\n# Qual serviço aumentou a latência após o último deploy?\n# Investigue métrica -> trace -> log correlacionado.",
+    bestPractices: ["Instrumente desde o início", "Comece pelas jornadas críticas do usuário", "Use IDs de correlação", "Prefira logs estruturados", "Defina SLOs antes dos alertas", "Controle custo, retenção e cardinalidade"],
+    antiPatterns: ["Monitorar apenas infraestrutura", "Criar alertas sem ação definida", "Coletar tudo sem retenção ou amostragem"],
     prerequisites: ["Conceitos básicos de redes", "HTTP", "Sistemas distribuídos básico"],
     nextSteps: ["Logs", "Métricas", "Traces", "SLI/SLO/SLA", "Golden Signals"],
     links: [
-      { label: "OpenTelemetry — documentação oficial", url: "https://opentelemetry.io/docs/" },
-      { label: "OpenTelemetry — conceitos de observabilidade", url: "https://opentelemetry.io/docs/concepts/observability-primer/" },
-      { label: "Google SRE Book — monitoramento distribuído", url: "https://sre.google/sre-book/monitoring-distributed-systems/" },
+      { label: "OpenTelemetry — documentação", url: "https://opentelemetry.io/docs/" },
+      { label: "OpenTelemetry — conceitos", url: "https://opentelemetry.io/docs/concepts/observability-primer/" },
+      { label: "Google SRE Book — monitoramento", url: "https://sre.google/sre-book/monitoring-distributed-systems/" },
       { label: "Google SRE Workbook — SLOs", url: "https://sre.google/workbook/implementing-slos/" },
-      { label: "CNCF Cloud Native Observability Whitepaper", url: "https://github.com/cncf/sig-observability/blob/main/whitepaper.md" },
-      { label: "Prometheus — documentação oficial", url: "https://prometheus.io/docs/introduction/overview/" },
-      { label: "Grafana — fundamentos de observabilidade", url: "https://grafana.com/docs/learning-journeys/" },
-      { label: "Jaeger — documentação de tracing", url: "https://www.jaegertracing.io/docs/" },
-      { label: "Grafana Loki — documentação de logs", url: "https://grafana.com/docs/loki/latest/" },
-      { label: "Elastic Observability — guia de conceitos", url: "https://www.elastic.co/guide/en/observability/current/observability-introduction.html" }
+      { label: "CNCF — observabilidade cloud-native", url: "https://github.com/cncf/sig-observability/blob/main/whitepaper.md" },
+      { label: "Prometheus — documentação", url: "https://prometheus.io/docs/introduction/overview/" },
+      { label: "Grafana — learning journeys", url: "https://grafana.com/docs/learning-journeys/" },
+      { label: "Jaeger — documentação", url: "https://www.jaegertracing.io/docs/" },
+      { label: "Grafana Loki", url: "https://grafana.com/docs/loki/latest/" }
     ]
   },
 
   "Logs": {
     icon: "📋", level: "Iniciante", levelClass: "iniciante",
-    description: "Logs são registros cronológicos de eventos gerados por sistemas. São o instrumento mais básico de observabilidade — essenciais para debugging, auditoria e análise de comportamento.",
-    concepts: [
-      "Logs estruturados vs não estruturados",
-      "Níveis de log: DEBUG, INFO, WARN, ERROR, FATAL",
-      "JSON logging: formato padrão para parsing automatizado",
-      "Log correlation: usar trace_id e request_id nos logs",
-      "Retenção e custo: quanto guardar e por quanto tempo",
-      "Log sampling: reduzir volume sem perder visibilidade"
-    ],
-    tools: ["Loki", "Elasticsearch", "Fluentd", "FluentBit", "Vector", "Logstash"],
-    code: `// Exemplo de log estruturado (JSON)
-{
-  "timestamp": "2026-01-15T10:30:00Z",
-  "level": "INFO",
-  "service": "checkout-api",
-  "trace_id": "abc123def456",
-  "span_id": "789xyz",
-  "message": "Order processed",
-  "order_id": "ORD-9876",
-  "user_id": "usr-001",
-  "duration_ms": 45
-}`,
-    bestPractices: [
-      "Use sempre JSON estruturado em produção",
-      "Inclua trace_id e span_id para correlação com traces",
-      "Evite logar dados sensíveis (PII, senhas, tokens)",
-      "Use log levels adequadamente — não ponha tudo em INFO",
-      "Configure retenção: 7d para debug, 90d+ para auditoria"
-    ],
-    antiPatterns: [
-      "Logs em texto livre sem estrutura",
-      "Logar em cada linha de código (log verbosity excessivo)",
-      "Não incluir contexto (quem, o quê, quando, onde)"
-    ],
+    description: "Logs registram eventos com contexto temporal e operacional. Quando estruturados e correlacionados, ajudam a explicar o que aconteceu em uma requisição ou processo.",
+    concepts: ["Logs estruturados", "Níveis de severidade", "JSON logging", "trace_id e request_id", "Retenção", "Sampling"],
+    tools: ["Loki", "Elasticsearch", "Fluent Bit", "Vector", "Logstash", "OpenTelemetry"],
+    code: "{\n  \"level\": \"ERROR\",\n  \"service\": \"checkout\",\n  \"trace_id\": \"abc123\",\n  \"message\": \"payment timeout\"\n}",
+    realCase: "Correlacionar um log de erro com trace_id e deployment transforma uma mensagem isolada em uma investigação reproduzível.",
+    bestPractices: ["Use JSON consistente", "Inclua contexto suficiente", "Redija dados sensíveis", "Defina retenção por finalidade"],
+    antiPatterns: ["Texto sem estrutura", "Logar tokens e PII", "Usar ERROR para tudo", "Guardar logs indefinidamente"],
     prerequisites: ["O que é Observabilidade"],
     nextSteps: ["Loki", "LogQL", "FluentBit", "Correlação de Logs e Traces"],
     links: [
-      { label: "Grafana Loki Docs", url: "https://grafana.com/docs/loki/latest/" },
       { label: "OpenTelemetry — logs", url: "https://opentelemetry.io/docs/concepts/signals/logs/" },
-      { label: "Fluent Bit — documentação oficial", url: "https://docs.fluentbit.io/manual/" },
-      { label: "Google SRE — monitoramento em sistemas distribuídos", url: "https://sre.google/sre-book/monitoring-distributed-systems/" }
+      { label: "Grafana Loki", url: "https://grafana.com/docs/loki/latest/" },
+      { label: "Fluent Bit", url: "https://docs.fluentbit.io/manual/" }
     ]
   },
 
@@ -497,7 +456,9 @@ async function processOrder(orderId) {
   } finally {
     span.end();
   }
-}`,
+}
+
+`,
     bestPractices: [
       "Use auto-instrumentation como base, complemente com manual",
       "Siga Semantic Conventions para atributos de spans",
@@ -1371,3 +1332,75 @@ px.display(df)`,
     ]
   }
 };
+
+/* Enrichment for topics that previously had only a description and links. */
+const CURATED_STUDY_PROFILES = {
+  "Linux Fundamentos": ["processos, permissões, systemd e recursos do host", "Bash, systemd, journalctl, ss", "$ ps aux | sort -nrk 3 | head", "Comece pelo diagnóstico do host e sempre correlacione processos, recursos e logs.", "Containers & Docker"],
+  "Redes & TCP/IP": ["IP, roteamento, TCP, UDP, portas, latência e MTU", "ip, ss, ping, traceroute, tcpdump", "$ ss -tan; tcpdump -ni any port 443", "Separe falhas de DNS, rota, firewall, handshake e aplicação.", "DNS & HTTP"],
+  "DNS & HTTP": ["DNS recursivo, TTL, métodos HTTP, status, TLS e keep-alive", "dig, curl, openssl, DevTools", "$ dig +trace api.example.com; curl -sv https://api.example.com/health", "Investigue cada camada da requisição antes de alterar o código.", "Blackbox Exporter"],
+  "Containers & Docker": ["namespaces, cgroups, imagens, volumes, rede e healthchecks", "Docker, BuildKit, Compose, Trivy", "docker run --rm --cpus=1 --memory=512m app:1.0", "Limites, probes e imagens reproduzíveis são parte da observabilidade operacional.", "Kubernetes Básico"],
+  "Kubernetes Básico": ["Pods, Deployments, Services, probes, requests, limits e Events", "kubectl, kind, k9s, Helm", "kubectl describe pod checkout-7d8f; kubectl logs deploy/checkout", "Aprenda a localizar o workload e entender seu estado antes de instalar ferramentas.", "Kubernetes Observability"],
+  "YAML & Configuração": ["estrutura YAML, schemas, templates e configuração declarativa", "yamllint, yq, Kustomize, Helm", "kubectl apply --dry-run=server -f deployment.yaml", "Valide manifests no CI e mantenha segredos fora do repositório.", "Helm Charts"],
+  "Git & GitOps": ["commits, revisão, desired state, reconciliação e drift", "Git, GitHub, Argo CD, Flux", "git diff --check; git commit -m 'Add checkout SLO'", "Toda mudança operacional deve ser revisável, auditável e reversível.", "CI/CD + O11y"],
+  "Cloud (AWS/GCP/Azure) Básico": ["regiões, IAM, redes, storage, serviços gerenciados e budgets", "AWS CLI, gcloud, Azure CLI, Terraform", "terraform plan -out=plan.tfplan", "Escolha serviços considerando confiabilidade, telemetria, segurança e custo.", "Object Storage (S3/GCS)"],
+  "FluentBit": ["inputs, parsers, filters, buffers e outputs", "Fluent Bit, Kubernetes, Loki, OpenSearch", "fluent-bit -c fluent-bit.conf --dry-run", "Faça parsing na borda, controle buffers e monitore perda de eventos.", "Loki"],
+  "Alertmanager": ["grouping, routing, silences, inhibition e receivers", "Alertmanager, Prometheus, PagerDuty, Slack", "amtool alert query --alertmanager.url=http://alertmanager:9093", "Cada alerta precisa de proprietário, severidade e ação documentada.", "Alertmanager Avançado"],
+  "kube-prometheus-stack": ["Prometheus Operator, ServiceMonitor, Grafana e Alertmanager", "Helm, Prometheus Operator, Grafana", "helm upgrade --install monitoring prometheus-community/kube-prometheus-stack", "Instale em ambiente de laboratório e entenda cada CRD antes de customizar.", "Kubernetes Observability"],
+  "Helm Charts": ["charts, values, templates, releases e hooks", "Helm, Artifact Hub, helm-docs", "helm template monitoring ./chart --values values-prod.yaml", "Fixe versões e revise o manifesto renderizado no CI.", "Git & GitOps"],
+  "Node Exporter": ["collectors, métricas de CPU, memória, disco e filesystem", "Node Exporter, Prometheus, Grafana", "curl localhost:9100/metrics | grep node_filesystem", "Não confunda saturação do host com problema da aplicação.", "Recording Rules"],
+  "Blackbox Exporter": ["probes HTTP, HTTPS, DNS, TCP, ICMP e latência externa", "Blackbox Exporter, Prometheus, Grafana", "curl 'localhost:9115/probe?target=https://example.com&module=http_2xx'", "Monitore a experiência vista de fora do serviço.", "Golden Signals"],
+  "Recording Rules": ["avaliação periódica, nomes de séries e custo de queries", "Prometheus, PromQL, rule files", "record: service:http_errors:ratio_rate5m", "Pré-calcule somente consultas frequentes e valide a janela temporal.", "PromQL"],
+  "Alertmanager Avançado": ["rotas hierárquicas, deduplicação, inibição e silences", "Alertmanager, amtool, PagerDuty", "amtool silence add alertname=HighLatency --duration=1h", "Reduza ruído sem esconder sinais críticos; audite silences.", "Alertas Inteligentes"],
+  "Service Mesh (Istio/Linkerd)": ["sidecars, mTLS, traffic policy e telemetria de serviço", "Istio, Linkerd, Envoy, OpenTelemetry", "istioctl proxy-status; kubectl get servicemesh", "Comece observando o tráfego antes de aplicar políticas complexas.", "Network Observability"],
+  "VictoriaMetrics": ["compatibilidade Prometheus, retenção, ingestão e MetricsQL", "VictoriaMetrics, vmagent, Grafana", "vmagent -promscrape.config=prometheus.yml", "Compare custo, operação e retenção com o stack que o time já domina.", "Multi-cluster Observability"],
+  "Loki HA": ["distributor, ingester, querier, compactor e object storage", "Loki, Grafana, Alloy, S3/GCS", "helm upgrade --install loki grafana/loki --set deploymentMode=Distributed", "Modele retenção, limites e recuperação antes de declarar alta disponibilidade.", "Multi-tenant Observability"],
+  "Tempo Distributed": ["distributor, ingester, querier, compactor e TraceQL", "Tempo, OpenTelemetry, Grafana, object storage", "{ .service.name = \"checkout\" && duration > 1s }", "Teste ingestão, consulta, retenção e correlação com logs.", "Grafana Tempo"],
+  "Cilium": ["eBPF, CNI, NetworkPolicy e Hubble flows", "Cilium, Hubble, eBPF, Kubernetes", "hubble observe --namespace checkout --follow", "Use fluxos de rede para validar dependências e políticas reais.", "Network Observability"],
+  "Multi-cluster Observability": ["identidade de cluster, federação, gateway e correlação", "OpenTelemetry Collector, Thanos, Mimir, Grafana", "cluster=prod-eu; cluster=prod-us; query_global_errors", "Padronize labels e ownership antes de centralizar consultas.", "Arquitetura Multi-cluster"],
+  "Object Storage (S3/GCS)": ["buckets, lifecycle, classes, versionamento e durabilidade", "S3, GCS, MinIO, Thanos, Loki", "aws s3api put-bucket-lifecycle-configuration --bucket telemetry", "Use lifecycle e políticas de acesso para controlar retenção e custo.", "FinOps"],
+  "Grafana Alloy": ["receivers, processors, exporters e pipelines declarativos", "Grafana Alloy, OpenTelemetry, Prometheus", "alloy run config.alloy", "Comece com um pipeline pequeno e monitore fila, erros e backpressure.", "OpenTelemetry Collector"],
+  "OTel Operator": ["CRDs, Collector, auto-instrumentação e admission webhooks", "OpenTelemetry Operator, Kubernetes, Helm", "kubectl apply -f instrumentation.yaml", "Defina versões e namespaces explicitamente para evitar instrumentação surpresa.", "OpenTelemetry Collector"],
+  "Cardinality Management": ["labels, séries ativas, custo, limites e agregação", "Prometheus, Mimir, Grafana cardinality dashboards", "topk(20, count by (__name__)({__name__=~\".+\"}))", "Proíba identificadores de alta cardinalidade como labels sem justificativa.", "FinOps"],
+  "Adaptive Sampling": ["head sampling, tail sampling, policies e prioridades", "OpenTelemetry Collector, Tempo, Jaeger", "policy: status_code == ERROR or duration > 1s", "Preserve erros e traces lentos; meça o que foi descartado.", "Continuous Profiling"],
+  "Multi-tenant Observability": ["isolamento, autenticação, quotas, RBAC e chargeback", "Mimir, Loki, Tempo, Grafana RBAC", "X-Scope-OrgID: team-checkout", "Defina limites por tenant e teste vazamento de dados entre equipes.", "Enterprise Governance"],
+  "Chaos Engineering": ["hipótese, steady state, blast radius e aprendizado", "LitmusChaos, AWS FIS, Chaos Mesh", "kubectl delete pod checkout-0 --grace-period=0", "Experimentos devem ser pequenos, autorizados, observáveis e reversíveis.", "Incident Management"],
+  "Incident Management": ["detecção, triagem, comando, comunicação e postmortem", "PagerDuty, Opsgenie, Slack, runbooks", "incident_id=INC-2026-001; severity=SEV-2", "Separe mitigação imediata de investigação da causa raiz.", "SRE"],
+  "Capacity Planning": ["demanda, headroom, saturação, tendência e autoscaling", "Prometheus, Grafana, Kubernetes HPA, forecasting", "predict_linear(node_filesystem_avail_bytes[7d], 30*24*3600)", "Planeje com dados de crescimento e valide a previsão em revisões periódicas.", "Multi-region Observability"],
+  "AIOps & Anomaly Detection": ["baseline, sazonalidade, correlação e revisão humana", "Prometheus, Grafana, Alertmanager", "holt_winters(request_rate[1h], 0.5, 0.5)", "Use anomalia para investigação, não como substituto automático de SLO.", "Alertas Inteligentes"],
+  "Network Observability": ["flows, DNS, latência, perda, dependências e políticas", "Hubble, Cilium, tcpdump, eBPF", "hubble observe --protocol http --verdict DROPPED", "Correlacione fluxo de rede com serviço, pod e trace.", "Security Observability"],
+  "Security Observability": ["identidade, eventos, runtime, rede e trilhas de auditoria", "Falco, Tetragon, Cilium, OpenTelemetry", "falco -A -r rules.yaml", "Colete apenas o necessário e trate telemetria de segurança como dado sensível.", "Enterprise Governance"],
+  "Continuous Profiling": ["CPU, heap, goroutines, flame graphs e overhead", "Pyroscope, Parca, pprof", "go tool pprof http://localhost:6060/debug/pprof/profile", "Compare perfis antes e depois de mudanças e preserve amostras representativas.", "AIOps & Anomaly Detection"],
+  "Arquitetura Multi-cluster": ["federation, isolamento, failover, identidade e governança", "Kubernetes, Thanos, Mimir, OpenTelemetry", "cluster=eu-west; cluster=us-east; route=global", "Defina fronteiras de falha e ownership por cluster.", "Multi-region Observability"],
+  "Multi-region Observability": ["residência, replicação, latência, failover e consulta global", "Thanos, Mimir, object storage, Grafana", "sum by (region) (rate(http_requests_total[5m]))", "Teste perda de região e acesso à telemetria durante o failover.", "Disaster Recovery O11y"],
+  "Disaster Recovery O11y": ["RPO, RTO, backup, restore e dependências críticas", "Velero, S3/GCS, Terraform, runbooks", "velero backup create observability-pre-dr", "Faça exercícios de restore; backup não validado não é estratégia de recuperação.", "Global Telemetry Pipelines"],
+  "Global Telemetry Pipelines": ["ingestão, roteamento, transformação, backpressure e retenção", "OpenTelemetry Collector, Alloy, Kafka, object storage", "receivers -> processors -> exporters", "Planeje quedas de backend e limite filas para evitar cascatas.", "Enterprise Governance"],
+  "Enterprise Governance": ["padrões, acesso, privacidade, retenção, custo e ownership", "OpenTelemetry, RBAC, policy as code, FinOps", "policy: telemetry.retention_days <= 30", "Transforme padrões em templates, validações e indicadores de adoção.", "RFC & Standards Internos"],
+  "Observability Platform Design": ["personas, golden paths, SLO da plataforma e self-service", "Backstage, OpenTelemetry, Grafana, Kubernetes", "service create --template=observability-ready", "Trate a plataforma como produto: onboarding, suporte, roadmap e métricas de uso.", "Roadmap Técnico Plurianual"],
+  "FinOps Estratégico": ["unit economics, budgets, chargeback, retention e ROI", "FinOps Framework, Grafana, Mimir, Loki", "cost_per_service = ingest_bytes * price_per_gb", "Decida o que reter pelo valor da investigação e pelo risco do negócio.", "Vendor Evaluation"],
+  "RFC & Standards Internos": ["problema, alternativas, decisão, consequências e revisão", "Markdown, Git, ADR, OpenTelemetry", "status: accepted; owner: platform; review: 2026-12", "Registre decisões e revisite padrões quando evidências mudarem.", "Vendor Evaluation"],
+  "Vendor Evaluation": ["cobertura, portabilidade, segurança, suporte e TCO", "CNCF Landscape, OpenTelemetry, FinOps", "score = value * reliability / total_cost", "Faça prova de conceito com dados e incidentes reais, não apenas demo.", "Roadmap Técnico Plurianual"],
+  "Roadmap Técnico Plurianual": ["visão, capacidades, dependências, riscos e marcos", "RFCs, ADRs, SLOs, FinOps", "Q1: foundations; Q2: scale; Q3: governance; Q4: optimization", "Conecte cada iniciativa a um resultado mensurável para usuário e operação.", "Enterprise Governance"]
+};
+
+Object.entries(CURATED_STUDY_PROFILES).forEach(([topicName, profile]) => {
+  const topic = window.TOPICS[topicName];
+  if (!topic) return;
+  topic.concepts ||= profile[0].split(", ");
+  topic.tools ||= profile[1].split(", ");
+  topic.code ||= profile[2];
+  topic.realCase ||= profile[3];
+  topic.bestPractices ||= ["Estude em laboratório antes de levar para produção", "Meça o resultado da mudança", "Documente decisões e procedimentos", "Relacione o tema a um SLI ou SLO"];
+  topic.antiPatterns ||= ["Adotar a ferramenta sem definir o problema", "Operar sem limites, ownership ou rollback", "Ignorar custo, segurança e manutenção"];
+  topic.prerequisites ||= ["O que é Observabilidade"];
+  topic.nextSteps ||= [profile[4], "Prática em laboratório", "Revisão de SLOs"];
+});
+
+Object.entries(window.TOPICS).forEach(([topicName, topic]) => {
+  topic.tools ||= [topicName, "Grafana", "OpenTelemetry"];
+  topic.code ||= `# Exercício de estudo: ${topicName}
+# Escolha um serviço de laboratório, observe o comportamento esperado
+# e registre o sinal que confirma ou refuta sua hipótese.`;
+  topic.realCase ||= `Em uma operação real, ${topicName} deve responder a uma pergunta clara de confiabilidade, desempenho ou custo antes de virar padrão da plataforma.`;
+  topic.antiPatterns ||= ["Adotar a ferramenta sem definir a pergunta operacional", "Criar configuração sem teste, ownership ou rollback", "Ignorar segurança, custo e qualidade do sinal"];
+  topic.bestPractices ||= ["Pratique em um laboratório reproduzível", "Defina uma hipótese e um sinal de sucesso", "Documente o procedimento e o rollback", "Relacione o resultado a um SLI, SLO ou risco de negócio"];
+});
